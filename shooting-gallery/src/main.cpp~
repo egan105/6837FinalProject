@@ -74,7 +74,38 @@ void display(void) {
 }
 
 void fire() {
-	world->shoot();
+	/* create/init selection buffer */
+	GLuint select[SELECT_SIZE]; 
+	for(int i = 0; i < SELECT_SIZE; i++) select[i] = -1;
+	glSelectBuffer(SELECT_SIZE, select);
+
+	/* get required viewport for selection */
+	GLint viewport[4];
+	glGetIntegerv(GL_VIEWPORT, viewport);
+
+	/* switch to, and store projection matrix */
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+
+		glRenderMode(GL_SELECT); // we're selecting now
+		glLoadIdentity();
+
+		/* pick the middle of the screen (cross-hair area) */
+		GLuint x = viewport[2] / 2;
+		GLuint y = viewport[3] / 2;
+		gluPickMatrix(x, y, 2, 2, viewport);
+
+		/* draw to selection buffer */
+		camera->applyProjection();
+		display();
+
+		/* switch back to render mode, if something comes back we picked */
+		if(glRenderMode(GL_RENDER)) {
+			world->shoot(select[7]); // 7 holds the first hit
+		}
+
+		glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
 
     glutPostRedisplay();
 }

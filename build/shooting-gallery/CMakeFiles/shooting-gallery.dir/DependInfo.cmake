@@ -4,11 +4,12 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Camera.cpp" "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o"
-  "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Stand.cpp" "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o"
-  "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Target.cpp" "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o"
-  "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/World.cpp" "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o"
-  "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/main.cpp" "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o"
+  "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Bullet.cpp" "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o"
+  "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Camera.cpp" "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o"
+  "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Stand.cpp" "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o"
+  "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Target.cpp" "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o"
+  "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/World.cpp" "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o"
+  "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/main.cpp" "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

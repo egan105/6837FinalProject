@@ -60,7 +60,7 @@ void World::draw() {
 	glCallList(listid);
 	stand->draw();
 	for (int i =0; i<bullets.size();i++){
-		bullets[i]->draw();
+		bullets[i].draw();
 	}
 
 }
@@ -68,12 +68,12 @@ void World::draw() {
 void World::step(int time) {
 	stand->step(time);
 for (int i =0; i<bullets.size();i++){
-		bullets[i]->step(time);
+		bullets[i].step(time);
 	}
 }
 
 void World::shoot() {
-	Bullet * b = new Bullet();
+	Bullet b = new Bullet();
 	bullets.push_back(b);
 }
 

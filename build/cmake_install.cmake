@@ -1,4 +1,4 @@
-# Install script for directory: /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master
+# Install script for directory: /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery/cmake_install.cmake")
+  INCLUDE("/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -44,7 +44,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

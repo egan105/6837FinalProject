@@ -6,47 +6,11 @@
 
 #IncludeRegexTransform: 
 
-../shooting-gallery/include/Camera.h
-GL/gl.h
--
+/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Bullet.cpp
+Bullet.h
+/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Bullet.h
 
-../shooting-gallery/include/Stand.h
+/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Bullet.h
 GL/glut.h
 -
-Target.h
-../shooting-gallery/include/Target.h
-
-../shooting-gallery/include/Target.h
-GL/glut.h
--
-
-../shooting-gallery/include/World.h
-GL/glut.h
--
-Stand.h
-../shooting-gallery/include/Stand.h
-
-/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Camera.cpp
-math.h
--
-assert.h
--
-stdio.h
--
-GL/glut.h
--
-Camera.h
-/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Camera.h
-
-/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/main.cpp
-iostream
--
-GL/glut.h
--
-Camera.h
-/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Camera.h
-World.h
-/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/World.h
-Target.h
-/afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Target.h
 

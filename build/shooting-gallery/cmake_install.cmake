@@ -1,4 +1,4 @@
-# Install script for directory: /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery
+# Install script for directory: /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)

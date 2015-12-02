@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master
+CMAKE_SOURCE_DIR = /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build
+CMAKE_BINARY_DIR = /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build
 
 # Include any dependencies generated for this target.
 include shooting-gallery/CMakeFiles/shooting-gallery.dir/depend.make
@@ -52,88 +52,19 @@ include shooting-gallery/CMakeFiles/shooting-gallery.dir/progress.make
 # Include the compile flags for this target's objects.
 include shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
 
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o: ../shooting-gallery/src/Camera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o -c /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Camera.cpp
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/Camera.cpp.i"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Camera.cpp > CMakeFiles/shooting-gallery.dir/src/Camera.cpp.i
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/Camera.cpp.s"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Camera.cpp -o CMakeFiles/shooting-gallery.dir/src/Camera.cpp.s
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.requires:
-.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.requires
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.provides: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.requires
-	$(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.provides.build
-.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.provides
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o: ../shooting-gallery/src/Stand.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o -c /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Stand.cpp
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/Stand.cpp.i"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Stand.cpp > CMakeFiles/shooting-gallery.dir/src/Stand.cpp.i
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/Stand.cpp.s"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Stand.cpp -o CMakeFiles/shooting-gallery.dir/src/Stand.cpp.s
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.requires:
-.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.requires
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.provides: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.requires
-	$(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.provides.build
-.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.provides
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o: ../shooting-gallery/src/Target.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/Target.cpp.o -c /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Target.cpp
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/Target.cpp.i"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Target.cpp > CMakeFiles/shooting-gallery.dir/src/Target.cpp.i
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/Target.cpp.s"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/Target.cpp -o CMakeFiles/shooting-gallery.dir/src/Target.cpp.s
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.requires:
-.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.requires
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.provides: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.requires
-	$(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.provides.build
-.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.provides
-
-shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o
-
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o: ../shooting-gallery/src/World.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/World.cpp.o -c /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/World.cpp
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/World.cpp.o -c /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/World.cpp
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/World.cpp.i"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/World.cpp > CMakeFiles/shooting-gallery.dir/src/World.cpp.i
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/World.cpp > CMakeFiles/shooting-gallery.dir/src/World.cpp.i
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/World.cpp.s"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/World.cpp -o CMakeFiles/shooting-gallery.dir/src/World.cpp.s
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/World.cpp -o CMakeFiles/shooting-gallery.dir/src/World.cpp.s
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o.requires:
 .PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o.requires
@@ -144,19 +75,65 @@ shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o.provides: shoot
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o
 
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o: ../shooting-gallery/src/Target.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/Target.cpp.o -c /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Target.cpp
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/Target.cpp.i"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Target.cpp > CMakeFiles/shooting-gallery.dir/src/Target.cpp.i
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/Target.cpp.s"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Target.cpp -o CMakeFiles/shooting-gallery.dir/src/Target.cpp.s
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.requires:
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.requires
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.provides: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.requires
+	$(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.provides.build
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.provides
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o: ../shooting-gallery/src/Stand.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o -c /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Stand.cpp
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/Stand.cpp.i"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Stand.cpp > CMakeFiles/shooting-gallery.dir/src/Stand.cpp.i
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/Stand.cpp.s"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Stand.cpp -o CMakeFiles/shooting-gallery.dir/src/Stand.cpp.s
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.requires:
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.requires
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.provides: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.requires
+	$(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.provides.build
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.provides
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o
+
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o: ../shooting-gallery/src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/main.cpp.o -c /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/main.cpp
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/main.cpp.o -c /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/main.cpp
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/main.cpp.i"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/main.cpp > CMakeFiles/shooting-gallery.dir/src/main.cpp.i
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/main.cpp > CMakeFiles/shooting-gallery.dir/src/main.cpp.i
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/main.cpp.s"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery/src/main.cpp -o CMakeFiles/shooting-gallery.dir/src/main.cpp.s
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/main.cpp -o CMakeFiles/shooting-gallery.dir/src/main.cpp.s
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o.requires:
 .PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o.requires
@@ -167,22 +144,70 @@ shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o.provides: shooti
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o
 
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o: ../shooting-gallery/src/Camera.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o -c /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Camera.cpp
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/Camera.cpp.i"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Camera.cpp > CMakeFiles/shooting-gallery.dir/src/Camera.cpp.i
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/Camera.cpp.s"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Camera.cpp -o CMakeFiles/shooting-gallery.dir/src/Camera.cpp.s
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.requires:
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.requires
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.provides: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.requires
+	$(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.provides.build
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.provides
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o: ../shooting-gallery/src/Bullet.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o -c /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Bullet.cpp
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.i"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Bullet.cpp > CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.i
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.s"
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery/src/Bullet.cpp -o CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.s
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o.requires:
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o.requires
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o.provides: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o.requires
+	$(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o.provides.build
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o.provides
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o
+
 # Object files for target shooting-gallery
 shooting__gallery_OBJECTS = \
-"CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o" \
-"CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o" \
-"CMakeFiles/shooting-gallery.dir/src/Target.cpp.o" \
 "CMakeFiles/shooting-gallery.dir/src/World.cpp.o" \
-"CMakeFiles/shooting-gallery.dir/src/main.cpp.o"
+"CMakeFiles/shooting-gallery.dir/src/Target.cpp.o" \
+"CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o" \
+"CMakeFiles/shooting-gallery.dir/src/main.cpp.o" \
+"CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o" \
+"CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o"
 
 # External object files for target shooting-gallery
 shooting__gallery_EXTERNAL_OBJECTS =
 
-shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o
-shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o
-shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o
+shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o
+shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o
+shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o
+shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make
 shooting-gallery/shooting-gallery: /usr/lib/x86_64-linux-gnu/libglut.so
 shooting-gallery/shooting-gallery: /usr/lib/x86_64-linux-gnu/libXmu.so
@@ -195,24 +220,25 @@ shooting-gallery/shooting-gallery: /usr/lib/x86_64-linux-gnu/libX11.so
 shooting-gallery/shooting-gallery: /usr/lib/x86_64-linux-gnu/libXext.so
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable shooting-gallery"
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shooting-gallery.dir/link.txt --verbose=$(VERBOSE)
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shooting-gallery.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 shooting-gallery/CMakeFiles/shooting-gallery.dir/build: shooting-gallery/shooting-gallery
 .PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/build
 
-shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.requires
-shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.requires
-shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.requires
 shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o.requires
+shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.requires
+shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.requires
 shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o.requires
+shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.requires
+shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o.requires
 .PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/requires
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/clean:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery && $(CMAKE_COMMAND) -P CMakeFiles/shooting-gallery.dir/cmake_clean.cmake
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery && $(CMAKE_COMMAND) -P CMakeFiles/shooting-gallery.dir/cmake_clean.cmake
 .PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/clean
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/depend:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/shooting-gallery /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/shooting-gallery /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/depend
 

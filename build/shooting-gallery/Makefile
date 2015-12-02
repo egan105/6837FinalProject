@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master
+CMAKE_SOURCE_DIR = /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build
+CMAKE_BINARY_DIR = /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,14 +72,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(CMAKE_COMMAND) -E cmake_progress_start /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/CMakeFiles /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/shooting-gallery/CMakeFiles/progress.marks
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build/CMakeFiles 0
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(CMAKE_COMMAND) -E cmake_progress_start /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/CMakeFiles /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/CMakeFiles/progress.marks
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/clean
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/clean
 .PHONY : clean
 
 # The main clean target
@@ -88,22 +88,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/preinstall
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/preinstall
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 shooting-gallery/CMakeFiles/shooting-gallery.dir/rule:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/CMakeFiles/shooting-gallery.dir/rule
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 shooting-gallery/CMakeFiles/shooting-gallery.dir/rule
 .PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/rule
 
 # Convenience name for target.
@@ -112,15 +112,39 @@ shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/rule
 
 # fast build rule for target.
 shooting-gallery/fast:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/build
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/build
 .PHONY : shooting-gallery/fast
+
+src/Bullet.o: src/Bullet.cpp.o
+.PHONY : src/Bullet.o
+
+# target to build an object file
+src/Bullet.cpp.o:
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o
+.PHONY : src/Bullet.cpp.o
+
+src/Bullet.i: src/Bullet.cpp.i
+.PHONY : src/Bullet.i
+
+# target to preprocess a source file
+src/Bullet.cpp.i:
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.i
+.PHONY : src/Bullet.cpp.i
+
+src/Bullet.s: src/Bullet.cpp.s
+.PHONY : src/Bullet.s
+
+# target to generate assembly for a file
+src/Bullet.cpp.s:
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.s
+.PHONY : src/Bullet.cpp.s
 
 src/Camera.o: src/Camera.cpp.o
 .PHONY : src/Camera.o
 
 # target to build an object file
 src/Camera.cpp.o:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o
 .PHONY : src/Camera.cpp.o
 
 src/Camera.i: src/Camera.cpp.i
@@ -128,7 +152,7 @@ src/Camera.i: src/Camera.cpp.i
 
 # target to preprocess a source file
 src/Camera.cpp.i:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.i
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.i
 .PHONY : src/Camera.cpp.i
 
 src/Camera.s: src/Camera.cpp.s
@@ -136,7 +160,7 @@ src/Camera.s: src/Camera.cpp.s
 
 # target to generate assembly for a file
 src/Camera.cpp.s:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.s
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.s
 .PHONY : src/Camera.cpp.s
 
 src/Stand.o: src/Stand.cpp.o
@@ -144,7 +168,7 @@ src/Stand.o: src/Stand.cpp.o
 
 # target to build an object file
 src/Stand.cpp.o:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o
 .PHONY : src/Stand.cpp.o
 
 src/Stand.i: src/Stand.cpp.i
@@ -152,7 +176,7 @@ src/Stand.i: src/Stand.cpp.i
 
 # target to preprocess a source file
 src/Stand.cpp.i:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.i
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.i
 .PHONY : src/Stand.cpp.i
 
 src/Stand.s: src/Stand.cpp.s
@@ -160,7 +184,7 @@ src/Stand.s: src/Stand.cpp.s
 
 # target to generate assembly for a file
 src/Stand.cpp.s:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.s
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.s
 .PHONY : src/Stand.cpp.s
 
 src/Target.o: src/Target.cpp.o
@@ -168,7 +192,7 @@ src/Target.o: src/Target.cpp.o
 
 # target to build an object file
 src/Target.cpp.o:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o
 .PHONY : src/Target.cpp.o
 
 src/Target.i: src/Target.cpp.i
@@ -176,7 +200,7 @@ src/Target.i: src/Target.cpp.i
 
 # target to preprocess a source file
 src/Target.cpp.i:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.i
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.i
 .PHONY : src/Target.cpp.i
 
 src/Target.s: src/Target.cpp.s
@@ -184,7 +208,7 @@ src/Target.s: src/Target.cpp.s
 
 # target to generate assembly for a file
 src/Target.cpp.s:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.s
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.s
 .PHONY : src/Target.cpp.s
 
 src/World.o: src/World.cpp.o
@@ -192,7 +216,7 @@ src/World.o: src/World.cpp.o
 
 # target to build an object file
 src/World.cpp.o:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o
 .PHONY : src/World.cpp.o
 
 src/World.i: src/World.cpp.i
@@ -200,7 +224,7 @@ src/World.i: src/World.cpp.i
 
 # target to preprocess a source file
 src/World.cpp.i:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.i
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.i
 .PHONY : src/World.cpp.i
 
 src/World.s: src/World.cpp.s
@@ -208,7 +232,7 @@ src/World.s: src/World.cpp.s
 
 # target to generate assembly for a file
 src/World.cpp.s:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.s
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.s
 .PHONY : src/World.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -216,7 +240,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -224,7 +248,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.i
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -232,7 +256,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.s
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -244,6 +268,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... shooting-gallery"
+	@echo "... src/Bullet.o"
+	@echo "... src/Bullet.i"
+	@echo "... src/Bullet.s"
 	@echo "... src/Camera.o"
 	@echo "... src/Camera.i"
 	@echo "... src/Camera.s"
@@ -270,6 +297,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/athena.mit.edu/user/s/a/samueli/Downloads/opengl-play-master/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
