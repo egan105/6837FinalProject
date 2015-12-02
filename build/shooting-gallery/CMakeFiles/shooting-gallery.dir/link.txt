@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall    CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o CMakeFiles/shooting-gallery.dir/src/Target.cpp.o CMakeFiles/shooting-gallery.dir/src/World.cpp.o CMakeFiles/shooting-gallery.dir/src/main.cpp.o  -o shooting-gallery -rdynamic -lglut -lXmu -lXi -lGLU -lGL -lSM -lICE -lX11 -lXext 
