@@ -19,9 +19,9 @@ Bullet::Bullet(Camera *camera) {
 
 void Bullet::draw() {
 	glPushMatrix();
-	glColor3f(0.5, 0.5, 0.3);
+	glColor3f(0.5, 0.5, 0.5);
 	glTranslatef(loc[0], loc[1] ,loc[2]);
-	glutSolidSphere(0.025f, 7.0f, 7.0f);
+	glutSolidSphere(0.05f, 7.0f, 7.0f);
 	glPopMatrix();
 	
 }
@@ -37,5 +37,8 @@ void Bullet::step(int time) {
 	// Gravity
 	loc[1] -= 0.001f * pow(clock / 7, 2);
 	clock += dt;
+
+
+
 }
 

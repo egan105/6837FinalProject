@@ -8,7 +8,7 @@
 #include "Camera.h"
 #include "Stand.h"
 
-#define WORLD_MAX 100.0f
+#define WORLD_MAX 50.0f
 
 using namespace std;
 
@@ -20,9 +20,11 @@ public:
 	void step(int time);
 	void shoot(Camera *camera);
 	void reset();
+	bool inWorld(Bullet *b);
 private:
 	GLuint listid;
 	std::vector<Bullet*> bullets;
+	std::vector<int> indices;
 	Stand *stand;
 };
 

@@ -13,6 +13,8 @@ typedef struct {
 	bool goingRight;
 	bool isDown;
 	float xOffset;
+	float radius;
+	float location[3];
 	struct color_t {
 		GLfloat r, g, b;
 	} color;
@@ -28,8 +30,9 @@ public:
 	void step(int time);
 	void shoot(int targetId);
 	void reset();
-private:
 	target_t targets[NUM_TARGETS];
+private:
+	
 	GLuint listid;
 };
 

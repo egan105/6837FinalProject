@@ -1,9 +1,12 @@
 #include <GLUT/glut.h>
+#include <iostream>
 
 #include "Stand.h"
 #include "Target.h"
 
 #define SLIDE_SCALE 250.0f
+
+using namespace std;
 
 Stand::Stand() {
 	/*
@@ -36,27 +39,39 @@ Stand::Stand() {
 	targets[1].isDown = false;
 	targets[2].isDown = false;
 	targets[3].isDown = false;
+	targets[0].radius = 1.0f;
+	targets[1].radius = 1.0f;
+	targets[2].radius = 1.0f;
+	targets[3].radius = 1.0f;
 
 	targets[0].goingRight = false;
-	targets[0].xOffset = -0.5;
+	targets[0].location[0] = -1.5f;
+	targets[0].location[1] = 1.75f;
+	targets[0].location[2] =  0.7f;
 	targets[0].color.r = 0.6f;
 	targets[0].color.g = 0.3f;
 	targets[0].color.b = 0.0f;
 
 	targets[1].goingRight = true;
-	targets[1].xOffset = 0.5;
+	targets[1].location[0] = 1.5f;
+	targets[1].location[1] = 1.75f;
+	targets[1].location[2] =  0.7f;
 	targets[1].color.r = 0.2f;
 	targets[1].color.g = 0.6f;
 	targets[1].color.b = 1.0f;
 
 	targets[2].goingRight = true;
-	targets[2].xOffset = 4.0;
+	targets[2].location[0] = 4.0f;
+	targets[2].location[1] = 1.75f;
+	targets[2].location[2] =  0.7f;
 	targets[2].color.r = 0.7f;
 	targets[2].color.g = 0.5f;
 	targets[2].color.b = 1.0f;
 
 	targets[3].goingRight = false;
-	targets[3].xOffset = -4.0;
+	targets[3].location[0] = -4.0f;
+	targets[3].location[1] = 1.75f;
+	targets[3].location[2] =  0.7f;
 	targets[3].color.r = 0.0f;
 	targets[3].color.g = 0.6f;
 	targets[3].color.b = 0.2f;
@@ -75,32 +90,31 @@ void Stand::draw() {
 		glPushMatrix();
 			target_t *t = &targets[i];
 			glColor3f(t->color.r, t->color.g, t->color.b);
-			float zFightFix = (float) -i / 20.0f;
 			if(t->isDown) {
 				glRotatef(-90, 1, 0, 0); /* TODO This is bad */
-				glTranslatef(t->xOffset, 1.20f, 0.7f + zFightFix);
+				glTranslatef(t->location[0], t->location[1], t->location[2]);
 			} else {
-				glTranslatef(t->xOffset, 1.75f, zFightFix);
+				glTranslatef(t->location[0], t->location[1], t->location[2]);
 			}
 			t->target.draw();
 		glPopMatrix();
+		glPopName();
 	}
-	glPopName();
 }
 
 void Stand::step(int time) {
 	/*
 	 * move each target through the +/- 5 unit sweep
 	 */
-	for(short i = 0; i < NUM_TARGETS; i++) {
-		target_t *t = &targets[i];
-		if(t->xOffset >= 5) {
-			t->goingRight = false;
-		} else if(t->xOffset <= -5) {
-			t->goingRight = true;
-		}
-		t->xOffset += ((float) t->goingRight ? time : -time) / SLIDE_SCALE;
-	}
+	// for(short i = 0; i < NUM_TARGETS; i++) {
+	// 	target_t *t = &targets[i];
+	// 	if(t->location[0] >= 5) {
+	// 		t->goingRight = false;
+	// 	} else if(t->location[0] <= -5) {
+	// 		t->goingRight = true;
+	// 	}
+	// 	t->location[0] += ((float) t->goingRight ? time : -time) / SLIDE_SCALE;
+	// }
 }
 
 void Stand::shoot(int targetId) {
@@ -115,4 +129,8 @@ void Stand::reset() {
 	targets[1].isDown = false;
 	targets[2].isDown = false;
 	targets[3].isDown = false;
+	targets[0].location[2] = 0.7f;
+	targets[1].location[2] = 0.7f;
+	targets[2].location[2] = 0.7f;
+	targets[3].location[2] = 0.7f;
 }

@@ -10,8 +10,9 @@ public:
 	Bullet(Camera *camera);
 	void draw();
     void step(int time);
+    float loc[3];
 private:
-	float loc[3];
+	
 	float dir[3];
 	float clock;
 };

@@ -39,6 +39,8 @@ GLUT/glut.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Stand.cpp
 GLUT/glut.h
 -
+iostream
+-
 Stand.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Stand.h
 Target.h
@@ -59,6 +61,8 @@ GLUT/glut.h
 -
 
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/World.cpp
+math.h
+-
 iostream
 -
 GLUT/glut.h
