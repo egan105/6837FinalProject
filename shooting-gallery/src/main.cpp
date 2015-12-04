@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 #include <GLUT/glut.h>
@@ -20,6 +21,7 @@ Camera *camera;
 World *world;
 
 bool clicked;
+bool largeReticule;
 int curX, curY;
 long lastTime;
 
@@ -55,12 +57,45 @@ void display(void) {
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glLineWidth(2);
-	glBegin(GL_LINES);
-		glVertex2f(0.49, 0.5);
-		glVertex2f(0.51, 0.5);
-		glVertex2f(0.5, 0.49);
-		glVertex2f(0.5, 0.51);
-	glEnd();
+
+	if(largeReticule){
+		glBegin(GL_LINES);
+			glVertex2f(0.46, 0.5);
+			glVertex2f(0.48, 0.5);
+			glVertex2f(0.52, 0.5);
+			glVertex2f(0.54, 0.5);
+			glVertex2f(0.5, 0.455);
+			glVertex2f(0.5, 0.475);
+			glVertex2f(0.5, 0.525);
+			glVertex2f(0.5, 0.55);
+		glEnd();
+
+		glBegin(GL_POINTS);
+	 	for(int i=0;i<1000;++i)
+		{
+	 		glVertex2f(0.5 + 1.5 * cos(2*M_PI*i / 1000.0) / 50, 0.5 + 1.85 * sin(2*M_PI*i / 1000.0) / 50);
+		}
+		glEnd();
+		largeReticule = false;
+	} else {
+		glBegin(GL_LINES);
+			glVertex2f(0.475, 0.5);
+			glVertex2f(0.49, 0.5);
+			glVertex2f(0.51, 0.5);
+			glVertex2f(0.525, 0.5);
+			glVertex2f(0.5, 0.47);
+			glVertex2f(0.5, 0.49);
+			glVertex2f(0.5, 0.51);
+			glVertex2f(0.5, 0.53);
+		glEnd();
+
+		glBegin(GL_POINTS);
+	 	for(int i=0;i<1000;++i)
+		{
+	 		glVertex2f(0.5 + 0.85 * cos(2*M_PI*i / 1000.0) / 50, 0.5 + 1.1 * sin(2*M_PI*i / 1000.0) / 50);
+		}
+		glEnd();
+	}
 
 	/*
 	 * Switch back to perspective projection, must be done
@@ -75,6 +110,7 @@ void display(void) {
 
 void fire() {
 	world->shoot(camera);
+	largeReticule = true;
 
     glutPostRedisplay();
 }

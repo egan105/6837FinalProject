@@ -87,6 +87,8 @@ Stand.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/main.cpp
 iostream
 -
+math.h
+-
 GLUT/glut.h
 -
 Camera.h
