@@ -1,4 +1,4 @@
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 
 #include "Stand.h"
 #include "Target.h"

@@ -1,1 +1,1 @@
-/afs/athena.mit.edu/user/e/r/ericgan/Downloads/opengl-play-master/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir
+/Users/ericgan/Code/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir

@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include "Camera.h"
 
 Camera::Camera(void) {
@@ -13,7 +13,7 @@ Camera::Camera(void) {
 	location[2] = 10.0f;	// z
 
 	lookAt[0] = 0.0f;	// x
-	lookAt[1] = 1.0f;	// y
+	lookAt[1] = 0.0f;	// y
 	lookAt[2] = 0.0f;	// z
 }
 

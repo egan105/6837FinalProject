@@ -1,7 +1,7 @@
 #ifndef CAMERA_H_
 #define CAMERA_H_
 
-#include <GL/gl.h>
+#include <GLUT/glut.h>
 
 /*
  * Simple first-person camera
@@ -37,9 +37,10 @@ public:
 	/* turn along the Y axis by the given amount */
     void pitch(float amount);
 
-protected:
-	/* x/y/z location and look-at points */
+    /* x/y/z location and look-at points */
 	GLfloat location[3], lookAt[3];
+
+protected:
 
 	/* viewport width and height */
 	GLuint width, height;

@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 
 #include "Camera.h"
 #include "World.h"
@@ -74,7 +74,7 @@ void display(void) {
 }
 
 void fire() {
-	world->shoot();
+	world->shoot(camera);
 
     glutPostRedisplay();
 }

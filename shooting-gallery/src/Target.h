@@ -1,7 +1,7 @@
 #ifndef TARGET_H_
 #define TARGET_H_
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 
 /*
  * Octagonal target panel

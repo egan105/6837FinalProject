@@ -1,10 +1,11 @@
 #ifndef WORLD_H_
 #define WORLD_H_
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <vector>
 
 #include "Bullet.h"
+#include "Camera.h"
 #include "Stand.h"
 
 #define WORLD_MAX 50.0f
@@ -17,7 +18,7 @@ public:
 	virtual ~World();
 	void draw();
 	void step(int time);
-	void shoot();
+	void shoot(Camera *camera);
 	void reset();
 private:
 	GLuint listid;

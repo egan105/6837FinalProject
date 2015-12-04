@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 
 #include "World.h"
 #include "Stand.h"
@@ -67,13 +67,13 @@ void World::draw() {
 
 void World::step(int time) {
 	stand->step(time);
-for (int i =0; i<bullets.size();i++){
+	for (int i =0; i<bullets.size();i++){
 		bullets[i]->step(time);
 	}
 }
 
-void World::shoot() {
-	Bullet * b = new Bullet();
+void World::shoot(Camera *camera) {
+	Bullet * b = new Bullet(camera);
 	bullets.push_back(b);
 }
 
