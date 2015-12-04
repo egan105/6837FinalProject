@@ -11,6 +11,8 @@ Bullet.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Bullet.h
 iostream
 -
+math.h
+-
 
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Bullet.h
 GLUT/glut.h

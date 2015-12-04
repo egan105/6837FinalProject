@@ -13,8 +13,7 @@ public:
 private:
 	float loc[3];
 	float dir[3];
-	float fixedX;
-	float fixedY;
+	float clock;
 };
 
 #endif /*BULLET_H_*/

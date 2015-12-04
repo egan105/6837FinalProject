@@ -8,7 +8,7 @@
 #include "Camera.h"
 #include "Stand.h"
 
-#define WORLD_MAX 50.0f
+#define WORLD_MAX 100.0f
 
 using namespace std;
 

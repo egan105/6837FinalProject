@@ -11,10 +11,10 @@ using namespace std;
 #define SELECT_SIZE 98
 
 // mouse scaling, system dependant!
-#define MOUSE_SCALE 70
+#define MOUSE_SCALE 50
 
 // movement unit (strafe, walk)
-#define MOVE_SPEED 0.15f
+#define MOVE_SPEED 0.1f
 
 Camera *camera;
 World *world;
