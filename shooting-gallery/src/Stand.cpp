@@ -123,14 +123,3 @@ void Stand::shoot(int targetId) {
 		targets[targetId].isDown = true;
 	}
 }
-
-void Stand::reset() {
-	targets[0].isDown = false;
-	targets[1].isDown = false;
-	targets[2].isDown = false;
-	targets[3].isDown = false;
-	targets[0].location[2] = 0.7f;
-	targets[1].location[2] = 0.7f;
-	targets[2].location[2] = 0.7f;
-	targets[3].location[2] = 0.7f;
-}

@@ -29,7 +29,6 @@ public:
 	void draw();
 	void step(int time);
 	void shoot(int targetId);
-	void reset();
 	target_t targets[NUM_TARGETS];
 private:
 	

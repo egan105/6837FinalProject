@@ -19,7 +19,6 @@ public:
 	void draw();
 	void step(int time);
 	void shoot(Camera *camera);
-	void reset();
 	bool inWorld(Bullet *b);
 private:
 	GLuint listid;

@@ -28,14 +28,14 @@ void Bullet::draw() {
 }
 
 void Bullet::step(int time) {
-    float dt = time / 125.0f;
+    float dt = time / 25.0f;
 
 	loc[0] += dt * dir[0];
 	loc[1] += dt * dir[1];
 	loc[2] += dt * dir[2];
 
 	// Gravity
-	loc[1] -= 0.001f * pow(clock / 7, 2);
+	loc[1] -= 0.001f * pow(clock / 20, 2);
 	clock += dt;
 
 

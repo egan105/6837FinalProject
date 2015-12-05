@@ -14,7 +14,7 @@ public:
     void apply();
 
 	/* apply *only* the projection transformation */
-    void applyProjection();
+    void applyProjection(float scale);
 
 	/* handle reshaping of the viewport */
     void reshape(int _width, int _height);
@@ -44,6 +44,7 @@ protected:
 
 	/* viewport width and height */
 	GLuint width, height;
+	float scale;
 };
 
 #endif /*CAMERA_H_*/

@@ -10,7 +10,7 @@ Camera::Camera(void) {
 
 	location[0] = 0.0f;		// x
 	location[1] = 1.0f;		// y
-	location[2] = 10.0f;	// z
+	location[2] = 45.0f;	// z
 
 	lookAt[0] = 0.0f;	// x
 	lookAt[1] = 1.0f;	// y
@@ -23,8 +23,9 @@ void Camera::apply() {
 			  0.0f, 1.0f, 0.0f);
 }
 
-void Camera::applyProjection() {
-	gluPerspective(60.0f, (GLdouble) width / (GLdouble) height, 0.1f, 1000.0f);
+void Camera::applyProjection(float scale) {
+	scale = scale;
+	gluPerspective(60.0f * scale, (GLdouble) width / (GLdouble) height, 0.1f, 1000.0f);
 }
 
 void Camera::reshape(int _width, int _height) {
@@ -33,7 +34,7 @@ void Camera::reshape(int _width, int _height) {
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	applyProjection();
+	applyProjection(scale);
 
 	glViewport(0, 0, width, height);
 }

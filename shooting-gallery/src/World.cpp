@@ -104,10 +104,6 @@ void World::shoot(Camera *camera) {
 	bullets.push_back(b);
 }
 
-void World::reset() {
-	stand->reset();
-}
-
 bool World::inWorld(Bullet *b) {
 	if(b->loc[0] > -WORLD_MAX && b->loc[0] < WORLD_MAX) {
 		if(b->loc[1] > -WORLD_MAX && b->loc[1] < WORLD_MAX) {
