@@ -89,6 +89,12 @@ iostream
 -
 math.h
 -
+string
+-
+sstream
+-
+fstream
+-
 GLUT/glut.h
 -
 Camera.h

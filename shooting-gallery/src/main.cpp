@@ -1,5 +1,8 @@
 #include <iostream>
 #include <math.h>
+#include <string>
+#include <sstream>
+#include <fstream>
 using namespace std;
 
 #include <GLUT/glut.h>
@@ -17,8 +20,19 @@ using namespace std;
 // movement unit (strafe, walk)
 #define MOVE_SPEED 0.1f
 
+const int MAX_BUFFER_SIZE = 0x10000;
+
 Camera *camera;
 World *world;
+
+// This is the list of points (3D vectors)
+vector<vector<float> > vecv;
+
+// This is the list of normals (also 3D vectors)
+vector<vector<float> > vecn;
+
+// This is the list of faces (indices into vecv and vecn)
+vector<vector<unsigned> > vecf;
 
 bool clicked;
 bool largeReticle;
@@ -34,6 +48,21 @@ void safeExit() {
 
 void display(void) {
 	glutReshapeWindow( 750, 750);
+
+	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[] = { 50.0 };
+	GLfloat light_position[] = { 0.0f, 10.0f, 1.0, 0.0 };
+	glClearColor (0.0, 0.0, 0.0, 0.0);
+	glShadeModel (GL_SMOOTH);
+
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glEnable(GL_DEPTH_TEST);
+
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -42,11 +71,40 @@ void display(void) {
 
 	camera->apply();
 
+
+
 	/* Start picking stack */
 	glInitNames();
 	glPushName(-1);
 
 	world->draw();
+	
+	if(!zoom) {
+		glTranslatef(camera->location[0], camera->location[1], camera->location[2]);
+		glRotatef(90,0, 1, 0);
+		glRotatef(-camera->lookAt[0], 0, 1, 0);
+		glRotatef(camera->lookAt[1], 0, 0, 1);
+		glScalef(0.1f,0.1f,0.1f);
+		for(unsigned int j=0; j < vecf.size(); j++) {
+		    vector<unsigned> indices = vecf[j];
+		    int a = indices[0];
+		    int c = indices[2];
+		    int d = indices[3];
+		    int f = indices[5];
+		    int g = indices[6];
+		    int i = indices[8];
+	        
+	        glBegin(GL_TRIANGLES);
+		    glNormal3d(vecn[c-1][0], vecn[c-1][1], vecn[c-1][2]);
+		    glVertex3d(vecv[a-1][0], vecv[a-1][1], vecv[a-1][2]);
+		    glNormal3d(vecn[f-1][0], vecn[f-1][1], vecn[f-1][2]);
+		    glVertex3d(vecv[d-1][0], vecv[d-1][1], vecv[d-1][2]);
+		    glNormal3d(vecn[i-1][0], vecn[i-1][1], vecn[i-1][2]);
+		    glVertex3d(vecv[g-1][0], vecv[g-1][1], vecv[g-1][2]);
+		    glEnd();
+	    }
+	    glPopMatrix();
+	}	
 
 	/*
 	 * Draw the crosshair in ortho2d mode
@@ -226,7 +284,58 @@ void idle() {
 	glutPostRedisplay();
 }
 
+void loadInput(){
+  string line;
+  ifstream myfile("AK.obj");
+  if (myfile.is_open()){
+    while ( getline (myfile,line) ){
+
+        stringstream ss(line);
+        float v[3];
+	    vector<float> vec;
+	    string s;
+	    ss >> s;
+	    //if (s=="g") cout << line <<endl;
+
+	    if (s == "v") { 
+	      ss >> v[0] >> v[1] >> v[2];
+	      vec.push_back(v[0]);
+	      vec.push_back(v[1]);
+	      vec.push_back(v[2]);
+	      vecv.push_back(vec);  
+	    } else if (s == "vn") {
+	      ss >> v[0] >> v[1] >> v[2];
+	      vec.push_back(v[0]);
+	      vec.push_back(v[1]);
+	      vec.push_back(v[2]);
+	      vecn.push_back(vec);
+	    } else if (s == "f") {
+	      vector<unsigned> faces;      
+
+	      string abc;
+	      string def;
+	      string ghi;
+	      
+	      ss >> abc >> def >> ghi;
+	      string faceIndices = abc + " " + def + " " + ghi;
+
+	      replace(faceIndices.begin(), faceIndices.end(), '/', ' ');
+	      stringstream ssFaces(faceIndices);
+	      unsigned n;
+
+	      while (ssFaces >> n) {
+	        faces.push_back(n);
+	      }
+	      vecf.push_back(faces);
+	  	}
+	}
+  }
+  myfile.close();
+}
+
 int main(int argc, char **argv) {
+	loadInput();
+
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
     glutInitWindowSize(800, 600);

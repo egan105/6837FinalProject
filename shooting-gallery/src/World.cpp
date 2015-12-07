@@ -16,36 +16,41 @@ World::World() {
 	glNewList(listid, GL_COMPILE);
 		glBegin(GL_QUADS);
 			glColor3f(1.0f, 1.0f, 1.0f);		// floor
+			glNormal3f(0.0f, 1.0f, 0.0f);
 			glVertex3f( WORLD_MAX, 0.0f,  WORLD_MAX);
 			glVertex3f( WORLD_MAX, 0.0f, -WORLD_MAX);
 			glVertex3f(-WORLD_MAX, 0.0f, -WORLD_MAX);
 			glVertex3f(-WORLD_MAX, 0.0f,  WORLD_MAX);
 
-			glColor3f(1.0f, 1.0f, 1.0f);		// front
+			glColor3f(1.0f, 1.0f, 1.0f);		// back
+			glNormal3f(0.0f, 0.0f, 1.0f);
 			glVertex3f(-WORLD_MAX, 0.0f, -WORLD_MAX);
 			glVertex3f( WORLD_MAX, 0.0f, -WORLD_MAX);
-			glColor3f(0.0f, 0.0f, 0.0f);
+			//glColor3f(0.0f, 0.0f, 0.0f);
 			glVertex3f( WORLD_MAX, WORLD_MAX, -WORLD_MAX);
 			glVertex3f(-WORLD_MAX, WORLD_MAX, -WORLD_MAX);
 
 			glColor3f(1.0f, 1.0f, 1.0f);		// left
+			glNormal3f(1.0f, 0.0f, 0.0f);
 			glVertex3f(-WORLD_MAX, 0.0f, -WORLD_MAX);
 			glVertex3f(-WORLD_MAX, 0.0f,  WORLD_MAX);
-			glColor3f(0.0f, 0.0f, 0.0f);
+			//glColor3f(0.0f, 0.0f, 0.0f);
 			glVertex3f(-WORLD_MAX, WORLD_MAX,  WORLD_MAX);
 			glVertex3f(-WORLD_MAX, WORLD_MAX, -WORLD_MAX);
 
 			glColor3f(1.0f, 1.0f, 1.0f);		// right
+			glNormal3f(-1.0f, 0.0f, 0.0f);
 			glVertex3f(WORLD_MAX, 0, -WORLD_MAX);
 			glVertex3f(WORLD_MAX, 0, WORLD_MAX);
-			glColor3f(0.0f, 0.0f, 0.0f);
+			//glColor3f(0.0f, 0.0f, 0.0f);
 			glVertex3f(WORLD_MAX, WORLD_MAX, WORLD_MAX);
 			glVertex3f(WORLD_MAX, WORLD_MAX, -WORLD_MAX);
 
-			glColor3f(1.0f, 1.0f, 1.0f);		// back
+			glColor3f(1.0f, 1.0f, 1.0f);		// front
+			glNormal3f(0.0f, 0.0f, -1.0f);
 			glVertex3f(-WORLD_MAX, 0.0f, WORLD_MAX);
 			glVertex3f( WORLD_MAX, 0.0f, WORLD_MAX);
-			glColor3f(0.0f, 0.0f, 0.0f);
+			//glColor3f(0.0f, 0.0f, 0.0f);
 			glVertex3f( WORLD_MAX, WORLD_MAX, WORLD_MAX);
 			glVertex3f(-WORLD_MAX, WORLD_MAX, WORLD_MAX);
 		glEnd();
@@ -80,7 +85,7 @@ void World::step(int time) {
 
 		b->step(time);
 		for(int j = 0; j < NUM_TARGETS;j ++) {
-			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.5f;
+			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.75f;
 			bool leftRange = b->loc[0] <= stand->targets[j].location[0] + stand->targets[j].radius;
 			bool rightRange = b->loc[0] >= stand->targets[j].location[0] - stand->targets[j].radius;
 
