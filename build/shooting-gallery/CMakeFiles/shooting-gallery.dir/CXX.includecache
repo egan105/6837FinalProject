@@ -83,6 +83,8 @@ Camera.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Camera.h
 Stand.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Stand.h
+particleSystem.h
+/Users/ericgan/Code/6837FinalProject/shooting-gallery/src/particleSystem.h
 
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/main.cpp
 iostream
@@ -103,4 +105,20 @@ World.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/World.h
 Target.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Target.h
+
+/Users/ericgan/Code/6837FinalProject/shooting-gallery/src/particleSystem.cpp
+math.h
+-
+iostream
+-
+GLUT/glut.h
+-
+particleSystem.h
+/Users/ericgan/Code/6837FinalProject/shooting-gallery/src/particleSystem.h
+
+/Users/ericgan/Code/6837FinalProject/shooting-gallery/src/particleSystem.h
+GLUT/glut.h
+-
+vector
+-
 

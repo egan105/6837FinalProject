@@ -129,9 +129,33 @@ shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o.provides: shooti
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o
 
 
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o: ../shooting-gallery/src/particleSystem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ericgan/Code/6837FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o"
+	cd /Users/ericgan/Code/6837FinalProject/build/shooting-gallery && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o -c /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/particleSystem.cpp
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.i"
+	cd /Users/ericgan/Code/6837FinalProject/build/shooting-gallery && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/particleSystem.cpp > CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.i
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.s"
+	cd /Users/ericgan/Code/6837FinalProject/build/shooting-gallery && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/particleSystem.cpp -o CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.s
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o.requires:
+
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o.requires
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o.provides: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o.requires
+	$(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o.provides.build
+.PHONY : shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o.provides
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o.provides.build: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o
+
+
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o: ../shooting-gallery/src/Stand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ericgan/Code/6837FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ericgan/Code/6837FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o"
 	cd /Users/ericgan/Code/6837FinalProject/build/shooting-gallery && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o -c /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Stand.cpp
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.i: cmake_force
@@ -155,7 +179,7 @@ shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.provides.build:
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o: ../shooting-gallery/src/Target.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ericgan/Code/6837FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ericgan/Code/6837FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o"
 	cd /Users/ericgan/Code/6837FinalProject/build/shooting-gallery && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/Target.cpp.o -c /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Target.cpp
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.i: cmake_force
@@ -179,7 +203,7 @@ shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.provides.build
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o: shooting-gallery/CMakeFiles/shooting-gallery.dir/flags.make
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o: ../shooting-gallery/src/World.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ericgan/Code/6837FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ericgan/Code/6837FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o"
 	cd /Users/ericgan/Code/6837FinalProject/build/shooting-gallery && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/shooting-gallery.dir/src/World.cpp.o -c /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/World.cpp
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.i: cmake_force
@@ -206,6 +230,7 @@ shooting__gallery_OBJECTS = \
 "CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o" \
 "CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o" \
 "CMakeFiles/shooting-gallery.dir/src/main.cpp.o" \
+"CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o" \
 "CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o" \
 "CMakeFiles/shooting-gallery.dir/src/Target.cpp.o" \
 "CMakeFiles/shooting-gallery.dir/src/World.cpp.o"
@@ -216,12 +241,13 @@ shooting__gallery_EXTERNAL_OBJECTS =
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o
+shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make
 shooting-gallery/shooting-gallery: shooting-gallery/CMakeFiles/shooting-gallery.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ericgan/Code/6837FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable shooting-gallery"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ericgan/Code/6837FinalProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable shooting-gallery"
 	cd /Users/ericgan/Code/6837FinalProject/build/shooting-gallery && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shooting-gallery.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -232,6 +258,7 @@ shooting-gallery/CMakeFiles/shooting-gallery.dir/build: shooting-gallery/shootin
 shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Bullet.cpp.o.requires
 shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Camera.cpp.o.requires
 shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o.requires
+shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o.requires
 shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Stand.cpp.o.requires
 shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/Target.cpp.o.requires
 shooting-gallery/CMakeFiles/shooting-gallery.dir/requires: shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o.requires

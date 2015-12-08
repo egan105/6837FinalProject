@@ -47,7 +47,7 @@ void safeExit() {
 }
 
 void display(void) {
-	glutReshapeWindow( 750, 750);
+	glutReshapeWindow(750, 750);
 
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_shininess[] = { 50.0 };
@@ -70,8 +70,6 @@ void display(void) {
 	glLoadIdentity();
 
 	camera->apply();
-
-
 
 	/* Start picking stack */
 	glInitNames();
@@ -227,7 +225,7 @@ void key(unsigned char key, int x, int y) {
 		case 'D':
 		case 'd': camera->strafe(MOVE_SPEED); break;
 		case 'R':
-		case 'r': world = new World(); break;
+		case 'r': delete world; world = new World(); break;
 		case 'Z':
 		case 'z': zoom = !zoom; break;
 		case 27: safeExit(); break;

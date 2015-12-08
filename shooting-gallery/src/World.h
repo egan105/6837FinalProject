@@ -7,6 +7,7 @@
 #include "Bullet.h"
 #include "Camera.h"
 #include "Stand.h"
+#include "particleSystem.h"
 
 #define WORLD_MAX 50.0f
 
@@ -25,6 +26,7 @@ private:
 	std::vector<Bullet*> bullets;
 	std::vector<int> indices;
 	Stand *stand;
+	vector<ParticleSystem *> particleSystems;
 };
 
 #endif /*WORLD_H_*/

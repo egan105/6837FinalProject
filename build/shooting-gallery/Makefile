@@ -287,6 +287,33 @@ src/main.cpp.s:
 	cd /Users/ericgan/Code/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/particleSystem.o: src/particleSystem.cpp.o
+
+.PHONY : src/particleSystem.o
+
+# target to build an object file
+src/particleSystem.cpp.o:
+	cd /Users/ericgan/Code/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o
+.PHONY : src/particleSystem.cpp.o
+
+src/particleSystem.i: src/particleSystem.cpp.i
+
+.PHONY : src/particleSystem.i
+
+# target to preprocess a source file
+src/particleSystem.cpp.i:
+	cd /Users/ericgan/Code/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.i
+.PHONY : src/particleSystem.cpp.i
+
+src/particleSystem.s: src/particleSystem.cpp.s
+
+.PHONY : src/particleSystem.s
+
+# target to generate assembly for a file
+src/particleSystem.cpp.s:
+	cd /Users/ericgan/Code/6837FinalProject/build && $(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.s
+.PHONY : src/particleSystem.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -314,6 +341,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/particleSystem.o"
+	@echo "... src/particleSystem.i"
+	@echo "... src/particleSystem.s"
 .PHONY : help
 
 

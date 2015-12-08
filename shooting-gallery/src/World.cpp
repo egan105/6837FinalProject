@@ -66,10 +66,14 @@ World::~World() {
 void World::draw() {
 	glCallList(listid);
 	stand->draw();
+
 	for(int i = 0; i < bullets.size(); i++) {
 		bullets[i]->draw();
 	}
 
+	for(int j = 0; j < particleSystems.size(); j++) {
+		particleSystems[j]->draw();
+	}
 }
 
 void World::step(int time) {
@@ -85,15 +89,18 @@ void World::step(int time) {
 
 		b->step(time);
 		for(int j = 0; j < NUM_TARGETS;j ++) {
-			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.75f;
+			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.85f;
 			bool leftRange = b->loc[0] <= stand->targets[j].location[0] + stand->targets[j].radius;
 			bool rightRange = b->loc[0] >= stand->targets[j].location[0] - stand->targets[j].radius;
 
 			if (zLoc && leftRange && rightRange && !stand->targets[j].isDown) {
 				if (pow(stand->targets[j].location[0] - b->loc[0],2) + pow(stand->targets[j].location[1] - b->loc[1],2) < pow(stand->targets[j].radius,2)){
+					indices.push_back(i);
+					ParticleSystem *ps = new ParticleSystem();
+					ps->newExplosion(stand->targets[j].location);
+					particleSystems.push_back(ps);
 					stand->targets[j].isDown = true;
 					stand->targets[j].location[1] = 1.20f;
-					indices.push_back(i);
 				}
 			}
 		}
@@ -101,6 +108,10 @@ void World::step(int time) {
 
 	for(int m = 0; m < indices.size(); m++) {
 		bullets.erase(bullets.begin() + indices[m]);
+	}
+
+	for(int n = 0; n < particleSystems.size(); n++){
+		particleSystems[n]->step();
 	}
 }
 

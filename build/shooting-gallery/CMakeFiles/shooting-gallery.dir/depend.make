@@ -21,6 +21,7 @@ shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o: ../shooting-ga
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o: ../shooting-gallery/src/Target.h
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o: ../shooting-gallery/src/World.cpp
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o: ../shooting-gallery/src/World.h
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/World.cpp.o: ../shooting-gallery/src/particleSystem.h
 
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o: ../shooting-gallery/src/Bullet.h
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o: ../shooting-gallery/src/Camera.h
@@ -28,4 +29,8 @@ shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o: ../shooting-gal
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o: ../shooting-gallery/src/Target.h
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o: ../shooting-gallery/src/World.h
 shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o: ../shooting-gallery/src/main.cpp
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/main.cpp.o: ../shooting-gallery/src/particleSystem.h
+
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o: ../shooting-gallery/src/particleSystem.cpp
+shooting-gallery/CMakeFiles/shooting-gallery.dir/src/particleSystem.cpp.o: ../shooting-gallery/src/particleSystem.h
 
