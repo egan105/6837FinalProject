@@ -1,8 +1,8 @@
-# Install script for directory: /Users/ericgan/Code/6837FinalProject
+# Install script for directory: /Users/tcheyne/6.837/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "/Users/tcheyne/6.837/test/inst")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -29,7 +29,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/ericgan/Code/6837FinalProject/build/shooting-gallery/cmake_install.cmake")
+  include("/Users/tcheyne/6.837/test/build/vecmath/cmake_install.cmake")
+  include("/Users/tcheyne/6.837/test/build/src/cmake_install.cmake")
 
 endif()
 
@@ -41,5 +42,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/ericgan/Code/6837FinalProject/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/tcheyne/6.837/test/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

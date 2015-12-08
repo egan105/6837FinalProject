@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.3.2/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/3.3.1/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.3.2/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/3.3.1/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/ericgan/Code/6837FinalProject
+CMAKE_SOURCE_DIR = /Users/tcheyne/6.837/test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/ericgan/Code/6837FinalProject/build
+CMAKE_BINARY_DIR = /Users/tcheyne/6.837/test/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/ericgan/Code/6837FinalProject/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.3.2/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/3.3.1/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -70,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/3.3.2/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -78,11 +78,55 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ericgan/Code/6837FinalProject/build/CMakeFiles /Users/ericgan/Code/6837FinalProject/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tcheyne/6.837/test/build/CMakeFiles /Users/tcheyne/6.837/test/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ericgan/Code/6837FinalProject/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tcheyne/6.837/test/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +155,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named shooting-gallery
+# Target rules for targets named vecmath
 
 # Build rule for target.
-shooting-gallery: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 shooting-gallery
-.PHONY : shooting-gallery
+vecmath: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vecmath
+.PHONY : vecmath
 
 # fast build rule for target.
-shooting-gallery/fast:
-	$(MAKE) -f shooting-gallery/CMakeFiles/shooting-gallery.dir/build.make shooting-gallery/CMakeFiles/shooting-gallery.dir/build
-.PHONY : shooting-gallery/fast
+vecmath/fast:
+	$(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/build
+.PHONY : vecmath/fast
+
+#=============================================================================
+# Target rules for targets named terrain
+
+# Build rule for target.
+terrain: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 terrain
+.PHONY : terrain
+
+# fast build rule for target.
+terrain/fast:
+	$(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/build
+.PHONY : terrain/fast
 
 # Help Target
 help:
@@ -131,7 +188,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... shooting-gallery"
+	@echo "... list_install_components"
+	@echo "... install"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... vecmath"
+	@echo "... terrain"
 .PHONY : help
 
 

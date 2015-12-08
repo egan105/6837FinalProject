@@ -1,17 +1,38 @@
-cmake_minimum_required(VERSION 2.6)
-project(opengl-play)
+cmake_minimum_required(VERSION 2.8)
+cmake_policy(SET CMP0015 NEW)
 
-find_package(GLUT REQUIRED)
-find_package(OpenGL REQUIRED)
+project(ballistic-sim)
 
-include_directories(${GLUT_INCLUDE_DIR})
+# Silence warnings about deprecated GLUT functions
 if(APPLE)
-include_directories(${OPENGL_INCLUDE_DIR}/Headers)
-else()
-include_directories(${OPENGL_INCLUDE_DIR})
+    add_definitions("-Wno-deprecated-declarations")
 endif()
 
-set(CMAKE_CXX_FLAGS "-g -Wall")
+if(UNIX)
+    # Enable C++11
+    add_definitions("-std=c++11")
+endif()
 
+find_package(OpenGL REQUIRED)
 
-add_subdirectory(shooting-gallery)
+link_directories(lib)
+
+if (WIN32)
+    include_directories(windows/freeglut/include)
+    link_directories(windows/freeglut/lib)
+    set(GLUT_LIBRARIES freeglut.lib)
+else()
+    find_package(GLUT REQUIRED)
+endif()
+
+# vecmath include directory
+include_directories(vecmath/include)
+
+# Install directory
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    get_filename_component(ASSIGNMENT_ROOT "." REALPATH)
+    set(CMAKE_INSTALL_PREFIX "${ASSIGNMENT_ROOT}/inst" CACHE PATH "install prefix" FORCE)
+endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+
+add_subdirectory(vecmath)
+add_subdirectory(src)

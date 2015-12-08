@@ -1,1 +1,2 @@
-/Users/ericgan/Code/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir
+/Users/tcheyne/6.837/test/build/src/CMakeFiles/terrain.dir
+/Users/tcheyne/6.837/test/build/vecmath/CMakeFiles/vecmath.dir
