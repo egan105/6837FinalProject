@@ -1,15 +1,16 @@
 #include <iostream>
+#include <algorithm>
 #include <math.h>
 #include <string>
 #include <sstream>
 #include <fstream>
 using namespace std;
 
-#include <GLUT/glut.h>
+#include <GL/glut.h>
+//#include <GLUT/glut.h>
 
 #include "Camera.h"
 #include "World.h"
-#include "Target.h"
 
 // size of selection buffer
 #define SELECT_SIZE 98
@@ -19,6 +20,8 @@ using namespace std;
 
 // movement unit (strafe, walk)
 #define MOVE_SPEED 0.1f
+
+#define VAL(x) ( static_cast< float >( ModelerApplication::Instance()->GetControlValue( x ) ) )
 
 const int MAX_BUFFER_SIZE = 0x10000;
 
@@ -37,8 +40,11 @@ vector<vector<unsigned> > vecf;
 bool clicked;
 bool largeReticle;
 bool zoom = false;
+bool firing = false;
 int curX, curY;
 long lastTime;
+int countVar = 0;
+int rate = 10;
 
 void safeExit() {
 	delete camera;
@@ -70,8 +76,6 @@ void display(void) {
 	glLoadIdentity();
 
 	camera->apply();
-
-
 
 	/* Start picking stack */
 	glInitNames();
@@ -230,6 +234,13 @@ void key(unsigned char key, int x, int y) {
 		case 'r': world = new World(); break;
 		case 'Z':
 		case 'z': zoom = !zoom; break;
+		case 'G':
+		case 'g': world->adjustGravity(1);break;
+		case 'F':
+		case 'f': world->adjustGravity(-1);break;
+		case '-': world->adjustWind(-1,false);break;
+		case '=': world->adjustWind(1,false);break;
+		case '0': world->adjustWind(0,true);break;
 		case 27: safeExit(); break;
 		default:
 			cout << "[main] Unknown keypress [" << key << "]\n";
@@ -252,7 +263,14 @@ void motion(int x, int y) {
 void mouse(int button, int state, int x, int y) {
 	switch(button) {
 		case GLUT_LEFT_BUTTON:
-			if(GLUT_DOWN == state) fire();
+			if(GLUT_DOWN == state){
+				firing = true;
+				countVar = rate-1;
+			}
+			if(GLUT_UP == state){
+				firing = false;
+				countVar = 0;
+			}
 			break;
 		case GLUT_RIGHT_BUTTON:
 			clicked = state == GLUT_DOWN;
@@ -278,6 +296,13 @@ void reshape(int w, int h) {
  * on idle, step the world and redraw
  */
 void idle() {
+	countVar++;
+	if (firing && countVar%rate==0){
+		countVar =0;
+		fire();
+	}
+	if (countVar>rate) countVar =0; 
+
 	long newTime = glutGet(GLUT_ELAPSED_TIME);
 	world->step(newTime - lastTime);
 	lastTime = newTime;

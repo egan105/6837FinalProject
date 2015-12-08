@@ -2,11 +2,10 @@
 #include <iostream>
 
 using namespace std;
-
-#include <GLUT/glut.h>
+#include <GL/glut.h>
+//#include <GLUT/glut.h>
 
 #include "World.h"
-#include "Stand.h"
 
 World::World() {
 	/*
@@ -83,7 +82,7 @@ void World::step(int time) {
 			indices.push_back(i);
 		}
 
-		b->step(time);
+		b->step(time, gscale, wscale);
 		for(int j = 0; j < NUM_TARGETS;j ++) {
 			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.75f;
 			bool leftRange = b->loc[0] <= stand->targets[j].location[0] + stand->targets[j].radius;
@@ -119,4 +118,15 @@ bool World::inWorld(Bullet *b) {
 	}
 
 	return false;
+}
+
+void World::adjustWind(float t, bool zero){
+	if (zero){
+		wscale=0;
+	}
+	wscale+=t;
+}
+
+void World::adjustGravity(float t){
+	gscale+=t;
 }

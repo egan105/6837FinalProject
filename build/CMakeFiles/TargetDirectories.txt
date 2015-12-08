@@ -1,1 +1,1 @@
-/Users/ericgan/Code/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir
+/afs/athena.mit.edu/user/s/a/samueli/Desktop/finalproj/6837FinalProject/build/shooting-gallery/CMakeFiles/shooting-gallery.dir

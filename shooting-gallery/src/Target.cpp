@@ -1,4 +1,6 @@
 #include "Target.h"
+#include "math.h"
+#define num_segments 100
 
 Target::Target() {
 	/*
@@ -7,15 +9,13 @@ Target::Target() {
 	listid = glGenLists(1);
 	glNewList(listid, GL_COMPILE);
 		glBegin(GL_POLYGON);
-			glVertex3f( 0.5,  1.0, 0.0);
-			glVertex3f(-0.5,  1.0, 0.0);
-			glVertex3f(-1.0,  0.5, 0.0);
-			glVertex3f(-1.0, -0.5, 0.0);
-			glVertex3f(-0.5, -1.0, 0.0);
-			glVertex3f( 0.5, -1.0, 0.0);
-			glVertex3f( 1.0, -0.5, 0.0);
-			glVertex3f( 1.0,  0.5, 0.0);
-		glEnd();
+		    for (int i = 0; i < num_segments; i++)   {
+		        float theta = 2.0f * 3.1415926f * float(i) / float(num_segments);//get the current angle 
+		        float x = 1.0f * cosf(theta);//calculate the x component 
+		        float y = 1.0f * sinf(theta);//calculate the y component 
+		        glVertex2f(x +0.0f, y +0.0f);//output vertex 
+		    }
+    	glEnd();
 	glEndList();
 }
 

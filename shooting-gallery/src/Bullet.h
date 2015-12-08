@@ -1,15 +1,15 @@
 #ifndef BULLET_H_
 #define BULLET_H_
 
-//#include <GL/glut.h>
-#include <GLUT/glut.h>
+#include <GL/glut.h>
+//#include <GLUT/glut.h>
 #include "Camera.h"
 
 class Bullet {
 public:
 	Bullet(Camera *camera);
 	void draw();
-    void step(int time);
+    void step(int time, float g,float w);
     float loc[3];
 private:
 	

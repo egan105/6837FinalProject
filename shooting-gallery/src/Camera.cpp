@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#include <GLUT/glut.h>
+
 #include "Camera.h"
 
 Camera::Camera(void) {

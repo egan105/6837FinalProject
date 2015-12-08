@@ -1,7 +1,8 @@
 #ifndef CAMERA_H_
 #define CAMERA_H_
 
-#include <GLUT/glut.h>
+#include <GL/glut.h>
+//#include <GLUT/glut.h>
 
 /*
  * Simple first-person camera
