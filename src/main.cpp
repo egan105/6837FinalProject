@@ -48,7 +48,7 @@ bool zoom = false;
 int curX, curY;
 long lastTime;
 int countVar = 0;
-int rate = 0;
+int rate = 10;
 bool firing = false;
 
 void safeExit() {
@@ -58,7 +58,7 @@ void safeExit() {
 }
 
 void display(void) {
-	glutReshapeWindow(800,600);
+	glutReshapeWindow(750,750);
 
 	// GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	// GLfloat mat_shininess[] = { 50.0 };
@@ -93,10 +93,10 @@ void display(void) {
 	world->draw();
 
 	if(!zoom) {
-		glTranslatef(camera->location[0], camera->location[1], camera->location[2]);
+		glTranslatef(-camera->location[0], camera->location[1], camera->location[2]);
 		glRotatef(90,0, 1, 0);
-		glRotatef(-camera->lookAt[0], 0, 1, 0);
-		glRotatef(camera->lookAt[1], 0, 0, 1);
+		// glRotatef(-camera->lookAt[0], 0, 1, 0);
+		// glRotatef(camera->lookAt[1], 0, 0, 1);
 		for(unsigned int j=0; j < vecf.size(); j++) {
 		    vector<unsigned> indices = vecf[j];
 		    int a = indices[0];
@@ -256,24 +256,9 @@ void key_down(unsigned char key, int x, int y) {
     glutPostRedisplay();
 }
 
-// void key_up(unsigned char key, int x, int y) {
-// 	switch(key) {
-// 		case 'w': controls->FORWARD = false;
-// 		case 's': controls->BACK = false;
-// 		case 'a': controls->LEFT = false;
-// 		case 'd': controls->RIGHT = false;
-// 		case 'r': world = new World(); break;
-// 		case 'z': zoom = !zoom; break;
-// 		case 27: safeExit(); break;
-// 		default:
-// 			cout << "[main] Unknown keypress [" << key << "]\n";
-// 	}
-//     glutPostRedisplay();
-// }
-
 void motion(int x, int y) {
 	if(clicked) {
-		float dX = (float) (x - curX) / MOUSE_SCALE;
+		float dX = (float) (curX - x) / MOUSE_SCALE;
 		float dY = (float) (curY - y) / MOUSE_SCALE;
 		camera->yaw(dX);
 		camera->pitch(dY);
@@ -287,7 +272,14 @@ void motion(int x, int y) {
 void mouse(int button, int state, int x, int y) {
 	switch(button) {
 		case GLUT_LEFT_BUTTON:
-			if(GLUT_DOWN == state) fire();
+			if(GLUT_DOWN == state){
+				firing = true;
+				countVar = rate-1;
+			}
+			if(GLUT_UP == state){
+				firing = false;
+				countVar = 0;
+			}
 			break;
 		case GLUT_RIGHT_BUTTON:
 			clicked = state == GLUT_DOWN;
@@ -328,7 +320,7 @@ void idle() {
 
 void loadInput(){
   string line;
-  ifstream myfile("vader.obj");
+  ifstream myfile("AK.obj");
   if (myfile.is_open()){
     while ( getline (myfile,line) ){
 
@@ -378,21 +370,20 @@ void loadInput(){
 int main(int argc, char **argv) {
 	loadInput();
 
-  glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
-  glutInitWindowSize(800, 600);
-  glutInitWindowPosition(-1, -1);
-  glutCreateWindow("Shooting Gallery");
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
+	glutInitWindowSize(750, 750);
+	glutInitWindowPosition(-1, -1);
+	glutCreateWindow("Shooting Gallery");
 
 	/* install callbacks */
-  glutDisplayFunc(display);
-  glutReshapeFunc(reshape);
+	glutDisplayFunc(display);
+	glutReshapeFunc(reshape);
 	glutMotionFunc(motion);
 	glutMouseFunc(mouse);
 	glutKeyboardFunc(key_down);
 	//glutKeyboardUpFunc(key_up);
 	glutIdleFunc(idle);
-
 
 	/* Open GL Setup begins here */
 
@@ -412,8 +403,8 @@ int main(int argc, char **argv) {
 	//glEnable(GL_CULL_FACE);
 	// Enable Textures
 	GLuint texture;
-  texture = LoadTexture( "terrain.bmp" );
-  glBindTexture (GL_TEXTURE_2D, texture);
+	texture = LoadTexture( "terrain.bmp" );
+	glBindTexture (GL_TEXTURE_2D, texture);
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 	glEnable(GL_TEXTURE_2D);
 

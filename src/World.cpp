@@ -86,7 +86,7 @@ void World::step(int time) {
 			indices.push_back(i);
 		}
 
-		b->step(time);
+		b->step(time, gscale, wscale);
 		for(int j = 0; j < NUM_TARGETS;j ++) {
 			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.75f;
 			bool leftRange = b->loc[0] <= stand->targets[j].location[0] + stand->targets[j].radius;
