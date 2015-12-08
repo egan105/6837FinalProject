@@ -1,6 +1,7 @@
 #ifndef STAND_H_
 #define STAND_H_
 
+//#include <GL/glut.h>
 #include <GLUT/glut.h>
 
 #include "Target.h"

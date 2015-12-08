@@ -27,8 +27,6 @@ assert.h
 -
 stdio.h
 -
-GLUT/glut.h
--
 Camera.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Camera.h
 
@@ -55,6 +53,8 @@ Target.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Target.cpp
 Target.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Target.h
+math.h
+/Users/ericgan/Code/6837FinalProject/shooting-gallery/src/math.h
 
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Target.h
 GLUT/glut.h
@@ -65,12 +65,8 @@ math.h
 -
 iostream
 -
-GLUT/glut.h
--
 World.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/World.h
-Stand.h
-/Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Stand.h
 
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/World.h
 GLUT/glut.h
@@ -89,6 +85,8 @@ particleSystem.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/main.cpp
 iostream
 -
+algorithm
+-
 math.h
 -
 string
@@ -103,8 +101,6 @@ Camera.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Camera.h
 World.h
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/World.h
-Target.h
-/Users/ericgan/Code/6837FinalProject/shooting-gallery/src/Target.h
 
 /Users/ericgan/Code/6837FinalProject/shooting-gallery/src/particleSystem.cpp
 math.h

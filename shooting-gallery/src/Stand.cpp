@@ -1,3 +1,4 @@
+//#include <GL/glut.h>
 #include <GLUT/glut.h>
 #include <iostream>
 
@@ -115,11 +116,4 @@ void Stand::step(int time) {
 	// 	}
 	// 	t->location[0] += ((float) t->goingRight ? time : -time) / SLIDE_SCALE;
 	// }
-}
-
-void Stand::shoot(int targetId) {
-	/* if we hit something in the range, knock it down */
-	if(targetId >= 0 && targetId <= 3) {
-		targets[targetId].isDown = true;
-	}
 }
