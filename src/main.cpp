@@ -13,6 +13,7 @@ using namespace std;
 #include "World.h"
 #include "Target.h"
 #include "ProceduralWorld.h"
+#include "ObjectLoader.h"
 
 // size of selection buffer
 #define SELECT_SIZE 98
@@ -32,14 +33,7 @@ World *world;
 ProceduralWorld* terrain;
 
 
-// This is the list of points (3D vectors)
-vector<vector<float> > vecv;
-
-// This is the list of normals (also 3D vectors)
-vector<vector<float> > vecn;
-
-// This is the list of faces (indices into vecv and vecn)
-vector<vector<unsigned> > vecf;
+Object *ak47;
 
 bool clicked;
 bool largeReticle;
@@ -83,8 +77,8 @@ void display(void) {
 		glScalef(0.01f,0.01f,0.01f);
 		// glRotatef(-camera->lookAt[0], 0, 1, 0);
 		// glRotatef(camera->lookAt[1], 0, 0, 1);
-		for(unsigned int j=0; j < vecf.size(); j++) {
-		    vector<unsigned> indices = vecf[j];
+		for(unsigned int j=0; j < ak47->vecf.size(); j++) {
+		    vector<unsigned> indices = ak47->vecf[j];
 		    int a = indices[0];
 		    int c = indices[2];
 		    int d = indices[3];
@@ -93,12 +87,12 @@ void display(void) {
 		    int i = indices[8];
 
 	      glBegin(GL_TRIANGLES);
-		    glNormal3d(vecn[c-1][0], vecn[c-1][1], vecn[c-1][2]);
-		    glVertex3d(vecv[a-1][0], vecv[a-1][1], vecv[a-1][2]);
-		    glNormal3d(vecn[f-1][0], vecn[f-1][1], vecn[f-1][2]);
-		    glVertex3d(vecv[d-1][0], vecv[d-1][1], vecv[d-1][2]);
-		    glNormal3d(vecn[i-1][0], vecn[i-1][1], vecn[i-1][2]);
-		    glVertex3d(vecv[g-1][0], vecv[g-1][1], vecv[g-1][2]);
+		    glNormal3d(ak47->vecn[c-1][0], ak47->vecn[c-1][1], ak47->vecn[c-1][2]);
+		    glVertex3d(ak47->vecv[a-1][0], ak47->vecv[a-1][1], ak47->vecv[a-1][2]);
+		    glNormal3d(ak47->vecn[f-1][0], ak47->vecn[f-1][1], ak47->vecn[f-1][2]);
+		    glVertex3d(ak47->vecv[d-1][0], ak47->vecv[d-1][1], ak47->vecv[d-1][2]);
+		    glNormal3d(ak47->vecn[i-1][0], ak47->vecn[i-1][1], ak47->vecn[i-1][2]);
+		    glVertex3d(ak47->vecv[g-1][0], ak47->vecv[g-1][1], ak47->vecv[g-1][2]);
 		    glEnd();
 	    }
 	    glPopMatrix();
@@ -233,6 +227,7 @@ void special_key(int key, int x, int y) {
 
 void key_down(unsigned char key, int x, int y) {
 	switch(key) {
+		case 'o': cout << camera->x() << " " << camera->y() << " " << camera->z() << endl; break;
 		case 'W':
 		case 'w': camera->walk(MOVE_SPEED); break;
 		case 'S':
@@ -321,57 +316,8 @@ void idle() {
 	glutPostRedisplay();
 }
 
-void loadInput(){
-  string line;
-  ifstream myfile("AK.obj");
-  if (myfile.is_open()){
-    while ( getline (myfile,line) ){
-
-        stringstream ss(line);
-        float v[3];
-	    vector<float> vec;
-	    string s;
-	    ss >> s;
-	    //if (s=="g") cout << line <<endl;
-
-	    if (s == "v") {
-	      ss >> v[0] >> v[1] >> v[2];
-	      vec.push_back(v[0]);
-	      vec.push_back(v[1]);
-	      vec.push_back(v[2]);
-	      vecv.push_back(vec);
-	    } else if (s == "vn") {
-	      ss >> v[0] >> v[1] >> v[2];
-	      vec.push_back(v[0]);
-	      vec.push_back(v[1]);
-	      vec.push_back(v[2]);
-	      vecn.push_back(vec);
-	    } else if (s == "f") {
-	      vector<unsigned> faces;
-
-	      string abc;
-	      string def;
-	      string ghi;
-
-	      ss >> abc >> def >> ghi;
-	      string faceIndices = abc + " " + def + " " + ghi;
-
-	      replace(faceIndices.begin(), faceIndices.end(), '/', ' ');
-	      stringstream ssFaces(faceIndices);
-	      unsigned n;
-
-	      while (ssFaces >> n) {
-	        faces.push_back(n);
-	      }
-	      vecf.push_back(faces);
-	  	}
-	}
-  }
-  myfile.close();
-}
-
 int main(int argc, char **argv) {
-	loadInput();
+	ak47 = loadInput("AK.obj");
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
