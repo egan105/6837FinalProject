@@ -91,9 +91,9 @@ void Stand::draw() {
 		glPushMatrix();
 			target_t *t = &targets[i];
 			if(!t->isDown) {
-				t->rotation = (t->rotation + 5) % 360;
+				// t->rotation = (t->rotation + 5) % 360;
 				glTranslatef(t->location[0], t->location[1], t->location[2]);
-				glRotatef(t->rotation, 0, 1, 0);
+				//glRotatef(t->rotation, 0, 1, 0);
 				glColor3f(t->color.r, t->color.g, t->color.b);
 				t->target.draw();
 			}

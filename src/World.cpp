@@ -85,13 +85,13 @@ void World::step(int time) {
 	for(int i = 0; i < bullets.size(); i++) {
 		Bullet * b = bullets[i];
 
-		// // Remove balls that hit the walls
-		// if(!inWorld(b)) {
-		// 	indices.push_back(i);
-		// 	if(camera->follow && b->follow) {
-		// 		camera->reset();
-		// 	}
-		// }
+		// Remove balls that hit the walls
+		if(!inWorld(b)) {
+			indices.push_back(i);
+			if(camera->follow && b->follow) {
+				camera->reset();
+			}
+		}
 
 		if(b->loc[1] <= generate_y(b->loc[0], b->loc[2]) + 1.0f) {
 			indices.push_back(i);
@@ -154,12 +154,8 @@ void World::shoot(Camera *camera) {
 }
 
 bool World::inWorld(Bullet *b) {
-	if(b->loc[0] > -WORLD_MAX && b->loc[0] < WORLD_MAX) {
-		if(b->loc[1] > -WORLD_MAX && b->loc[1] < WORLD_MAX) {
-			if(b->loc[2] > -WORLD_MAX && b->loc[2] < WORLD_MAX) {
-				return true;
-			}
-		}
+	if(b->loc[1] > -WORLD_MAX && b->loc[1] < WORLD_MAX) {
+		return true;
 	}
 
 	return false;
