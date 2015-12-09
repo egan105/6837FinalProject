@@ -6,6 +6,14 @@ src/CMakeFiles/terrain.dir/Bullet.cpp.o
  /Users/tcheyne/6.837/test/src/Bullet.h
  /Users/tcheyne/6.837/test/src/Camera.h
 src/CMakeFiles/terrain.dir/Camera.cpp.o
+ ../vecmath/include/Matrix2f.h
+ ../vecmath/include/Matrix3f.h
+ ../vecmath/include/Matrix4f.h
+ ../vecmath/include/Quat4f.h
+ ../vecmath/include/Vector2f.h
+ ../vecmath/include/Vector3f.h
+ ../vecmath/include/Vector4f.h
+ ../vecmath/include/vecmath.h
  /Users/tcheyne/6.837/test/src/Camera.cpp
  /Users/tcheyne/6.837/test/src/Camera.h
  /Users/tcheyne/6.837/test/src/Generator.h
@@ -80,7 +88,6 @@ src/CMakeFiles/terrain.dir/main.cpp.o
  /Users/tcheyne/6.837/test/src/Bullet.h
  /Users/tcheyne/6.837/test/src/Camera.h
  /Users/tcheyne/6.837/test/src/Controls.h
- /Users/tcheyne/6.837/test/src/FirstPersonCamera.h
  /Users/tcheyne/6.837/test/src/Generator.h
  /Users/tcheyne/6.837/test/src/ParticleSystem.h
  /Users/tcheyne/6.837/test/src/ProceduralBlock.h

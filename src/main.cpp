@@ -9,7 +9,6 @@ using namespace std;
 
 #include "TextureLoader.h"
 #include "Controls.h"
-#include "FirstPersonCamera.h"
 #include "Camera.h"
 #include "World.h"
 #include "Target.h"
@@ -22,7 +21,7 @@ using namespace std;
 #define MOUSE_SCALE 50
 
 // movement unit (strafe, walk)
-#define MOVE_SPEED 1.0f
+#define MOVE_SPEED 3.0f
 
 const int MAX_BUFFER_SIZE = 0x10000;
 
@@ -59,20 +58,6 @@ void safeExit() {
 
 void display(void) {
 	glutReshapeWindow(800,600);
-
-	// GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-	// GLfloat mat_shininess[] = { 50.0 };
-	// GLfloat light_position[] = { 0.0f, 10.0f, 1.0, 0.0 };
-	// glClearColor (0.0, 0.0, 0.0, 0.0);
-	// glShadeModel (GL_SMOOTH);
-	//
-	// glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-	// glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-	// glLightfv(GL_LIGHT0, GL_POSITION, light_position);
-	//
-	// glEnable(GL_LIGHTING);
-	// glEnable(GL_LIGHT0);
-	// glEnable(GL_DEPTH_TEST);
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -228,18 +213,32 @@ void fire() {
     glutPostRedisplay();
 }
 
+void special_key(int key, int x, int y) {
+	switch(key) {
+		case GLUT_KEY_UP:
+			camera->fly(MOVE_SPEED);
+			break;
+		case GLUT_KEY_DOWN:
+			camera->fly(-MOVE_SPEED);
+			break;
+		default:
+			break;
+	}
+	glutPostRedisplay();
+}
+
 void key_down(unsigned char key, int x, int y) {
 	switch(key) {
 		case 'W':
-		case 'w': camera->walk(-MOVE_SPEED); break;
+		case 'w': camera->walk(MOVE_SPEED); break;
 		case 'S':
-		case 's': camera->walk(MOVE_SPEED); break;
+		case 's': camera->walk(-MOVE_SPEED); break;
 		case 'A':
 		case 'a': camera->strafe(-MOVE_SPEED); break;
 		case 'D':
 		case 'd': camera->strafe(MOVE_SPEED); break;
 		case 'R':
-		case 'r': delete world; world = new World(); break;
+		case 'r': delete world; world = new World(camera); break;
 		case 'Z':
 		case 'z': zoom = !zoom; break;
 		case 'G':
@@ -255,21 +254,6 @@ void key_down(unsigned char key, int x, int y) {
 	}
     glutPostRedisplay();
 }
-
-// void key_up(unsigned char key, int x, int y) {
-// 	switch(key) {
-// 		case 'w': controls->FORWARD = false;
-// 		case 's': controls->BACK = false;
-// 		case 'a': controls->LEFT = false;
-// 		case 'd': controls->RIGHT = false;
-// 		case 'r': world = new World(); break;
-// 		case 'z': zoom = !zoom; break;
-// 		case 27: safeExit(); break;
-// 		default:
-// 			cout << "[main] Unknown keypress [" << key << "]\n";
-// 	}
-//     glutPostRedisplay();
-// }
 
 void motion(int x, int y) {
 	if(clicked) {
@@ -390,6 +374,7 @@ int main(int argc, char **argv) {
 	glutMotionFunc(motion);
 	glutMouseFunc(mouse);
 	glutKeyboardFunc(key_down);
+	glutSpecialFunc(special_key);
 	//glutKeyboardUpFunc(key_up);
 	glutIdleFunc(idle);
 
@@ -447,9 +432,9 @@ int main(int argc, char **argv) {
 	lastTime = 0;
 
 	camera = new Camera();
-	world = new World();
+	world = new World(camera);
 	terrain = new ProceduralWorld(10);
 
-    glutMainLoop();
-    return 0;
+  glutMainLoop();
+  return 0;
 }

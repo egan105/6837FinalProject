@@ -71,6 +71,18 @@ ProceduralBlock::~ProceduralBlock() {
   }
 }
 
+void color(float height) {
+  if (height > 101) {
+    glColor3f(1.0f, 1.0f, 1.0f);
+  }
+  else if (height < 10) {
+    glColor3f(0.35f, 0.65f, 0.4f);
+  }
+  else {
+    glColor3f(0.0f, 1.0f, 0.0f);
+  }
+}
+
 void ProceduralBlock::initialize() {
   glShadeModel(GL_SMOOTH);
   glColor3f(0.0f, 1.0f, 0.0f);
@@ -81,33 +93,33 @@ void ProceduralBlock::initialize() {
       // Top Triangle
       glNormal3f(normals[x*num_points + z]->x(), normals[x*num_points + z]->y(), normals[x*num_points + z]->z());
       glTexCoord2f(0.0f,0.0f);
-      glColor3f(0.0f, 1.0f, 0.0f);
+      color(points[x*num_points + z]->y());
       glVertex3f(points[x*num_points + z]->x(), points[x*num_points + z]->y(), points[x*num_points + z]->z());
 
       glNormal3f(normals[(x+1)*num_points + z]->x(), normals[(x+1)*num_points + z]->y(), normals[(x+1)*num_points + z]->z());
       glTexCoord2f(0.0f,1.0f);
-      glColor3f(0.0f, 1.0f, 0.0f);
+      color(points[x*num_points + z]->y());
       glVertex3f(points[(x+1)*num_points + z]->x(), points[(x+1)*num_points + z]->y(), points[(x+1)*num_points + z]->z());
 
       glNormal3f(normals[x*num_points + z + 1]->x(), normals[x*num_points + z + 1]->y(), normals[x*num_points + z + 1]->z());
       glTexCoord2f(1.0f,0.0f);
-      glColor3f(0.0f, 1.0f, 0.0f);
+      color(points[x*num_points + z]->y());
       glVertex3f(points[x*num_points + z + 1]->x(), points[x*num_points + z + 1]->y(), points[x*num_points + z + 1]->z());
 
       // Bottom Triangle
       glNormal3f(normals[(x+1)*num_points + z]->x(), normals[(x+1)*num_points + z]->y(), normals[(x+1)*num_points + z]->z());
       glTexCoord2f(0.0f,1.0f);
-      glColor3f(0.0f, 1.0f, 0.0f);
+      color(points[x*num_points + z]->y());
       glVertex3f(points[(x+1)*num_points + z]->x(), points[(x+1)*num_points + z]->y(), points[(x+1)*num_points + z]->z());
 
       glNormal3f(normals[(x+1)*num_points + z + 1]->x(), normals[(x+1)*num_points + z + 1]->y(), normals[(x+1)*num_points + z + 1]->z());
       glTexCoord2f(1.0f,1.0f);
-      glColor3f(0.0f, 1.0f, 0.0f);
+      color(points[x*num_points + z]->y());
       glVertex3f(points[(x+1)*num_points + z + 1]->x(), points[(x+1)*num_points + z + 1]->y(), points[(x+1)*num_points + z + 1]->z());
 
       glNormal3f(normals[x*num_points + z + 1]->x(), normals[x*num_points + z + 1]->y(), normals[x*num_points + z + 1]->z());
       glTexCoord2f(1.0f,0.0f);
-      glColor3f(0.0f, 1.0f, 0.0f);
+      color(points[x*num_points + z]->y());
       glVertex3f(points[x*num_points + z + 1]->x(), points[x*num_points + z + 1]->y(), points[x*num_points + z + 1]->z());
     }
   }

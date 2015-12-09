@@ -67,6 +67,8 @@ assert.h
 -
 stdio.h
 -
+vecmath.h
+-
 GLUT/glut.h
 -
 Camera.h
@@ -207,6 +209,8 @@ GLUT/glut.h
 -
 vector
 -
+Camera.h
+/Users/tcheyne/6.837/test/src/Camera.h
 Bullet.h
 /Users/tcheyne/6.837/test/src/Bullet.h
 Camera.h
@@ -233,8 +237,6 @@ TextureLoader.h
 /Users/tcheyne/6.837/test/src/TextureLoader.h
 Controls.h
 /Users/tcheyne/6.837/test/src/Controls.h
-FirstPersonCamera.h
-/Users/tcheyne/6.837/test/src/FirstPersonCamera.h
 Camera.h
 /Users/tcheyne/6.837/test/src/Camera.h
 World.h

@@ -1,6 +1,7 @@
 #include <math.h>
 #include <assert.h>
 #include <stdio.h>
+#include <vecmath.h>
 
 #include <GLUT/glut.h>
 #include "Camera.h"
@@ -13,7 +14,7 @@ Camera::Camera(void) {
 	location[1] = 200.0f;		// y
 	location[2] = 0.0f;	// z
 
-	lookAt[0] = 10.0f;	// x
+	lookAt[0] = 0.0f;	// x
 	lookAt[1] = 200.0f;	// y
 	lookAt[2] = 10.0f;	// z
 }
@@ -48,22 +49,31 @@ void Camera::reshape(int _width, int _height) {
 	glViewport(0, 0, width, height);
 }
 
+void Camera::fly(float amount) {
+	Vector3f direction = Vector3f(lookAt[0] - location[0], lookAt[1] - location[1], lookAt[2] - location[2]).normalized();
+	location[0] += direction.x() * amount;
+	location[1] += direction.y() * amount;
+	location[2] += direction.z() * amount;
+	lookAt[0] += direction.x() * amount;
+	lookAt[1] += direction.y() * amount;
+	lookAt[2] += direction.z() * amount;
+}
+
 void Camera::strafe(float amount) {
-	if(lookAt[0]) {
-		lookAt[0] += amount;
-	}
-	if(location[0]) {
-		location[0] += amount;
-	}
+	Vector3f forward = Vector3f(lookAt[0] - location[0], 0, lookAt[2] - location[2]).normalized();
+	Vector3f direction = Vector3f::cross(forward, Vector3f(0.0f,1.0f,0.0f));
+	location[0] += direction.x() * amount;
+	location[2] += direction.z() * amount;
+	lookAt[0] += direction.x() * amount;
+	lookAt[2] += direction.z() * amount;
 }
 
 void Camera::walk(float amount) {
-	if(lookAt[2]) {
-		lookAt[2] += amount;
-	}
-	if(location[2]) {
-		location[2] += amount;
-	}
+	Vector3f direction = Vector3f(lookAt[0] - location[0], 0, lookAt[2] - location[2]).normalized();
+	location[0] += direction.x() * amount;
+	location[2] += direction.z() * amount;
+	lookAt[0] += direction.x() * amount;
+	lookAt[2] += direction.z() * amount;
 }
 
 void Camera::yaw(float amount) {

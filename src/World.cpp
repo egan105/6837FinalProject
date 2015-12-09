@@ -8,11 +8,11 @@ using namespace std;
 #include "World.h"
 #include "Stand.h"
 
-World::World() {
+World::World(Camera* camera) {
 	/*
 	 * draw basic shape of world via primitives to a display list
 	 */
-
+	this->camera = camera;
 
 	stand = new Stand();
 }
@@ -22,48 +22,50 @@ World::~World() {
 }
 
 void World::draw() {
+	int x_max = WORLD_MAX - camera->location[0];
+	int z_max = WORLD_MAX + camera->location[2];
 	glBegin(GL_QUADS);
 		glColor3f(0.4f,0.7f,1.0f);		// front
 		glNormal3f(0.0f, 0.0f, 1.0f);
-		glVertex3f( -WORLD_MAX, -WORLD_MAX, WORLD_MAX);
-		glVertex3f( -WORLD_MAX, WORLD_MAX, WORLD_MAX);
-		glVertex3f( WORLD_MAX, WORLD_MAX, WORLD_MAX);
-		glVertex3f( WORLD_MAX, -WORLD_MAX, WORLD_MAX);
+		glVertex3f( -x_max, -WORLD_MAX, z_max);
+		glVertex3f( -x_max, WORLD_MAX, z_max);
+		glVertex3f( x_max, WORLD_MAX, z_max);
+		glVertex3f( x_max, -WORLD_MAX, z_max);
 
 		glColor3f(0.4f,0.7f,1.0f);		// back
 		glNormal3f(0.0f, 0.0f, 1.0f);
-		glVertex3f( -WORLD_MAX, -WORLD_MAX, -WORLD_MAX);
-		glVertex3f( -WORLD_MAX, WORLD_MAX, -WORLD_MAX);
-		glVertex3f( WORLD_MAX, WORLD_MAX, -WORLD_MAX);
-		glVertex3f( WORLD_MAX, -WORLD_MAX, -WORLD_MAX);
+		glVertex3f( -x_max, -WORLD_MAX, -z_max);
+		glVertex3f( -x_max, WORLD_MAX, -z_max);
+		glVertex3f( x_max, WORLD_MAX, -z_max);
+		glVertex3f( x_max, -WORLD_MAX, -z_max);
 
 		glColor3f(0.4f,0.7f,1.0f);		// left
 		glNormal3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(-WORLD_MAX,-WORLD_MAX, WORLD_MAX);
-		glVertex3f(-WORLD_MAX,-WORLD_MAX, -WORLD_MAX);
-		glVertex3f(-WORLD_MAX, WORLD_MAX, -WORLD_MAX);
-		glVertex3f(-WORLD_MAX, WORLD_MAX, WORLD_MAX);
+		glVertex3f(-x_max,-WORLD_MAX, z_max);
+		glVertex3f(-x_max,-WORLD_MAX, -z_max);
+		glVertex3f(-x_max, WORLD_MAX, -z_max);
+		glVertex3f(-x_max, WORLD_MAX, z_max);
 
 		glColor3f(0.4f,0.7f,1.0f);		// left
 		glNormal3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(WORLD_MAX,-WORLD_MAX, WORLD_MAX);
-		glVertex3f(WORLD_MAX,-WORLD_MAX, -WORLD_MAX);
-		glVertex3f(WORLD_MAX, WORLD_MAX, -WORLD_MAX);
-		glVertex3f(WORLD_MAX, WORLD_MAX, WORLD_MAX);
+		glVertex3f(x_max,-WORLD_MAX, z_max);
+		glVertex3f(x_max,-WORLD_MAX, -z_max);
+		glVertex3f(x_max, WORLD_MAX, -z_max);
+		glVertex3f(x_max, WORLD_MAX, z_max);
 
 		glColor3f(0.4f,0.7f,1.0f);		// top
 		glNormal3f(0.0f, -1.0f, 0.0f);
-		glVertex3f(-WORLD_MAX, WORLD_MAX, WORLD_MAX);
-		glVertex3f( WORLD_MAX, WORLD_MAX, WORLD_MAX);
-		glVertex3f( WORLD_MAX, WORLD_MAX, -WORLD_MAX);
-		glVertex3f(-WORLD_MAX, WORLD_MAX, -WORLD_MAX);
+		glVertex3f(-x_max, WORLD_MAX, z_max);
+		glVertex3f( x_max, WORLD_MAX, z_max);
+		glVertex3f( x_max, WORLD_MAX, -z_max);
+		glVertex3f(-x_max, WORLD_MAX, -z_max);
 
 		glColor3f(0.4f, 0.7f, 1.0f);		// bottom
 		glNormal3f(0.0f, -1.0f, 0.0f);
-		glVertex3f(-WORLD_MAX, 5.0f, WORLD_MAX);
-		glVertex3f( WORLD_MAX, 5.0f, WORLD_MAX);
-		glVertex3f( WORLD_MAX, 5.0f, -WORLD_MAX);
-		glVertex3f(-WORLD_MAX, 5.0f, -WORLD_MAX);
+		glVertex3f(-x_max, 5.0f, z_max);
+		glVertex3f( x_max, 5.0f, z_max);
+		glVertex3f( x_max, 5.0f, -z_max);
+		glVertex3f(-x_max, 5.0f, -z_max);
 	glEnd();
 	stand->draw();
 	for(int i = 0; i < bullets.size(); i++) {

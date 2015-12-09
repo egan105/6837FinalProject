@@ -5,6 +5,14 @@ src/CMakeFiles/terrain.dir/Bullet.cpp.o: ../src/Bullet.cpp
 src/CMakeFiles/terrain.dir/Bullet.cpp.o: ../src/Bullet.h
 src/CMakeFiles/terrain.dir/Bullet.cpp.o: ../src/Camera.h
 
+src/CMakeFiles/terrain.dir/Camera.cpp.o: ../vecmath/include/Matrix2f.h
+src/CMakeFiles/terrain.dir/Camera.cpp.o: ../vecmath/include/Matrix3f.h
+src/CMakeFiles/terrain.dir/Camera.cpp.o: ../vecmath/include/Matrix4f.h
+src/CMakeFiles/terrain.dir/Camera.cpp.o: ../vecmath/include/Quat4f.h
+src/CMakeFiles/terrain.dir/Camera.cpp.o: ../vecmath/include/Vector2f.h
+src/CMakeFiles/terrain.dir/Camera.cpp.o: ../vecmath/include/Vector3f.h
+src/CMakeFiles/terrain.dir/Camera.cpp.o: ../vecmath/include/Vector4f.h
+src/CMakeFiles/terrain.dir/Camera.cpp.o: ../vecmath/include/vecmath.h
 src/CMakeFiles/terrain.dir/Camera.cpp.o: ../src/Camera.cpp
 src/CMakeFiles/terrain.dir/Camera.cpp.o: ../src/Camera.h
 src/CMakeFiles/terrain.dir/Camera.cpp.o: ../src/Generator.h
@@ -79,7 +87,6 @@ src/CMakeFiles/terrain.dir/main.cpp.o: ../vecmath/include/vecmath.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Bullet.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Camera.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Controls.h
-src/CMakeFiles/terrain.dir/main.cpp.o: ../src/FirstPersonCamera.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Generator.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ParticleSystem.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ProceduralBlock.h

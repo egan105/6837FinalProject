@@ -4,6 +4,7 @@
 #include <GLUT/glut.h>
 #include <vector>
 
+#include "Camera.h"
 #include "Bullet.h"
 #include "Camera.h"
 #include "Stand.h"
@@ -15,7 +16,7 @@ using namespace std;
 
 class World {
 public:
-	World();
+	World(Camera* camera);
 	virtual ~World();
 	void draw();
 	void step(int time);
@@ -31,6 +32,7 @@ private:
 	vector<ParticleSystem *> particleSystems;
 	float gscale =1.0f;
 	float wscale =0.0f;
+	Camera* camera;
 };
 
 #endif /*WORLD_H_*/

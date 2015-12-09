@@ -31,6 +31,8 @@ public:
 	 */
     void walk(float amount);
 
+    void fly(float amount);
+
 	/* turn along the X axis by the given amount */
     void yaw(float amount);
 
