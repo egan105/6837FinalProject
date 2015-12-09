@@ -22,6 +22,7 @@ public:
 	void step(int time);
 	void shoot(Camera *camera);
 	bool inWorld(Bullet *b);
+	void reset();
 	void adjustWind(float t,bool zero);
 	void adjustGravity(float t);
 private:

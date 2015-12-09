@@ -43,11 +43,11 @@ vector<vector<unsigned> > vecf;
 
 bool clicked;
 bool largeReticle;
-bool zoom = false;
+int zoom = 0;
 int curX, curY;
 long lastTime;
 int countVar = 0;
-int rate = 0;
+int rate = 10;
 bool firing = false;
 
 void safeExit() {
@@ -57,7 +57,7 @@ void safeExit() {
 }
 
 void display(void) {
-	glutReshapeWindow(800,600);
+	glutReshapeWindow(750,750);
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -77,11 +77,12 @@ void display(void) {
 
 	world->draw();
 
-	if(!zoom) {
-		glTranslatef(camera->location[0], camera->location[1], camera->location[2]);
-		glRotatef(90,0, 1, 0);
-		glRotatef(-camera->lookAt[0], 0, 1, 0);
-		glRotatef(camera->lookAt[1], 0, 0, 1);
+	if(zoom == 0) {
+		glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
+		glRotatef(-45, 0, 1, 0);
+		glScalef(0.01f,0.01f,0.01f);
+		// glRotatef(-camera->lookAt[0], 0, 1, 0);
+		// glRotatef(camera->lookAt[1], 0, 0, 1);
 		for(unsigned int j=0; j < vecf.size(); j++) {
 		    vector<unsigned> indices = vecf[j];
 		    int a = indices[0];
@@ -120,7 +121,7 @@ void display(void) {
 	float scaleLarge = 1.5f / 50;
 	float scaleOrig = 1.0f / 50;
 
-	if(largeReticle && !zoom) {
+	if(largeReticle && zoom == 0) {
 		glBegin(GL_LINES);
 		glVertex2f(0.46, 0.5);
 		glVertex2f(0.48, 0.5);
@@ -140,7 +141,7 @@ void display(void) {
 		}
 		glEnd();
 		largeReticle = false;
-	} else if(!largeReticle && !zoom) {
+	} else if(!largeReticle && zoom == 0) {
 		glBegin(GL_LINES);
 		glVertex2f(0.475, 0.5);
 		glVertex2f(0.49, 0.5);
@@ -160,7 +161,7 @@ void display(void) {
 		glEnd();
 	}
 
-	if(zoom){
+	if(zoom != 0){
 		glLineWidth(0.25f);
 		glBegin(GL_LINES);
 		glVertex2f(0.5, 1.0);
@@ -200,8 +201,11 @@ void display(void) {
 	 */
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	float scale = zoom ? 0.5f : 1.0f;
+	float scale = zoom != 0 ? 0.5 / zoom : 1.0;
 	camera->applyProjection(scale);
+	// camera->location[0] = 77.0f;
+	// camera->location[1] = 177.7f;
+	// camera->location[2] = 77.0f;
 
 	glutSwapBuffers();
 }
@@ -238,9 +242,9 @@ void key_down(unsigned char key, int x, int y) {
 		case 'D':
 		case 'd': camera->strafe(MOVE_SPEED); break;
 		case 'R':
-		case 'r': delete world; world = new World(camera); break;
+		case 'r': world->reset(); break;
 		case 'Z':
-		case 'z': zoom = !zoom; break;
+		case 'z': zoom = (zoom + 1) % 3; break;
 		case 'G':
 		case 'g': world->adjustGravity(1);break;
 		case 'F':
@@ -257,7 +261,7 @@ void key_down(unsigned char key, int x, int y) {
 
 void motion(int x, int y) {
 	if(clicked) {
-		float dX = (float) (x - curX) / MOUSE_SCALE;
+		float dX = (float) (curX - x) / MOUSE_SCALE;
 		float dY = (float) (curY - y) / MOUSE_SCALE;
 		camera->yaw(dX);
 		camera->pitch(dY);
@@ -271,7 +275,14 @@ void motion(int x, int y) {
 void mouse(int button, int state, int x, int y) {
 	switch(button) {
 		case GLUT_LEFT_BUTTON:
-			if(GLUT_DOWN == state) fire();
+			if(GLUT_DOWN == state){
+				firing = true;
+				countVar = rate-1;
+			}
+			if(GLUT_UP == state){
+				firing = false;
+				countVar = 0;
+			}
 			break;
 		case GLUT_RIGHT_BUTTON:
 			clicked = state == GLUT_DOWN;
@@ -312,7 +323,7 @@ void idle() {
 
 void loadInput(){
   string line;
-  ifstream myfile("vader.obj");
+  ifstream myfile("AK.obj");
   if (myfile.is_open()){
     while ( getline (myfile,line) ){
 
@@ -362,22 +373,21 @@ void loadInput(){
 int main(int argc, char **argv) {
 	loadInput();
 
-  glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
-  glutInitWindowSize(800, 600);
-  glutInitWindowPosition(-1, -1);
-  glutCreateWindow("Shooting Gallery");
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
+	glutInitWindowSize(750, 750);
+	glutInitWindowPosition(-1, -1);
+	glutCreateWindow("Shooting Gallery");
 
 	/* install callbacks */
-  glutDisplayFunc(display);
-  glutReshapeFunc(reshape);
+	glutDisplayFunc(display);
+	glutReshapeFunc(reshape);
 	glutMotionFunc(motion);
 	glutMouseFunc(mouse);
 	glutKeyboardFunc(key_down);
 	glutSpecialFunc(special_key);
 	//glutKeyboardUpFunc(key_up);
 	glutIdleFunc(idle);
-
 
 	/* Open GL Setup begins here */
 
@@ -397,8 +407,8 @@ int main(int argc, char **argv) {
 	//glEnable(GL_CULL_FACE);
 	// Enable Textures
 	GLuint texture;
-  texture = LoadTexture( "terrain.bmp" );
-  glBindTexture (GL_TEXTURE_2D, texture);
+	texture = LoadTexture( "terrain.bmp" );
+	glBindTexture (GL_TEXTURE_2D, texture);
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 	glEnable(GL_TEXTURE_2D);
 

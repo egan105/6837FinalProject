@@ -12,25 +12,25 @@ Stand::Stand() {
 	/*
 	 * draw basic shape of stand via primitives to a display list
 	 */
-	listid = glGenLists(1);
-	glNewList(listid, GL_COMPILE);
-		glColor3f(0.2f, 0.2f, 0.8f);
-		glPushMatrix();
-			glTranslatef(-5.0f, 0.25f, 0.0f);
-			glScalef(0.5f, 1.0f, 1.0f);
-			glutSolidCube(0.5f);
-		glPopMatrix();
-		glPushMatrix();
-			glTranslatef(5.0f, 0.25f, 0.0f);
-			glScalef(0.5f, 1.0f, 1.0f);
-			glutSolidCube(0.5f);
-		glPopMatrix();
-		glPushMatrix();
-			glTranslatef(0.0f, 0.5f, 0.0f);
-			glScalef(20.501f, 0.5f, 1.0f);
-			glutSolidCube(0.5f);
-		glPopMatrix();
-	glEndList();
+	// listid = glGenLists(1);
+	// glNewList(listid, GL_COMPILE);
+	// 	glColor3f(0.2f, 0.2f, 0.8f);
+	// 	glPushMatrix();
+	// 		glTranslatef(-5.0f, 0.25f, 0.0f);
+	// 		glScalef(0.5f, 1.0f, 1.0f);
+	// 		glutSolidCube(0.5f);
+	// 	glPopMatrix();
+	// 	glPushMatrix();
+	// 		glTranslatef(5.0f, 0.25f, 0.0f);
+	// 		glScalef(0.5f, 1.0f, 1.0f);
+	// 		glutSolidCube(0.5f);
+	// 	glPopMatrix();
+	// 	glPushMatrix();
+	// 		glTranslatef(0.0f, 0.5f, 0.0f);
+	// 		glScalef(20.501f, 0.5f, 1.0f);
+	// 		glutSolidCube(0.5f);
+	// 	glPopMatrix();
+	// glEndList();
 
 	/*
 	 * initialize all of the targets to sane values
@@ -45,36 +45,37 @@ Stand::Stand() {
 	targets[3].radius = 1.0f;
 
 	targets[0].goingRight = false;
-	targets[0].location[0] = -1.5f;
-	targets[0].location[1] = 1.75f;
-	targets[0].location[2] =  0.7f;
-	targets[0].color.r = 0.6f;
-	targets[0].color.g = 0.3f;
+	targets[0].location[0] = 77.7f;
+	targets[0].location[1] = 177.7f;
+	targets[0].location[2] = 77.7f;
+	targets[0].color.r = 1.0f;
+	targets[0].color.g = 0.0f;
 	targets[0].color.b = 0.0f;
-
-	targets[1].goingRight = true;
+	targets[0].rotation = 0;
+	
 	targets[1].location[0] = 1.5f;
 	targets[1].location[1] = 1.75f;
 	targets[1].location[2] =  0.7f;
 	targets[1].color.r = 0.2f;
 	targets[1].color.g = 0.6f;
 	targets[1].color.b = 1.0f;
-
-	targets[2].goingRight = true;
+	targets[1].rotation = 0;
+	
 	targets[2].location[0] = 4.0f;
 	targets[2].location[1] = 1.75f;
 	targets[2].location[2] =  0.7f;
 	targets[2].color.r = 0.7f;
 	targets[2].color.g = 0.5f;
 	targets[2].color.b = 1.0f;
-
-	targets[3].goingRight = false;
+	targets[2].rotation = 0;
+	
 	targets[3].location[0] = -4.0f;
 	targets[3].location[1] = 1.75f;
 	targets[3].location[2] =  0.7f;
 	targets[3].color.r = 0.0f;
 	targets[3].color.g = 0.6f;
 	targets[3].color.b = 0.2f;
+	targets[3].rotation = 0;
 }
 
 void Stand::draw() {
@@ -85,18 +86,18 @@ void Stand::draw() {
 	 * go through each target, attach a name to it and 
 	 * if it is down, flip it down, otherwise draw it standing up.
 	 */
-	for(short i = 0; i < NUM_TARGETS; i++) {
+	for(int i = 0; i < NUM_TARGETS; i++) {
 		glLoadName(i);
 		glPushMatrix();
 			target_t *t = &targets[i];
-			glColor3f(t->color.r, t->color.g, t->color.b);
-			if(t->isDown) {
-				glRotatef(-90, 1, 0, 0); /* TODO This is bad */
+			if(!t->isDown) {
+				t->rotation = (t->rotation + 5) % 360;
 				glTranslatef(t->location[0], t->location[1], t->location[2]);
-			} else {
-				glTranslatef(t->location[0], t->location[1], t->location[2]);
+				glRotatef(t->rotation, 0, 1, 0);
+				glColor3f(t->color.r, t->color.g, t->color.b);
+				t->target.draw();
 			}
-			t->target.draw();
+			
 		glPopMatrix();
 		glPopName();
 	}
@@ -117,9 +118,3 @@ void Stand::step(int time) {
 	// }
 }
 
-void Stand::shoot(int targetId) {
-	/* if we hit something in the range, knock it down */
-	if(targetId >= 0 && targetId <= 3) {
-		targets[targetId].isDown = true;
-	}
-}

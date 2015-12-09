@@ -39,27 +39,38 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.3.1/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/3.3.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.3.1/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/3.3.2/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/tcheyne/6.837/test
+CMAKE_SOURCE_DIR = /Users/ericgan/Documents/6837FinalProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/tcheyne/6.837/test/build
+CMAKE_BINARY_DIR = /Users/ericgan/Documents/6837FinalProject/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.3.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.3.1/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/3.3.2/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -70,7 +81,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/3.3.1/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/3.3.2/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -78,16 +89,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/Cellar/cmake/3.3.1/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.3.2/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.3.2/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -99,39 +111,27 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.3.1/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/Cellar/cmake/3.3.2/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.3.1/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target install/local
+install/local/fast: install/local
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/Cellar/cmake/3.3.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/tcheyne/6.837/test/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/tcheyne/6.837/test/build/CMakeFiles /Users/tcheyne/6.837/test/build/src/CMakeFiles/progress.marks
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tcheyne/6.837/test/build/CMakeFiles 0
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/ericgan/Documents/6837FinalProject/build/CMakeFiles /Users/ericgan/Documents/6837FinalProject/build/src/CMakeFiles/progress.marks
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ericgan/Documents/6837FinalProject/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -141,22 +141,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/tcheyne/6.837/test/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/terrain.dir/rule:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/terrain.dir/rule
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/terrain.dir/rule
 .PHONY : src/CMakeFiles/terrain.dir/rule
 
 # Convenience name for target.
@@ -166,7 +166,7 @@ terrain: src/CMakeFiles/terrain.dir/rule
 
 # fast build rule for target.
 terrain/fast:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/build
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/build
 .PHONY : terrain/fast
 
 Bullet.o: Bullet.cpp.o
@@ -175,7 +175,7 @@ Bullet.o: Bullet.cpp.o
 
 # target to build an object file
 Bullet.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Bullet.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Bullet.cpp.o
 .PHONY : Bullet.cpp.o
 
 Bullet.i: Bullet.cpp.i
@@ -184,7 +184,7 @@ Bullet.i: Bullet.cpp.i
 
 # target to preprocess a source file
 Bullet.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Bullet.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Bullet.cpp.i
 .PHONY : Bullet.cpp.i
 
 Bullet.s: Bullet.cpp.s
@@ -193,7 +193,7 @@ Bullet.s: Bullet.cpp.s
 
 # target to generate assembly for a file
 Bullet.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Bullet.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Bullet.cpp.s
 .PHONY : Bullet.cpp.s
 
 Camera.o: Camera.cpp.o
@@ -202,7 +202,7 @@ Camera.o: Camera.cpp.o
 
 # target to build an object file
 Camera.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Camera.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Camera.cpp.o
 .PHONY : Camera.cpp.o
 
 Camera.i: Camera.cpp.i
@@ -211,7 +211,7 @@ Camera.i: Camera.cpp.i
 
 # target to preprocess a source file
 Camera.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Camera.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Camera.cpp.i
 .PHONY : Camera.cpp.i
 
 Camera.s: Camera.cpp.s
@@ -220,7 +220,7 @@ Camera.s: Camera.cpp.s
 
 # target to generate assembly for a file
 Camera.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Camera.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Camera.cpp.s
 .PHONY : Camera.cpp.s
 
 FirstPersonCamera.o: FirstPersonCamera.cpp.o
@@ -229,7 +229,7 @@ FirstPersonCamera.o: FirstPersonCamera.cpp.o
 
 # target to build an object file
 FirstPersonCamera.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/FirstPersonCamera.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/FirstPersonCamera.cpp.o
 .PHONY : FirstPersonCamera.cpp.o
 
 FirstPersonCamera.i: FirstPersonCamera.cpp.i
@@ -238,7 +238,7 @@ FirstPersonCamera.i: FirstPersonCamera.cpp.i
 
 # target to preprocess a source file
 FirstPersonCamera.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/FirstPersonCamera.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/FirstPersonCamera.cpp.i
 .PHONY : FirstPersonCamera.cpp.i
 
 FirstPersonCamera.s: FirstPersonCamera.cpp.s
@@ -247,7 +247,7 @@ FirstPersonCamera.s: FirstPersonCamera.cpp.s
 
 # target to generate assembly for a file
 FirstPersonCamera.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/FirstPersonCamera.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/FirstPersonCamera.cpp.s
 .PHONY : FirstPersonCamera.cpp.s
 
 Generator.o: Generator.cpp.o
@@ -256,7 +256,7 @@ Generator.o: Generator.cpp.o
 
 # target to build an object file
 Generator.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Generator.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Generator.cpp.o
 .PHONY : Generator.cpp.o
 
 Generator.i: Generator.cpp.i
@@ -265,7 +265,7 @@ Generator.i: Generator.cpp.i
 
 # target to preprocess a source file
 Generator.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Generator.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Generator.cpp.i
 .PHONY : Generator.cpp.i
 
 Generator.s: Generator.cpp.s
@@ -274,7 +274,7 @@ Generator.s: Generator.cpp.s
 
 # target to generate assembly for a file
 Generator.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Generator.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Generator.cpp.s
 .PHONY : Generator.cpp.s
 
 ParticleSystem.o: ParticleSystem.cpp.o
@@ -283,7 +283,7 @@ ParticleSystem.o: ParticleSystem.cpp.o
 
 # target to build an object file
 ParticleSystem.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ParticleSystem.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ParticleSystem.cpp.o
 .PHONY : ParticleSystem.cpp.o
 
 ParticleSystem.i: ParticleSystem.cpp.i
@@ -292,7 +292,7 @@ ParticleSystem.i: ParticleSystem.cpp.i
 
 # target to preprocess a source file
 ParticleSystem.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ParticleSystem.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ParticleSystem.cpp.i
 .PHONY : ParticleSystem.cpp.i
 
 ParticleSystem.s: ParticleSystem.cpp.s
@@ -301,7 +301,7 @@ ParticleSystem.s: ParticleSystem.cpp.s
 
 # target to generate assembly for a file
 ParticleSystem.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ParticleSystem.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ParticleSystem.cpp.s
 .PHONY : ParticleSystem.cpp.s
 
 ProceduralBlock.o: ProceduralBlock.cpp.o
@@ -310,7 +310,7 @@ ProceduralBlock.o: ProceduralBlock.cpp.o
 
 # target to build an object file
 ProceduralBlock.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralBlock.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralBlock.cpp.o
 .PHONY : ProceduralBlock.cpp.o
 
 ProceduralBlock.i: ProceduralBlock.cpp.i
@@ -319,7 +319,7 @@ ProceduralBlock.i: ProceduralBlock.cpp.i
 
 # target to preprocess a source file
 ProceduralBlock.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralBlock.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralBlock.cpp.i
 .PHONY : ProceduralBlock.cpp.i
 
 ProceduralBlock.s: ProceduralBlock.cpp.s
@@ -328,7 +328,7 @@ ProceduralBlock.s: ProceduralBlock.cpp.s
 
 # target to generate assembly for a file
 ProceduralBlock.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralBlock.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralBlock.cpp.s
 .PHONY : ProceduralBlock.cpp.s
 
 ProceduralWorld.o: ProceduralWorld.cpp.o
@@ -337,7 +337,7 @@ ProceduralWorld.o: ProceduralWorld.cpp.o
 
 # target to build an object file
 ProceduralWorld.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralWorld.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralWorld.cpp.o
 .PHONY : ProceduralWorld.cpp.o
 
 ProceduralWorld.i: ProceduralWorld.cpp.i
@@ -346,7 +346,7 @@ ProceduralWorld.i: ProceduralWorld.cpp.i
 
 # target to preprocess a source file
 ProceduralWorld.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralWorld.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralWorld.cpp.i
 .PHONY : ProceduralWorld.cpp.i
 
 ProceduralWorld.s: ProceduralWorld.cpp.s
@@ -355,7 +355,7 @@ ProceduralWorld.s: ProceduralWorld.cpp.s
 
 # target to generate assembly for a file
 ProceduralWorld.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralWorld.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralWorld.cpp.s
 .PHONY : ProceduralWorld.cpp.s
 
 Stand.o: Stand.cpp.o
@@ -364,7 +364,7 @@ Stand.o: Stand.cpp.o
 
 # target to build an object file
 Stand.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Stand.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Stand.cpp.o
 .PHONY : Stand.cpp.o
 
 Stand.i: Stand.cpp.i
@@ -373,7 +373,7 @@ Stand.i: Stand.cpp.i
 
 # target to preprocess a source file
 Stand.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Stand.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Stand.cpp.i
 .PHONY : Stand.cpp.i
 
 Stand.s: Stand.cpp.s
@@ -382,7 +382,7 @@ Stand.s: Stand.cpp.s
 
 # target to generate assembly for a file
 Stand.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Stand.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Stand.cpp.s
 .PHONY : Stand.cpp.s
 
 Target.o: Target.cpp.o
@@ -391,7 +391,7 @@ Target.o: Target.cpp.o
 
 # target to build an object file
 Target.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Target.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Target.cpp.o
 .PHONY : Target.cpp.o
 
 Target.i: Target.cpp.i
@@ -400,7 +400,7 @@ Target.i: Target.cpp.i
 
 # target to preprocess a source file
 Target.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Target.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Target.cpp.i
 .PHONY : Target.cpp.i
 
 Target.s: Target.cpp.s
@@ -409,7 +409,7 @@ Target.s: Target.cpp.s
 
 # target to generate assembly for a file
 Target.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Target.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Target.cpp.s
 .PHONY : Target.cpp.s
 
 World.o: World.cpp.o
@@ -418,7 +418,7 @@ World.o: World.cpp.o
 
 # target to build an object file
 World.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/World.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/World.cpp.o
 .PHONY : World.cpp.o
 
 World.i: World.cpp.i
@@ -427,7 +427,7 @@ World.i: World.cpp.i
 
 # target to preprocess a source file
 World.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/World.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/World.cpp.i
 .PHONY : World.cpp.i
 
 World.s: World.cpp.s
@@ -436,7 +436,7 @@ World.s: World.cpp.s
 
 # target to generate assembly for a file
 World.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/World.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/World.cpp.s
 .PHONY : World.cpp.s
 
 main.o: main.cpp.o
@@ -445,7 +445,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/main.cpp.o
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -454,7 +454,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/main.cpp.i
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -463,7 +463,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/main.cpp.s
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -472,13 +472,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... install/local"
-	@echo "... list_install_components"
 	@echo "... install"
-	@echo "... install/strip"
 	@echo "... terrain"
+	@echo "... list_install_components"
+	@echo "... install/local"
 	@echo "... Bullet.o"
 	@echo "... Bullet.i"
 	@echo "... Bullet.s"
@@ -523,6 +523,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/tcheyne/6.837/test/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

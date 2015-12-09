@@ -46,21 +46,21 @@ Vector3f.h
 Vector4f.h
 ../vecmath/include/Vector4f.h
 
-/Users/tcheyne/6.837/test/src/Bullet.cpp
+/Users/ericgan/Documents/6837FinalProject/src/Bullet.cpp
 Bullet.h
-/Users/tcheyne/6.837/test/src/Bullet.h
+/Users/ericgan/Documents/6837FinalProject/src/Bullet.h
 iostream
 -
 math.h
 -
 
-/Users/tcheyne/6.837/test/src/Bullet.h
+/Users/ericgan/Documents/6837FinalProject/src/Bullet.h
 GLUT/glut.h
 -
 Camera.h
-/Users/tcheyne/6.837/test/src/Camera.h
+/Users/ericgan/Documents/6837FinalProject/src/Camera.h
 
-/Users/tcheyne/6.837/test/src/Camera.cpp
+/Users/ericgan/Documents/6837FinalProject/src/Camera.cpp
 math.h
 -
 assert.h
@@ -72,35 +72,35 @@ vecmath.h
 GLUT/glut.h
 -
 Camera.h
-/Users/tcheyne/6.837/test/src/Camera.h
+/Users/ericgan/Documents/6837FinalProject/src/Camera.h
 Generator.h
-/Users/tcheyne/6.837/test/src/Generator.h
+/Users/ericgan/Documents/6837FinalProject/src/Generator.h
 
-/Users/tcheyne/6.837/test/src/Camera.h
+/Users/ericgan/Documents/6837FinalProject/src/Camera.h
 GLUT/glut.h
 -
 
-/Users/tcheyne/6.837/test/src/Controls.h
+/Users/ericgan/Documents/6837FinalProject/src/Controls.h
 
-/Users/tcheyne/6.837/test/src/FirstPersonCamera.cpp
+/Users/ericgan/Documents/6837FinalProject/src/FirstPersonCamera.cpp
 FirstPersonCamera.h
-/Users/tcheyne/6.837/test/src/FirstPersonCamera.h
+/Users/ericgan/Documents/6837FinalProject/src/FirstPersonCamera.h
 iostream
 -
 
-/Users/tcheyne/6.837/test/src/FirstPersonCamera.h
+/Users/ericgan/Documents/6837FinalProject/src/FirstPersonCamera.h
 GLUT/glut.h
 -
 GL/glut.h
 -
 Controls.h
-/Users/tcheyne/6.837/test/src/Controls.h
+/Users/ericgan/Documents/6837FinalProject/src/Controls.h
 vecmath.h
 -
 
-/Users/tcheyne/6.837/test/src/Generator.cpp
+/Users/ericgan/Documents/6837FinalProject/src/Generator.cpp
 Generator.h
-/Users/tcheyne/6.837/test/src/Generator.h
+/Users/ericgan/Documents/6837FinalProject/src/Generator.h
 iostream
 -
 math.h
@@ -110,9 +110,9 @@ stdio.h
 stdlib.h
 -
 
-/Users/tcheyne/6.837/test/src/Generator.h
+/Users/ericgan/Documents/6837FinalProject/src/Generator.h
 
-/Users/tcheyne/6.837/test/src/ParticleSystem.cpp
+/Users/ericgan/Documents/6837FinalProject/src/ParticleSystem.cpp
 math.h
 -
 iostream
@@ -120,17 +120,17 @@ iostream
 GLUT/glut.h
 -
 ParticleSystem.h
-/Users/tcheyne/6.837/test/src/ParticleSystem.h
+/Users/ericgan/Documents/6837FinalProject/src/ParticleSystem.h
 
-/Users/tcheyne/6.837/test/src/ParticleSystem.h
+/Users/ericgan/Documents/6837FinalProject/src/ParticleSystem.h
 GLUT/glut.h
 -
 vector
 -
 
-/Users/tcheyne/6.837/test/src/ProceduralBlock.cpp
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralBlock.cpp
 ProceduralBlock.h
-/Users/tcheyne/6.837/test/src/ProceduralBlock.h
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralBlock.h
 math.h
 -
 vecmath.h
@@ -138,19 +138,19 @@ vecmath.h
 iostream
 -
 
-/Users/tcheyne/6.837/test/src/ProceduralBlock.h
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralBlock.h
 GLUT/glut.h
 -
 GL/glut.h
 -
 Generator.h
-/Users/tcheyne/6.837/test/src/Generator.h
+/Users/ericgan/Documents/6837FinalProject/src/Generator.h
 vecmath.h
 -
 
-/Users/tcheyne/6.837/test/src/ProceduralWorld.cpp
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralWorld.cpp
 ProceduralWorld.h
-/Users/tcheyne/6.837/test/src/ProceduralWorld.h
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralWorld.h
 iostream
 -
 GLUT/glut.h
@@ -158,41 +158,41 @@ GLUT/glut.h
 GL/glut.h
 -
 
-/Users/tcheyne/6.837/test/src/ProceduralWorld.h
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralWorld.h
 ProceduralBlock.h
-/Users/tcheyne/6.837/test/src/ProceduralBlock.h
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralBlock.h
 Camera.h
-/Users/tcheyne/6.837/test/src/Camera.h
+/Users/ericgan/Documents/6837FinalProject/src/Camera.h
 
-/Users/tcheyne/6.837/test/src/Stand.cpp
+/Users/ericgan/Documents/6837FinalProject/src/Stand.cpp
 GLUT/glut.h
 -
 iostream
 -
 Stand.h
-/Users/tcheyne/6.837/test/src/Stand.h
+/Users/ericgan/Documents/6837FinalProject/src/Stand.h
 Target.h
-/Users/tcheyne/6.837/test/src/Target.h
+/Users/ericgan/Documents/6837FinalProject/src/Target.h
 
-/Users/tcheyne/6.837/test/src/Stand.h
+/Users/ericgan/Documents/6837FinalProject/src/Stand.h
 GLUT/glut.h
 -
 Target.h
-/Users/tcheyne/6.837/test/src/Target.h
+/Users/ericgan/Documents/6837FinalProject/src/Target.h
 
-/Users/tcheyne/6.837/test/src/Target.cpp
+/Users/ericgan/Documents/6837FinalProject/src/Target.cpp
 Target.h
-/Users/tcheyne/6.837/test/src/Target.h
+/Users/ericgan/Documents/6837FinalProject/src/Target.h
 
-/Users/tcheyne/6.837/test/src/Target.h
+/Users/ericgan/Documents/6837FinalProject/src/Target.h
 GLUT/glut.h
 -
 
-/Users/tcheyne/6.837/test/src/TextureLoader.h
+/Users/ericgan/Documents/6837FinalProject/src/TextureLoader.h
 stdlib.h
 -
 
-/Users/tcheyne/6.837/test/src/World.cpp
+/Users/ericgan/Documents/6837FinalProject/src/World.cpp
 math.h
 -
 iostream
@@ -200,11 +200,11 @@ iostream
 GLUT/glut.h
 -
 World.h
-/Users/tcheyne/6.837/test/src/World.h
+/Users/ericgan/Documents/6837FinalProject/src/World.h
 Stand.h
-/Users/tcheyne/6.837/test/src/Stand.h
+/Users/ericgan/Documents/6837FinalProject/src/Stand.h
 
-/Users/tcheyne/6.837/test/src/World.h
+/Users/ericgan/Documents/6837FinalProject/src/World.h
 GLUT/glut.h
 -
 vector
@@ -212,15 +212,15 @@ vector
 Camera.h
 /Users/tcheyne/6.837/test/src/Camera.h
 Bullet.h
-/Users/tcheyne/6.837/test/src/Bullet.h
+/Users/ericgan/Documents/6837FinalProject/src/Bullet.h
 Camera.h
-/Users/tcheyne/6.837/test/src/Camera.h
+/Users/ericgan/Documents/6837FinalProject/src/Camera.h
 Stand.h
-/Users/tcheyne/6.837/test/src/Stand.h
+/Users/ericgan/Documents/6837FinalProject/src/Stand.h
 ParticleSystem.h
-/Users/tcheyne/6.837/test/src/ParticleSystem.h
+/Users/ericgan/Documents/6837FinalProject/src/ParticleSystem.h
 
-/Users/tcheyne/6.837/test/src/main.cpp
+/Users/ericgan/Documents/6837FinalProject/src/main.cpp
 iostream
 -
 math.h
@@ -234,15 +234,21 @@ fstream
 GLUT/glut.h
 -
 TextureLoader.h
-/Users/tcheyne/6.837/test/src/TextureLoader.h
+/Users/ericgan/Documents/6837FinalProject/src/TextureLoader.h
 Controls.h
+<<<<<<< HEAD
 /Users/tcheyne/6.837/test/src/Controls.h
+=======
+/Users/ericgan/Documents/6837FinalProject/src/Controls.h
+FirstPersonCamera.h
+/Users/ericgan/Documents/6837FinalProject/src/FirstPersonCamera.h
+>>>>>>> 32ef4564c4093c218b61e50e779a7da38f38e874
 Camera.h
-/Users/tcheyne/6.837/test/src/Camera.h
+/Users/ericgan/Documents/6837FinalProject/src/Camera.h
 World.h
-/Users/tcheyne/6.837/test/src/World.h
+/Users/ericgan/Documents/6837FinalProject/src/World.h
 Target.h
-/Users/tcheyne/6.837/test/src/Target.h
+/Users/ericgan/Documents/6837FinalProject/src/Target.h
 ProceduralWorld.h
-/Users/tcheyne/6.837/test/src/ProceduralWorld.h
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralWorld.h
 

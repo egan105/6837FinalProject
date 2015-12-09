@@ -20,5 +20,6 @@ Target::Target() {
 }
 
 void Target::draw() {
+	glNormal3f( 0.0,  0.0, 1.0);
 	glCallList(listid);
 }

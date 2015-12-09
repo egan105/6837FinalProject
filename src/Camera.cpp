@@ -11,7 +11,7 @@ Camera::Camera(void) {
 	width = height = 1;
 
 	location[0] = 0.0f;		// x
-	location[1] = 200.0f;		// y
+	location[1] = 195.0f;		// y
 	location[2] = 0.0f;	// z
 
 	lookAt[0] = 0.0f;	// x

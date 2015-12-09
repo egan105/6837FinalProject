@@ -88,7 +88,7 @@ void World::step(int time) {
 			indices.push_back(i);
 		}
 
-		b->step(time);
+		b->step(time, gscale, wscale);
 		for(int j = 0; j < NUM_TARGETS;j ++) {
 			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.75f;
 			bool leftRange = b->loc[0] <= stand->targets[j].location[0] + stand->targets[j].radius;
@@ -100,7 +100,6 @@ void World::step(int time) {
 					ps->newExplosion(stand->targets[j].location);
 					particleSystems.push_back(ps);
 					stand->targets[j].isDown = true;
-					stand->targets[j].location[1] = 1.20f;
 					indices.push_back(i);
 				}
 			}
@@ -131,6 +130,13 @@ bool World::inWorld(Bullet *b) {
 	}
 
 	return false;
+}
+
+void World::reset(){
+	for(int i = 0; i < NUM_TARGETS; i++) {
+		stand->targets[i].isDown = false;
+		
+	}
 }
 
 void World::adjustWind(float t, bool zero){

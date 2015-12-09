@@ -15,6 +15,7 @@ typedef struct {
 	float xOffset;
 	float radius;
 	float location[3];
+	int rotation;
 	struct color_t {
 		GLfloat r, g, b;
 	} color;

@@ -4,13 +4,13 @@
 vecmath/CMakeFiles/vecmath.dir/src/Matrix2f.cpp.o
  ../vecmath/include/Matrix2f.h
  ../vecmath/include/Vector2f.h
- /Users/tcheyne/6.837/test/vecmath/src/Matrix2f.cpp
+ /Users/ericgan/Documents/6837FinalProject/vecmath/src/Matrix2f.cpp
 vecmath/CMakeFiles/vecmath.dir/src/Matrix3f.cpp.o
  ../vecmath/include/Matrix2f.h
  ../vecmath/include/Matrix3f.h
  ../vecmath/include/Quat4f.h
  ../vecmath/include/Vector3f.h
- /Users/tcheyne/6.837/test/vecmath/src/Matrix3f.cpp
+ /Users/ericgan/Documents/6837FinalProject/vecmath/src/Matrix3f.cpp
 vecmath/CMakeFiles/vecmath.dir/src/Matrix4f.cpp.o
  ../vecmath/include/Matrix2f.h
  ../vecmath/include/Matrix3f.h
@@ -18,23 +18,23 @@ vecmath/CMakeFiles/vecmath.dir/src/Matrix4f.cpp.o
  ../vecmath/include/Quat4f.h
  ../vecmath/include/Vector3f.h
  ../vecmath/include/Vector4f.h
- /Users/tcheyne/6.837/test/vecmath/src/Matrix4f.cpp
+ /Users/ericgan/Documents/6837FinalProject/vecmath/src/Matrix4f.cpp
 vecmath/CMakeFiles/vecmath.dir/src/Quat4f.cpp.o
  ../vecmath/include/Matrix3f.h
  ../vecmath/include/Quat4f.h
  ../vecmath/include/Vector3f.h
  ../vecmath/include/Vector4f.h
- /Users/tcheyne/6.837/test/vecmath/src/Quat4f.cpp
+ /Users/ericgan/Documents/6837FinalProject/vecmath/src/Quat4f.cpp
 vecmath/CMakeFiles/vecmath.dir/src/Vector2f.cpp.o
  ../vecmath/include/Vector2f.h
  ../vecmath/include/Vector3f.h
- /Users/tcheyne/6.837/test/vecmath/src/Vector2f.cpp
+ /Users/ericgan/Documents/6837FinalProject/vecmath/src/Vector2f.cpp
 vecmath/CMakeFiles/vecmath.dir/src/Vector3f.cpp.o
  ../vecmath/include/Vector2f.h
  ../vecmath/include/Vector3f.h
- /Users/tcheyne/6.837/test/vecmath/src/Vector3f.cpp
+ /Users/ericgan/Documents/6837FinalProject/vecmath/src/Vector3f.cpp
 vecmath/CMakeFiles/vecmath.dir/src/Vector4f.cpp.o
  ../vecmath/include/Vector2f.h
  ../vecmath/include/Vector3f.h
  ../vecmath/include/Vector4f.h
- /Users/tcheyne/6.837/test/vecmath/src/Vector4f.cpp
+ /Users/ericgan/Documents/6837FinalProject/vecmath/src/Vector4f.cpp
