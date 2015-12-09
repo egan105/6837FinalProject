@@ -2,10 +2,13 @@
 #include <assert.h>
 #include <stdio.h>
 #include <vecmath.h>
+#include <iostream>
 
 #include <GLUT/glut.h>
 #include "Camera.h"
 #include "Generator.h"
+
+using namespace std;
 
 Camera::Camera(void) {
 	width = height = 1;
@@ -14,9 +17,11 @@ Camera::Camera(void) {
 	location[1] = 200.0f;		// y
 	location[2] = 0.0f;	// z
 
-	lookAt[0] = 0.0f;	// x
+	lookAt[0] = 10.0f;	// x
 	lookAt[1] = 200.0f;	// y
 	lookAt[2] = 10.0f;	// z
+
+	follow = false;
 }
 
 float Camera::x() {
@@ -86,4 +91,13 @@ void Camera::yaw(float amount) {
 
 void Camera::pitch(float amount) {
 	lookAt[1] += amount;
+}
+
+void Camera::reset() {
+	location[0] = locCache[0];
+	location[1] = locCache[1];
+	location[2] = locCache[2];
+	lookAt[0] = lookCache[0];
+	lookAt[1] = lookCache[1];
+	lookAt[2] = lookCache[2];
 }

@@ -6,7 +6,6 @@ src/CMakeFiles/terrain.dir/Bullet.cpp.o
  /Users/ericgan/Documents/6837FinalProject/src/Bullet.h
  /Users/ericgan/Documents/6837FinalProject/src/Camera.h
 src/CMakeFiles/terrain.dir/Camera.cpp.o
-<<<<<<< HEAD
  ../vecmath/include/Matrix2f.h
  ../vecmath/include/Matrix3f.h
  ../vecmath/include/Matrix4f.h
@@ -15,14 +14,9 @@ src/CMakeFiles/terrain.dir/Camera.cpp.o
  ../vecmath/include/Vector3f.h
  ../vecmath/include/Vector4f.h
  ../vecmath/include/vecmath.h
- /Users/tcheyne/6.837/test/src/Camera.cpp
- /Users/tcheyne/6.837/test/src/Camera.h
- /Users/tcheyne/6.837/test/src/Generator.h
-=======
  /Users/ericgan/Documents/6837FinalProject/src/Camera.cpp
  /Users/ericgan/Documents/6837FinalProject/src/Camera.h
  /Users/ericgan/Documents/6837FinalProject/src/Generator.h
->>>>>>> 32ef4564c4093c218b61e50e779a7da38f38e874
 src/CMakeFiles/terrain.dir/FirstPersonCamera.cpp.o
  ../vecmath/include/Matrix2f.h
  ../vecmath/include/Matrix3f.h
@@ -91,25 +85,11 @@ src/CMakeFiles/terrain.dir/main.cpp.o
  ../vecmath/include/Vector3f.h
  ../vecmath/include/Vector4f.h
  ../vecmath/include/vecmath.h
-<<<<<<< HEAD
- /Users/tcheyne/6.837/test/src/Bullet.h
- /Users/tcheyne/6.837/test/src/Camera.h
- /Users/tcheyne/6.837/test/src/Controls.h
- /Users/tcheyne/6.837/test/src/Generator.h
- /Users/tcheyne/6.837/test/src/ParticleSystem.h
- /Users/tcheyne/6.837/test/src/ProceduralBlock.h
- /Users/tcheyne/6.837/test/src/ProceduralWorld.h
- /Users/tcheyne/6.837/test/src/Stand.h
- /Users/tcheyne/6.837/test/src/Target.h
- /Users/tcheyne/6.837/test/src/TextureLoader.h
- /Users/tcheyne/6.837/test/src/World.h
- /Users/tcheyne/6.837/test/src/main.cpp
-=======
  /Users/ericgan/Documents/6837FinalProject/src/Bullet.h
  /Users/ericgan/Documents/6837FinalProject/src/Camera.h
  /Users/ericgan/Documents/6837FinalProject/src/Controls.h
- /Users/ericgan/Documents/6837FinalProject/src/FirstPersonCamera.h
  /Users/ericgan/Documents/6837FinalProject/src/Generator.h
+ /Users/ericgan/Documents/6837FinalProject/src/ObjectLoader.h
  /Users/ericgan/Documents/6837FinalProject/src/ParticleSystem.h
  /Users/ericgan/Documents/6837FinalProject/src/ProceduralBlock.h
  /Users/ericgan/Documents/6837FinalProject/src/ProceduralWorld.h
@@ -118,4 +98,3 @@ src/CMakeFiles/terrain.dir/main.cpp.o
  /Users/ericgan/Documents/6837FinalProject/src/TextureLoader.h
  /Users/ericgan/Documents/6837FinalProject/src/World.h
  /Users/ericgan/Documents/6837FinalProject/src/main.cpp
->>>>>>> 32ef4564c4093c218b61e50e779a7da38f38e874

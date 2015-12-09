@@ -39,6 +39,9 @@ public:
 	/* turn along the Y axis by the given amount */
     void pitch(float amount);
 
+    /* reset camera to cached values */
+    void reset();
+
     float x();
 
     float y();
@@ -46,7 +49,9 @@ public:
     float z();
 
     /* x/y/z location and look-at points */
-	GLfloat location[3], lookAt[3];
+	GLfloat location[3], lookAt[3], locCache[3], lookCache[3];
+
+	bool follow;
 
 protected:
 

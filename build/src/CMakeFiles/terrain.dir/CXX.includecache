@@ -69,6 +69,8 @@ stdio.h
 -
 vecmath.h
 -
+iostream
+-
 GLUT/glut.h
 -
 Camera.h
@@ -111,6 +113,8 @@ stdlib.h
 -
 
 /Users/ericgan/Documents/6837FinalProject/src/Generator.h
+
+/Users/ericgan/Documents/6837FinalProject/src/ObjectLoader.h
 
 /Users/ericgan/Documents/6837FinalProject/src/ParticleSystem.cpp
 math.h
@@ -210,7 +214,7 @@ GLUT/glut.h
 vector
 -
 Camera.h
-/Users/tcheyne/6.837/test/src/Camera.h
+/Users/ericgan/Documents/6837FinalProject/src/Camera.h
 Bullet.h
 /Users/ericgan/Documents/6837FinalProject/src/Bullet.h
 Camera.h
@@ -236,13 +240,7 @@ GLUT/glut.h
 TextureLoader.h
 /Users/ericgan/Documents/6837FinalProject/src/TextureLoader.h
 Controls.h
-<<<<<<< HEAD
-/Users/tcheyne/6.837/test/src/Controls.h
-=======
 /Users/ericgan/Documents/6837FinalProject/src/Controls.h
-FirstPersonCamera.h
-/Users/ericgan/Documents/6837FinalProject/src/FirstPersonCamera.h
->>>>>>> 32ef4564c4093c218b61e50e779a7da38f38e874
 Camera.h
 /Users/ericgan/Documents/6837FinalProject/src/Camera.h
 World.h
@@ -251,4 +249,6 @@ Target.h
 /Users/ericgan/Documents/6837FinalProject/src/Target.h
 ProceduralWorld.h
 /Users/ericgan/Documents/6837FinalProject/src/ProceduralWorld.h
+ObjectLoader.h
+/Users/ericgan/Documents/6837FinalProject/src/ObjectLoader.h
 

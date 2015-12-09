@@ -88,6 +88,7 @@ src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Bullet.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Camera.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Controls.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Generator.h
+src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ObjectLoader.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ParticleSystem.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ProceduralBlock.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ProceduralWorld.h
