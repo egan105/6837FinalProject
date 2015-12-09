@@ -69,6 +69,8 @@ stdio.h
 -
 vecmath.h
 -
+iostream
+-
 GLUT/glut.h
 -
 Camera.h
@@ -100,11 +102,17 @@ Seed.h
 
 /Users/tcheyne/6.837/test/src/ObjectLoader.h
 
+<<<<<<< HEAD
+/Users/ericgan/Documents/6837FinalProject/src/ObjectLoader.h
+
+/Users/ericgan/Documents/6837FinalProject/src/ParticleSystem.cpp
+=======
 /Users/tcheyne/6.837/test/src/Overlay.h
 TextureLoader.h
 /Users/tcheyne/6.837/test/src/TextureLoader.h
 
 /Users/tcheyne/6.837/test/src/ParticleSystem.cpp
+>>>>>>> 4e06f0742d273958f73f205a68ec6ca9782f4461
 math.h
 -
 iostream
@@ -204,7 +212,7 @@ GLUT/glut.h
 vector
 -
 Camera.h
-/Users/tcheyne/6.837/test/src/Camera.h
+/Users/ericgan/Documents/6837FinalProject/src/Camera.h
 Bullet.h
 /Users/tcheyne/6.837/test/src/Bullet.h
 Camera.h
@@ -234,7 +242,11 @@ Seed.h
 TextureLoader.h
 /Users/tcheyne/6.837/test/src/TextureLoader.h
 Controls.h
+<<<<<<< HEAD
+/Users/ericgan/Documents/6837FinalProject/src/Controls.h
+=======
 /Users/tcheyne/6.837/test/src/Controls.h
+>>>>>>> 4e06f0742d273958f73f205a68ec6ca9782f4461
 Camera.h
 /Users/tcheyne/6.837/test/src/Camera.h
 World.h
@@ -242,7 +254,13 @@ World.h
 Target.h
 /Users/tcheyne/6.837/test/src/Target.h
 ProceduralWorld.h
+<<<<<<< HEAD
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralWorld.h
+ObjectLoader.h
+/Users/ericgan/Documents/6837FinalProject/src/ObjectLoader.h
+=======
 /Users/tcheyne/6.837/test/src/ProceduralWorld.h
 ObjectLoader.h
 /Users/tcheyne/6.837/test/src/ObjectLoader.h
+>>>>>>> 4e06f0742d273958f73f205a68ec6ca9782f4461
 

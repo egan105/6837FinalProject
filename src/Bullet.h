@@ -11,6 +11,7 @@ public:
 	void draw();
     void step(int time, float g, float w);
     float loc[3];
+    bool follow;
 private:
 	float dir[3];
 	float clock;

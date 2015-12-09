@@ -45,6 +45,7 @@ long lastTime;
 int countVar = 0;
 int rate = 10;
 bool firing = false;
+bool follow = false;
 
 void safeExit() {
 	delete camera;
@@ -73,6 +74,35 @@ void display(void) {
 
 	world->draw();
 
+<<<<<<< HEAD
+	if(!camera-follow && follow) follow = false;
+	if(!follow) {
+		if(zoom == 0) {
+			glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
+			glRotatef(-45, 0, 1, 0);
+			glScalef(0.01f,0.01f,0.01f);
+			// glRotatef(-camera->lookAt[0], 0, 1, 0);
+			// glRotatef(camera->lookAt[1], 0, 0, 1);
+			for(unsigned int j=0; j < ak47->vecf.size(); j++) {
+			    vector<unsigned> indices = ak47->vecf[j];
+			    int a = indices[0];
+			    int c = indices[2];
+			    int d = indices[3];
+			    int f = indices[5];
+			    int g = indices[6];
+			    int i = indices[8];
+
+		      glBegin(GL_TRIANGLES);
+			    glNormal3d(ak47->vecn[c-1][0], ak47->vecn[c-1][1], ak47->vecn[c-1][2]);
+			    glVertex3d(ak47->vecv[a-1][0], ak47->vecv[a-1][1], ak47->vecv[a-1][2]);
+			    glNormal3d(ak47->vecn[f-1][0], ak47->vecn[f-1][1], ak47->vecn[f-1][2]);
+			    glVertex3d(ak47->vecv[d-1][0], ak47->vecv[d-1][1], ak47->vecv[d-1][2]);
+			    glNormal3d(ak47->vecn[i-1][0], ak47->vecn[i-1][1], ak47->vecn[i-1][2]);
+			    glVertex3d(ak47->vecv[g-1][0], ak47->vecv[g-1][1], ak47->vecv[g-1][2]);
+			    glEnd();
+		    }
+		    glPopMatrix();
+=======
 	if(zoom == 0) {
 		glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
 		glRotatef(-45, 0, 1, 0);
@@ -137,61 +167,99 @@ void display(void) {
 		{
 	 		glVertex2f(center + scaleLarge * cos(2.0f*M_PI*i / num_segments),
 	 			center + scaleLarge * sin(2.0f*M_PI*i / num_segments));
+>>>>>>> 4e06f0742d273958f73f205a68ec6ca9782f4461
 		}
-		glEnd();
-		largeReticle = false;
-	} else if(!largeReticle && zoom == 0) {
-		glBegin(GL_LINES);
-		glVertex2f(0.475, 0.5);
-		glVertex2f(0.49, 0.5);
-		glVertex2f(0.51, 0.5);
-		glVertex2f(0.525, 0.5);
-		glVertex2f(0.5, 0.475);
-		glVertex2f(0.5, 0.49);
-		glVertex2f(0.5, 0.51);
-		glVertex2f(0.5, 0.525);
-		glEnd();
 
-		glBegin(GL_POINTS);
-	 	for(int i = 0; i < num_segments; ++i)
-		{
-	 		glVertex2f(center + scaleOrig * cos(2.0f*M_PI*i / num_segments), center + scaleOrig * sin(2*M_PI*i / num_segments));
+		/*
+		 * Draw the crosshair in ortho2d mode
+		 */
+		glColor3f(0.0, 0.0, 0.0);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		gluOrtho2D(0, 1, 0, 1);
+
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		glLineWidth(2);
+
+		int num_segments = 1000;
+		float center = 0.5f;
+		float scaleLarge = 1.5f / 50;
+		float scaleOrig = 1.0f / 50;
+
+		if(largeReticle && zoom == 0) {
+			glBegin(GL_LINES);
+			glVertex2f(0.46, 0.5);
+			glVertex2f(0.48, 0.5);
+			glVertex2f(0.52, 0.5);
+			glVertex2f(0.54, 0.5);
+			glVertex2f(0.5, 0.46);
+			glVertex2f(0.5, 0.48);
+			glVertex2f(0.5, 0.52);
+			glVertex2f(0.5, 0.54);
+			glEnd();
+
+			glBegin(GL_POINTS);
+		 	for(int i = 0; i < num_segments; ++i)
+			{
+		 		glVertex2f(center + scaleLarge * cos(2.0f*M_PI*i / num_segments),
+		 			center + scaleLarge * sin(2.0f*M_PI*i / num_segments));
+			}
+			glEnd();
+			largeReticle = false;
+		} else if(!largeReticle && zoom == 0) {
+			glBegin(GL_LINES);
+			glVertex2f(0.475, 0.5);
+			glVertex2f(0.49, 0.5);
+			glVertex2f(0.51, 0.5);
+			glVertex2f(0.525, 0.5);
+			glVertex2f(0.5, 0.475);
+			glVertex2f(0.5, 0.49);
+			glVertex2f(0.5, 0.51);
+			glVertex2f(0.5, 0.525);
+			glEnd();
+
+			glBegin(GL_POINTS);
+		 	for(int i = 0; i < num_segments; ++i)
+			{
+		 		glVertex2f(center + scaleOrig * cos(2.0f*M_PI*i / num_segments), center + scaleOrig * sin(2*M_PI*i / num_segments));
+			}
+			glEnd();
 		}
-		glEnd();
-	}
 
-	if(zoom != 0){
-		glLineWidth(0.25f);
-		glBegin(GL_LINES);
-		glVertex2f(0.5, 1.0);
-		glVertex2f(0.5, 0.0);
-		glVertex2f(0.0, 0.5);
-		glVertex2f(1.0, 0.5);
-		glEnd();
+		if(zoom != 0){
+			glLineWidth(0.25f);
+			glBegin(GL_LINES);
+			glVertex2f(0.5, 1.0);
+			glVertex2f(0.5, 0.0);
+			glVertex2f(0.0, 0.5);
+			glVertex2f(1.0, 0.5);
+			glEnd();
 
-	    glScalef(0.5f,0.5f,1.0f);
-	    int slices = 20;
-	    glBegin(GL_QUADS);
-	    for(unsigned int j = 0; j < slices; ++j) {
-	        float curAngle = ((j + 0) / (float)slices) * M_PI;
-	        float nxtAngle = ((j + 1) / (float)slices) * M_PI;
-	        glVertex2f(1.0f + sin(curAngle), 1.0f + cos(curAngle));
-	        glVertex2f(2.0f, 1.0f + cos(curAngle));
-	        glVertex2f(2.0f, 1.0f + cos(nxtAngle));
-	        glVertex2f(1.0f + sin(nxtAngle), 1.0f + cos(nxtAngle));
-	    }
-	    glEnd();
+		    glScalef(0.5f,0.5f,1.0f);
+		    int slices = 20;
+		    glBegin(GL_QUADS);
+		    for(unsigned int j = 0; j < slices; ++j) {
+		        float curAngle = ((j + 0) / (float)slices) * M_PI;
+		        float nxtAngle = ((j + 1) / (float)slices) * M_PI;
+		        glVertex2f(1.0f + sin(curAngle), 1.0f + cos(curAngle));
+		        glVertex2f(2.0f, 1.0f + cos(curAngle));
+		        glVertex2f(2.0f, 1.0f + cos(nxtAngle));
+		        glVertex2f(1.0f + sin(nxtAngle), 1.0f + cos(nxtAngle));
+		    }
+		    glEnd();
 
-	    glBegin(GL_QUADS);
-	    for(unsigned int j = slices; j < 2*slices; ++j) {
-	        float curAngle = ((j + 0) / (float)slices) * M_PI;
-	        float nxtAngle = ((j + 1) / (float)slices) * M_PI;
-	        glVertex2f(1.0f + sin(curAngle), 1.0f + cos(curAngle));
-	        glVertex2f(0.0f, 1.0f + cos(curAngle));
-	        glVertex2f(0.0f, 1.0f + cos(nxtAngle));
-	        glVertex2f(1.0f + sin(nxtAngle), 1.0f + cos(nxtAngle));
-	    }
-	    glEnd();
+		    glBegin(GL_QUADS);
+		    for(unsigned int j = slices; j < 2*slices; ++j) {
+		        float curAngle = ((j + 0) / (float)slices) * M_PI;
+		        float nxtAngle = ((j + 1) / (float)slices) * M_PI;
+		        glVertex2f(1.0f + sin(curAngle), 1.0f + cos(curAngle));
+		        glVertex2f(0.0f, 1.0f + cos(curAngle));
+		        glVertex2f(0.0f, 1.0f + cos(nxtAngle));
+		        glVertex2f(1.0f + sin(nxtAngle), 1.0f + cos(nxtAngle));
+		    }
+		    glEnd();
+		}
 	}
 
 	/*
@@ -201,10 +269,8 @@ void display(void) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	float scale = zoom != 0 ? 0.5 / zoom : 1.0;
+
 	camera->applyProjection(scale);
-	// camera->location[0] = 77.0f;
-	// camera->location[1] = 177.7f;
-	// camera->location[2] = 77.0f;
 
 	// drawOverlay();
 
@@ -212,8 +278,19 @@ void display(void) {
 }
 
 void fire() {
-	world->shoot(camera);
 	largeReticle = true;
+	if(camera->follow) {
+		follow = true;
+		largeReticle = false;
+		zoom = 0;
+		camera->locCache[0] = camera->location[0];
+		camera->locCache[1] = camera->location[1];
+		camera->locCache[2] = camera->location[2];
+		camera->lookCache[0] = camera->lookAt[0];
+		camera->lookCache[1] = camera->lookAt[1];
+		camera->lookCache[2] = camera->lookAt[2];
+	}
+	world->shoot(camera);
 
     glutPostRedisplay();
 }
@@ -253,6 +330,8 @@ void key_down(unsigned char key, int x, int y) {
 		case 's': camera->walk(-MOVE_SPEED); break;
 		case 'A':
 		case 'a': camera->strafe(-MOVE_SPEED); break;
+		case 'C':
+		case 'c': camera->follow = !camera->follow; break;
 		case 'D':
 		case 'd': camera->strafe(MOVE_SPEED); break;
 		case 'R':

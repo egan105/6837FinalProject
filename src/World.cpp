@@ -93,6 +93,15 @@ void World::step(int time) {
 			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.75f;
 			bool leftRange = b->loc[0] <= stand->targets[j].location[0] + stand->targets[j].radius;
 			bool rightRange = b->loc[0] >= stand->targets[j].location[0] - stand->targets[j].radius;
+			if(i == 0) {
+				if(camera->follow && b->follow) {
+					camera->location[0] = b->loc[0] - 0.2f;
+					camera->location[1] = b->loc[1] - 0.2f;
+					camera->location[2] = b->loc[2] - 0.2f;
+					camera->lookAt[0] += 1.0f;
+					camera->lookAt[2] += 1.0f;
+				}
+			}
 
 			if (zLoc && leftRange && rightRange && !stand->targets[j].isDown) {
 				if (pow(stand->targets[j].location[0] - b->loc[0],2) + pow(stand->targets[j].location[1] - b->loc[1],2) < pow(stand->targets[j].radius,2)){
@@ -101,6 +110,10 @@ void World::step(int time) {
 					particleSystems.push_back(ps);
 					stand->targets[j].isDown = true;
 					indices.push_back(i);
+					if(camera->follow) {
+						camera->follow = false;
+						camera->reset();
+					}
 				}
 			}
 		}
@@ -117,6 +130,7 @@ void World::step(int time) {
 
 void World::shoot(Camera *camera) {
 	Bullet * b = new Bullet(camera);
+	if(camera->follow) b->follow = true;
 	bullets.push_back(b);
 }
 

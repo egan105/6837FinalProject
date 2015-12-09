@@ -16,6 +16,8 @@ Bullet::Bullet(Camera *camera) {
 	dir[2] = (camera->lookAt[2] - loc[2]) / absolute;
 
 	clock = 0;
+
+	follow = false;
 }
 
 void Bullet::draw() {
