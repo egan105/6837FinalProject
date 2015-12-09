@@ -14,6 +14,7 @@ World::World(Camera* camera) {
 	 * draw basic shape of world via primitives to a display list
 	 */
 	this->camera = camera;
+	trace = false;
 
 	stand = new Stand();
 }
@@ -125,7 +126,7 @@ void World::step(int time) {
 						camera->hit = true;
 					}
 				}
-			} else if(yLoc) {
+			} else if(yLoc && trace) {
 				ParticleSystem *ps = new ParticleSystem();
 				ps->newExplosion(b->loc);
 				ps->label = true;

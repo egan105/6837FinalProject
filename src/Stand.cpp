@@ -61,21 +61,21 @@ Stand::Stand() {
 	targets[1].color.b = 1.0f;
 	targets[1].rotation = 0;
 
-	targets[2].location[0] = 4.0f;
-	targets[2].location[1] = 1.75f;
-	targets[2].location[2] =  0.7f;
-	targets[2].color.r = 0.7f;
-	targets[2].color.g = 0.5f;
-	targets[2].color.b = 1.0f;
-	targets[2].rotation = 0;
+	// targets[2].location[0] = 4.0f;
+	// targets[2].location[1] = 1.75f;
+	// targets[2].location[2] =  0.7f;
+	// targets[2].color.r = 0.7f;
+	// targets[2].color.g = 0.5f;
+	// targets[2].color.b = 1.0f;
+	// targets[2].rotation = 0;
 
-	targets[3].location[0] = -4.0f;
-	targets[3].location[1] = 1.75f;
-	targets[3].location[2] =  0.7f;
-	targets[3].color.r = 0.0f;
-	targets[3].color.g = 0.6f;
-	targets[3].color.b = 0.2f;
-	targets[3].rotation = 0;
+	// targets[3].location[0] = -4.0f;
+	// targets[3].location[1] = 1.75f;
+	// targets[3].location[2] =  0.7f;
+	// targets[3].color.r = 0.0f;
+	// targets[3].color.g = 0.6f;
+	// targets[3].color.b = 0.2f;
+	// targets[3].rotation = 0;
 }
 
 void Stand::draw() {

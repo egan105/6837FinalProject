@@ -25,6 +25,7 @@ public:
 	void reset();
 	void adjustWind(float t,bool zero);
 	void adjustGravity(float t);
+	bool trace;
 private:
 	GLuint listid;
 	std::vector<Bullet*> bullets;

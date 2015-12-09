@@ -12,9 +12,11 @@ public:
     void step(int time, float g, float w);
     float loc[3];
     bool follow;
+    int rotation;
 private:
 	float dir[3];
 	float clock;
+	float wscale;
 };
 
 #endif /*BULLET_H_*/

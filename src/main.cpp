@@ -277,6 +277,8 @@ void key_down(unsigned char key, int x, int y) {
 		case 'd': camera->strafe(MOVE_SPEED); break;
 		case 'R':
 		case 'r': world->reset(); break;
+		case 'T':
+		case 't': world->trace = !world->trace; break;
 		case 'Z':
 		case 'z': zoom = (zoom + 1) % 3; break;
 		case 'G':
