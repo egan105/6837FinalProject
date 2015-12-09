@@ -38,8 +38,12 @@ vector<vector<float> > vecv;
 // This is the list of normals (also 3D vectors)
 vector<vector<float> > vecn;
 
+vector<vector<float> > vect;
+
 // This is the list of faces (indices into vecv and vecn)
 vector<vector<unsigned> > vecf;
+
+Texture tex;
 
 bool clicked;
 bool largeReticle;
@@ -86,18 +90,28 @@ void display(void) {
 		for(unsigned int j=0; j < vecf.size(); j++) {
 		    vector<unsigned> indices = vecf[j];
 		    int a = indices[0];
+		    int b = indices[1];
 		    int c = indices[2];
 		    int d = indices[3];
+		    int e = indices[4];
 		    int f = indices[5];
 		    int g = indices[6];
+		    int h = indices[7];
 		    int i = indices[8];
+
+		    Vector3f c1 = tex.getTexel(vect[b-1][0],vect[b-1][1]);
+		    Vector3f c2 = tex.getTexel(vect[e-1][0],vect[e-1][1]);
+		    Vector3f c3 = tex.getTexel(vect[h-1][0],vect[h-1][1]);
 
 	      glBegin(GL_TRIANGLES);
 		    glNormal3d(vecn[c-1][0], vecn[c-1][1], vecn[c-1][2]);
+		    glColor3f(c1[0],c1[1],c1[2]);
 		    glVertex3d(vecv[a-1][0], vecv[a-1][1], vecv[a-1][2]);
 		    glNormal3d(vecn[f-1][0], vecn[f-1][1], vecn[f-1][2]);
+		    glColor3f(c2[0],c2[1],c2[2]);
 		    glVertex3d(vecv[d-1][0], vecv[d-1][1], vecv[d-1][2]);
 		    glNormal3d(vecn[i-1][0], vecn[i-1][1], vecn[i-1][2]);
+		    glColor3f(c3[0],c3[1],c3[2]);
 		    glVertex3d(vecv[g-1][0], vecv[g-1][1], vecv[g-1][2]);
 		    glEnd();
 	    }
@@ -322,8 +336,10 @@ void idle() {
 }
 
 void loadInput(){
+  tex = new Texture();
+  tex.load("awp_khaki_texture.jpg");
   string line;
-  ifstream myfile("AK.obj");
+  ifstream myfile("AWPv2.obj");
   if (myfile.is_open()){
     while ( getline (myfile,line) ){
 
@@ -346,6 +362,11 @@ void loadInput(){
 	      vec.push_back(v[1]);
 	      vec.push_back(v[2]);
 	      vecn.push_back(vec);
+	    } else if (s == "vt") {
+	      ss >> v[0] >> v[1];
+	      vec.push_back(v[0]);
+	      vec.push_back(-1 * v[1]);
+	      vect.push_back(vec);
 	    } else if (s == "f") {
 	      vector<unsigned> faces;
 
