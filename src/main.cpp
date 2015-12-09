@@ -36,12 +36,7 @@ ProceduralWorld* terrain;
 
 Object *ak47;
 
-<<<<<<< HEAD
 int RAND_SEED = rand() % 8898783 + 1;
-=======
-Texture tex;
-
->>>>>>> 31c3f9d491207b6b2da6e74cd7e28824d3d1de26
 bool clicked;
 bool largeReticle;
 int zoom = 0;
@@ -126,19 +121,12 @@ void display(void) {
 		    int h = indices[7];
 		    int i = indices[8];
 
-		    Vector3f c1 = tex.getTexel(vect[b-1][0],vect[b-1][1]);
-		    Vector3f c2 = tex.getTexel(vect[e-1][0],vect[e-1][1]);
-		    Vector3f c3 = tex.getTexel(vect[h-1][0],vect[h-1][1]);
-
 	      glBegin(GL_TRIANGLES);
 		    glNormal3d(ak47->vecn[c-1][0], ak47->vecn[c-1][1], ak47->vecn[c-1][2]);
-		    glColor3f(c1[0],c1[1],c1[2]);
 		    glVertex3d(ak47->vecv[a-1][0], ak47->vecv[a-1][1], ak47->vecv[a-1][2]);
 		    glNormal3d(ak47->vecn[f-1][0], ak47->vecn[f-1][1], ak47->vecn[f-1][2]);
-		    glColor3f(c2[0],c2[1],c2[2]);
 		    glVertex3d(ak47->vecv[d-1][0], ak47->vecv[d-1][1], ak47->vecv[d-1][2]);
 		    glNormal3d(ak47->vecn[i-1][0], ak47->vecn[i-1][1], ak47->vecn[i-1][2]);
-		    glColor3f(c3[0],c3[1],c3[2]);
 		    glVertex3d(ak47->vecv[g-1][0], ak47->vecv[g-1][1], ak47->vecv[g-1][2]);
 		    glEnd();
 	    }
@@ -284,7 +272,7 @@ void display(void) {
 
 	camera->applyProjection(scale);
 
-	drawOverlay();
+	// drawOverlay();
 
 	glutSwapBuffers();
 }
@@ -428,13 +416,7 @@ void idle() {
 }
 
 int main(int argc, char **argv) {
-<<<<<<< HEAD
-	ak47 = loadInput("tree_oak.obj");
-=======
-	ak47 = loadInput("AWPv2.obj");
-	tex = new Texture();
-    tex.load("awp_khaki_texture.jpg");
->>>>>>> 31c3f9d491207b6b2da6e74cd7e28824d3d1de26
+	ak47 = loadInput("AK.obj");
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
