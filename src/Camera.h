@@ -41,6 +41,8 @@ public:
 
     float x();
 
+    float y();
+
     float z();
 
     /* x/y/z location and look-at points */
