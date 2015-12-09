@@ -21,21 +21,21 @@ Stand::Stand() {
 	targets[2].radius = 1.0f;
 	targets[3].radius = 1.0f;
 
-	targets[0].goingRight = false;
-	targets[0].location[0] = 202.2f;
-	targets[0].location[1] = 148.6f;
-	targets[0].location[2] = 202.2f;
-	targets[0].color.r = 1.0f;
-	targets[0].color.g = 0.0f;
-	targets[0].color.b = 0.0f;
-	targets[0].rotation = 0;
+	// targets[0].goingRight = false;
+	// targets[0].location[0] = 202.2f;
+	// targets[0].location[1] = 148.6f;
+	// targets[0].location[2] = 202.2f;
+	// targets[0].color.r = 1.0f;
+	// targets[0].color.g = 0.0f;
+	// targets[0].color.b = 0.0f;
+	// targets[0].rotation = 0;
 
 	targets[1].location[0] = 202.2f;
 	targets[1].location[1] = 152.6f;
 	targets[1].location[2] = 202.2f;
-	targets[1].color.r = 0.2f;
-	targets[1].color.g = 0.6f;
-	targets[1].color.b = 1.0f;
+	targets[1].color.r = 1.0f;
+	targets[1].color.g = 0.0f;
+	targets[1].color.b = 0.0f;
 	targets[1].rotation = 0;
 
 	// targets[2].location[0] = 4.0f;

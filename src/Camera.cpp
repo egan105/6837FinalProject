@@ -96,8 +96,9 @@ void Camera::spin(float amount) {
 	lookAt[0] = location[0] + direction.x();
 	lookAt[2] = location[2] + direction.z();
 }
+
 void Camera::yaw(float amount) {
-	lookAt[0] += amount;
+	spin(amount);
 }
 
 void Camera::pitch(float amount) {

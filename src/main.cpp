@@ -47,7 +47,7 @@ int countVar = 0;
 int rate = 10;
 bool firing = false;
 bool follow = false;
-int counter = 250;
+int counter = 150;
 
 void safeExit() {
 	delete camera;
@@ -79,7 +79,7 @@ void display(void) {
 	if(!camera->follow && follow && camera->hit && counter == 0) {
 		follow = false;
 		camera->reset();
-		counter = 250;
+		counter = 150;
 	} else if (camera->hit && follow && counter > 0) {
 		counter -= 1;
 	} else if (!camera->follow && follow && !camera->hit) {
