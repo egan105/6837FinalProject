@@ -10,29 +10,6 @@ using namespace std;
 
 Stand::Stand() {
 	/*
-	 * draw basic shape of stand via primitives to a display list
-	 */
-	// listid = glGenLists(1);
-	// glNewList(listid, GL_COMPILE);
-	// 	glColor3f(0.2f, 0.2f, 0.8f);
-	// 	glPushMatrix();
-	// 		glTranslatef(-5.0f, 0.25f, 0.0f);
-	// 		glScalef(0.5f, 1.0f, 1.0f);
-	// 		glutSolidCube(0.5f);
-	// 	glPopMatrix();
-	// 	glPushMatrix();
-	// 		glTranslatef(5.0f, 0.25f, 0.0f);
-	// 		glScalef(0.5f, 1.0f, 1.0f);
-	// 		glutSolidCube(0.5f);
-	// 	glPopMatrix();
-	// 	glPushMatrix();
-	// 		glTranslatef(0.0f, 0.5f, 0.0f);
-	// 		glScalef(20.501f, 0.5f, 1.0f);
-	// 		glutSolidCube(0.5f);
-	// 	glPopMatrix();
-	// glEndList();
-
-	/*
 	 * initialize all of the targets to sane values
 	 */
 	targets[0].isDown = false;

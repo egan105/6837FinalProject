@@ -32,7 +32,7 @@ void Bullet::draw() {
 	}
 
 	glPushMatrix();
-	glColor3f(0.5, 0.5, 0.5);
+	glColor3f(1.0, 0.0, 0.0);
 	glTranslatef(loc[0] + 1.0f * dir[0], loc[1] + 1.0f * dir[1], loc[2] + 1.0f * dir[2]);
 	glRotatef(rotation, 0, 1, 0); 
 	if((int)wscale != 0) {
@@ -40,7 +40,7 @@ void Bullet::draw() {
 	}
 	glutSolidSphere(0.05f, 7.0f, 7.0f);
 	glPopMatrix();
-	
+
 }
 
 void Bullet::step(int time, float gscale, float wscale) {
@@ -56,4 +56,3 @@ void Bullet::step(int time, float gscale, float wscale) {
 	wscale = wscale;
 	clock += dt;
 }
-

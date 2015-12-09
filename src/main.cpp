@@ -36,6 +36,7 @@ ProceduralWorld* terrain;
 
 Object *ak47;
 
+float WATER_LEVEL = 5.0f;
 int RAND_SEED = rand() % 8898783 + 1;
 bool clicked;
 bool largeReticle;
@@ -66,6 +67,7 @@ void display(void) {
 	camera->apply();
 
 	terrain->initialize_new_blocks();
+	terrain->delete_distant_blocks();
 	terrain->draw();
 
 
@@ -244,6 +246,12 @@ void special_key(int key, int x, int y) {
 		case GLUT_KEY_DOWN:
 			camera->fly(-MOVE_SPEED);
 			break;
+		case GLUT_KEY_LEFT:
+			camera->spin(MOVE_SPEED);
+			break;
+		case GLUT_KEY_RIGHT:
+			camera->spin(-MOVE_SPEED);
+			break;
 		default:
 			break;
 	}
@@ -258,7 +266,7 @@ void rebuild_terrain() {
 	camera->lookAt[0] = 10.0f;	// x
 	camera->lookAt[1] = 200.0f;	// y
 	camera->lookAt[2] = 10.0f;	// z
-	ProceduralWorld* newTerrain = new ProceduralWorld(10);
+	ProceduralWorld* newTerrain = new ProceduralWorld(256, camera);
 	terrain = newTerrain;
 }
 
@@ -289,6 +297,8 @@ void key_down(unsigned char key, int x, int y) {
 		case '-': world->adjustWind(-1,false);break;
 		case '=': world->adjustWind(1,false);break;
 		case '0': world->adjustWind(0,true);break;
+		case '5': WATER_LEVEL -= 1.0f; break;
+		case '6': WATER_LEVEL += 1.0f; break;
 		case 27: safeExit(); break;
 		default:
 			cout << "[main] Unknown keypress [" << key << "]\n";
@@ -298,7 +308,7 @@ void key_down(unsigned char key, int x, int y) {
 
 void motion(int x, int y) {
 	if(clicked) {
-		float dX = (float) (curX - x) / MOUSE_SCALE;
+		float dX = (float) (curX- x) / MOUSE_SCALE;
 		float dY = (float) (curY - y) / MOUSE_SCALE;
 		camera->yaw(dX);
 		camera->pitch(dY);
@@ -306,7 +316,7 @@ void motion(int x, int y) {
 		curY = y;
 	}
 
-    glutPostRedisplay();
+  glutPostRedisplay();
 }
 
 void mouse(int button, int state, int x, int y) {
@@ -431,7 +441,7 @@ int main(int argc, char **argv) {
 
 	camera = new Camera();
 	world = new World(camera);
-	terrain = new ProceduralWorld(10);
+	terrain = new ProceduralWorld(256, camera);
 
   glutMainLoop();
   return 0;

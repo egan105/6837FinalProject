@@ -3,11 +3,16 @@
 
 using namespace std;
 
+#if __APPLE__
 #include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
 
 #include "Generator.h"
 #include "World.h"
 #include "Stand.h"
+#include "Seed.h"
 
 World::World(Camera* camera) {
 	/*
@@ -24,50 +29,58 @@ World::~World() {
 }
 
 void World::draw() {
-	int x_max = WORLD_MAX;
-	int z_max = WORLD_MAX;
+	int x_max = (int) camera->location[0] + WORLD_MAX;
+	int z_max = (int) camera->location[2] + WORLD_MAX;
+	int x_min = (int) camera->location[0] - WORLD_MAX;
+	int z_min = (int) camera->location[2] - WORLD_MAX;
 	glBegin(GL_QUADS);
-		glColor3f(0.4f,0.7f,1.0f);		// front
-		glNormal3f(0.0f, 0.0f, 1.0f);
-		glVertex3f( -x_max, -WORLD_MAX, z_max);
-		glVertex3f( -x_max, WORLD_MAX, z_max);
+		// front
+		glNormal3f(0.0f, 0.0f, -1.0f);
+		glColor3f(0.4f,0.7f,1.0f);
+		glVertex3f( x_max, -10, z_max);
 		glVertex3f( x_max, WORLD_MAX, z_max);
-		glVertex3f( x_max, -WORLD_MAX, z_max);
+		glVertex3f( x_min, WORLD_MAX, z_max);
+		glVertex3f( x_min, -10, z_max);
 
-		glColor3f(0.4f,0.7f,1.0f);		// back
+		// back
 		glNormal3f(0.0f, 0.0f, 1.0f);
-		glVertex3f( -x_max, -WORLD_MAX, -z_max);
-		glVertex3f( -x_max, WORLD_MAX, -z_max);
-		glVertex3f( x_max, WORLD_MAX, -z_max);
-		glVertex3f( x_max, -WORLD_MAX, -z_max);
+		glColor3f(0.4f,0.7f,1.0f);
+		glVertex3f( x_min, -10, z_min);
+		glVertex3f( x_min, WORLD_MAX, z_min);
+		glVertex3f( x_max, WORLD_MAX, z_min);
+		glVertex3f( x_max, -10, z_min);
 
-		glColor3f(0.4f,0.7f,1.0f);		// left
-		glNormal3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(-x_max,-WORLD_MAX, z_max);
-		glVertex3f(-x_max,-WORLD_MAX, -z_max);
-		glVertex3f(-x_max, WORLD_MAX, -z_max);
-		glVertex3f(-x_max, WORLD_MAX, z_max);
-
-		glColor3f(0.4f,0.7f,1.0f);		// left
-		glNormal3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(x_max,-WORLD_MAX, z_max);
-		glVertex3f(x_max,-WORLD_MAX, -z_max);
-		glVertex3f(x_max, WORLD_MAX, -z_max);
+		// left
+		glNormal3f(-1.0f, 0.0f, 0.0f);
+		glColor3f(0.4f,0.7f,1.0f);
+		glVertex3f(x_max, -10, z_min);
+		glVertex3f(x_max, WORLD_MAX, z_min);
 		glVertex3f(x_max, WORLD_MAX, z_max);
+		glVertex3f(x_max, -10, z_max);
 
-		glColor3f(0.4f,0.7f,1.0f);		// top
+		// right
+		glNormal3f(1.0f, 0.0f, 0.0f);
+		glColor3f(0.4f,0.7f,1.0f);
+		glVertex3f(x_min, -10, z_max);
+		glVertex3f(x_min, WORLD_MAX, z_max);
+		glVertex3f(x_min, WORLD_MAX, z_min);
+		glVertex3f(x_min, -10, z_min);
+
+		// top
 		glNormal3f(0.0f, -1.0f, 0.0f);
-		glVertex3f(-x_max, WORLD_MAX, z_max);
+		glColor3f(0.4f, 0.7f, 1.0f);
 		glVertex3f( x_max, WORLD_MAX, z_max);
-		glVertex3f( x_max, WORLD_MAX, -z_max);
-		glVertex3f(-x_max, WORLD_MAX, -z_max);
+		glVertex3f( x_max, WORLD_MAX, z_min);
+		glVertex3f( x_min, WORLD_MAX, z_min);
+		glVertex3f( x_min, WORLD_MAX, z_max);
 
-		glColor3f(0.0f, 0.0f, 1.0f);		// bottom
+		// bottom
 		glNormal3f(0.0f, 1.0f, 0.0f);
-		glVertex3f(-x_max, 5.0f, z_max);
-		glVertex3f( x_max, 5.0f, z_max);
-		glVertex3f( x_max, 5.0f, -z_max);
-		glVertex3f(-x_max, 5.0f, -z_max);
+		glColor3f(0.0f, 0.0f, 1.0f);
+		glVertex3f( x_max, WATER_LEVEL, z_max);
+		glVertex3f( x_min, WATER_LEVEL, z_max);
+		glVertex3f( x_min, WATER_LEVEL, z_min);
+		glVertex3f( x_max, WATER_LEVEL, z_min);
 	glEnd();
 	stand->draw();
 	for(int i = 0; i < bullets.size(); i++) {

@@ -195,12 +195,16 @@ iostream
 -
 GLUT/glut.h
 -
+GL/glut.h
+-
 Generator.h
 /Users/ericgan/Documents/6837FinalProject/src/Generator.h
 World.h
 /Users/ericgan/Documents/6837FinalProject/src/World.h
 Stand.h
 /Users/ericgan/Documents/6837FinalProject/src/Stand.h
+Seed.h
+/Users/ericgan/Documents/6837FinalProject/src/Seed.h
 
 /Users/ericgan/Documents/6837FinalProject/src/World.h
 GLUT/glut.h
