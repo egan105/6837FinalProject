@@ -169,6 +169,276 @@ terrain/fast:
 	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/build
 .PHONY : terrain/fast
 
+Bullet.o: Bullet.cpp.o
+
+.PHONY : Bullet.o
+
+# target to build an object file
+Bullet.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Bullet.cpp.o
+.PHONY : Bullet.cpp.o
+
+Bullet.i: Bullet.cpp.i
+
+.PHONY : Bullet.i
+
+# target to preprocess a source file
+Bullet.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Bullet.cpp.i
+.PHONY : Bullet.cpp.i
+
+Bullet.s: Bullet.cpp.s
+
+.PHONY : Bullet.s
+
+# target to generate assembly for a file
+Bullet.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Bullet.cpp.s
+.PHONY : Bullet.cpp.s
+
+Camera.o: Camera.cpp.o
+
+.PHONY : Camera.o
+
+# target to build an object file
+Camera.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Camera.cpp.o
+.PHONY : Camera.cpp.o
+
+Camera.i: Camera.cpp.i
+
+.PHONY : Camera.i
+
+# target to preprocess a source file
+Camera.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Camera.cpp.i
+.PHONY : Camera.cpp.i
+
+Camera.s: Camera.cpp.s
+
+.PHONY : Camera.s
+
+# target to generate assembly for a file
+Camera.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Camera.cpp.s
+.PHONY : Camera.cpp.s
+
+Generator.o: Generator.cpp.o
+
+.PHONY : Generator.o
+
+# target to build an object file
+Generator.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Generator.cpp.o
+.PHONY : Generator.cpp.o
+
+Generator.i: Generator.cpp.i
+
+.PHONY : Generator.i
+
+# target to preprocess a source file
+Generator.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Generator.cpp.i
+.PHONY : Generator.cpp.i
+
+Generator.s: Generator.cpp.s
+
+.PHONY : Generator.s
+
+# target to generate assembly for a file
+Generator.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Generator.cpp.s
+.PHONY : Generator.cpp.s
+
+ParticleSystem.o: ParticleSystem.cpp.o
+
+.PHONY : ParticleSystem.o
+
+# target to build an object file
+ParticleSystem.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ParticleSystem.cpp.o
+.PHONY : ParticleSystem.cpp.o
+
+ParticleSystem.i: ParticleSystem.cpp.i
+
+.PHONY : ParticleSystem.i
+
+# target to preprocess a source file
+ParticleSystem.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ParticleSystem.cpp.i
+.PHONY : ParticleSystem.cpp.i
+
+ParticleSystem.s: ParticleSystem.cpp.s
+
+.PHONY : ParticleSystem.s
+
+# target to generate assembly for a file
+ParticleSystem.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ParticleSystem.cpp.s
+.PHONY : ParticleSystem.cpp.s
+
+ProceduralBlock.o: ProceduralBlock.cpp.o
+
+.PHONY : ProceduralBlock.o
+
+# target to build an object file
+ProceduralBlock.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralBlock.cpp.o
+.PHONY : ProceduralBlock.cpp.o
+
+ProceduralBlock.i: ProceduralBlock.cpp.i
+
+.PHONY : ProceduralBlock.i
+
+# target to preprocess a source file
+ProceduralBlock.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralBlock.cpp.i
+.PHONY : ProceduralBlock.cpp.i
+
+ProceduralBlock.s: ProceduralBlock.cpp.s
+
+.PHONY : ProceduralBlock.s
+
+# target to generate assembly for a file
+ProceduralBlock.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralBlock.cpp.s
+.PHONY : ProceduralBlock.cpp.s
+
+ProceduralWorld.o: ProceduralWorld.cpp.o
+
+.PHONY : ProceduralWorld.o
+
+# target to build an object file
+ProceduralWorld.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralWorld.cpp.o
+.PHONY : ProceduralWorld.cpp.o
+
+ProceduralWorld.i: ProceduralWorld.cpp.i
+
+.PHONY : ProceduralWorld.i
+
+# target to preprocess a source file
+ProceduralWorld.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralWorld.cpp.i
+.PHONY : ProceduralWorld.cpp.i
+
+ProceduralWorld.s: ProceduralWorld.cpp.s
+
+.PHONY : ProceduralWorld.s
+
+# target to generate assembly for a file
+ProceduralWorld.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/ProceduralWorld.cpp.s
+.PHONY : ProceduralWorld.cpp.s
+
+Stand.o: Stand.cpp.o
+
+.PHONY : Stand.o
+
+# target to build an object file
+Stand.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Stand.cpp.o
+.PHONY : Stand.cpp.o
+
+Stand.i: Stand.cpp.i
+
+.PHONY : Stand.i
+
+# target to preprocess a source file
+Stand.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Stand.cpp.i
+.PHONY : Stand.cpp.i
+
+Stand.s: Stand.cpp.s
+
+.PHONY : Stand.s
+
+# target to generate assembly for a file
+Stand.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Stand.cpp.s
+.PHONY : Stand.cpp.s
+
+Target.o: Target.cpp.o
+
+.PHONY : Target.o
+
+# target to build an object file
+Target.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Target.cpp.o
+.PHONY : Target.cpp.o
+
+Target.i: Target.cpp.i
+
+.PHONY : Target.i
+
+# target to preprocess a source file
+Target.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Target.cpp.i
+.PHONY : Target.cpp.i
+
+Target.s: Target.cpp.s
+
+.PHONY : Target.s
+
+# target to generate assembly for a file
+Target.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/Target.cpp.s
+.PHONY : Target.cpp.s
+
+World.o: World.cpp.o
+
+.PHONY : World.o
+
+# target to build an object file
+World.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/World.cpp.o
+.PHONY : World.cpp.o
+
+World.i: World.cpp.i
+
+.PHONY : World.i
+
+# target to preprocess a source file
+World.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/World.cpp.i
+.PHONY : World.cpp.i
+
+World.s: World.cpp.s
+
+.PHONY : World.s
+
+# target to generate assembly for a file
+World.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/World.cpp.s
+.PHONY : World.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f src/CMakeFiles/terrain.dir/build.make src/CMakeFiles/terrain.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -182,6 +452,36 @@ help:
 	@echo "... terrain"
 	@echo "... list_install_components"
 	@echo "... install/local"
+	@echo "... Bullet.o"
+	@echo "... Bullet.i"
+	@echo "... Bullet.s"
+	@echo "... Camera.o"
+	@echo "... Camera.i"
+	@echo "... Camera.s"
+	@echo "... Generator.o"
+	@echo "... Generator.i"
+	@echo "... Generator.s"
+	@echo "... ParticleSystem.o"
+	@echo "... ParticleSystem.i"
+	@echo "... ParticleSystem.s"
+	@echo "... ProceduralBlock.o"
+	@echo "... ProceduralBlock.i"
+	@echo "... ProceduralBlock.s"
+	@echo "... ProceduralWorld.o"
+	@echo "... ProceduralWorld.i"
+	@echo "... ProceduralWorld.s"
+	@echo "... Stand.o"
+	@echo "... Stand.i"
+	@echo "... Stand.s"
+	@echo "... Target.o"
+	@echo "... Target.i"
+	@echo "... Target.s"
+	@echo "... World.o"
+	@echo "... World.i"
+	@echo "... World.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

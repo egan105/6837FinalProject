@@ -52,6 +52,7 @@ public:
 	GLfloat location[3], lookAt[3], locCache[3], lookCache[3];
 
 	bool follow;
+	bool hit;
 
 protected:
 

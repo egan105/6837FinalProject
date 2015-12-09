@@ -31,8 +31,8 @@ private:
 	std::vector<int> indices;
 	Stand *stand;
 	vector<ParticleSystem *> particleSystems;
-	float gscale =1.0f;
-	float wscale =0.0f;
+	float gscale = 1.0f;
+	float wscale = 0.0f;
 	Camera* camera;
 };
 

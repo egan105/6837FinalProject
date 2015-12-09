@@ -34,6 +34,8 @@ public:
 	void draw();
 	void step();
 	int getFuel();
+	bool label;
+	float loc[3];
 private:
 	particle particles[NUM_PARTICLES];
 	debrisData debris[NUM_DEBRIS];

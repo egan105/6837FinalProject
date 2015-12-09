@@ -46,6 +46,7 @@ int countVar = 0;
 int rate = 10;
 bool firing = false;
 bool follow = false;
+int counter = 250;
 
 void safeExit() {
 	delete camera;
@@ -73,9 +74,15 @@ void display(void) {
 	glPushName(-1);
 
 	world->draw();
-
-<<<<<<< HEAD
-	if(!camera-follow && follow) follow = false;
+	if(!camera->follow && follow && camera->hit && counter == 0) {
+		follow = false;
+		camera->reset();
+		counter = 250;
+	} else if (camera->hit && follow && counter > 0) {
+		counter -= 1;
+	} else if (!camera->follow && follow && !camera->hit) {
+		follow = false;
+	}
 	if(!follow) {
 		if(zoom == 0) {
 			glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
@@ -102,72 +109,6 @@ void display(void) {
 			    glEnd();
 		    }
 		    glPopMatrix();
-=======
-	if(zoom == 0) {
-		glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
-		glRotatef(-45, 0, 1, 0);
-		glScalef(0.001f,0.001f,0.001f);
-		// glRotatef(-camera->lookAt[0], 0, 1, 0);
-		// glRotatef(camera->lookAt[1], 0, 0, 1);
-		for(unsigned int j=0; j < ak47->vecf.size(); j++) {
-		    vector<unsigned> indices = ak47->vecf[j];
-		    int a = indices[0];
-		    int b = indices[1];
-		    int c = indices[2];
-		    int d = indices[3];
-		    int e = indices[4];
-		    int f = indices[5];
-		    int g = indices[6];
-		    int h = indices[7];
-		    int i = indices[8];
-
-	      glBegin(GL_TRIANGLES);
-		    glNormal3d(ak47->vecn[c-1][0], ak47->vecn[c-1][1], ak47->vecn[c-1][2]);
-		    glVertex3d(ak47->vecv[a-1][0], ak47->vecv[a-1][1], ak47->vecv[a-1][2]);
-		    glNormal3d(ak47->vecn[f-1][0], ak47->vecn[f-1][1], ak47->vecn[f-1][2]);
-		    glVertex3d(ak47->vecv[d-1][0], ak47->vecv[d-1][1], ak47->vecv[d-1][2]);
-		    glNormal3d(ak47->vecn[i-1][0], ak47->vecn[i-1][1], ak47->vecn[i-1][2]);
-		    glVertex3d(ak47->vecv[g-1][0], ak47->vecv[g-1][1], ak47->vecv[g-1][2]);
-		    glEnd();
-	    }
-	    glPopMatrix();
-	}
-
-	/*
-	 * Draw the crosshair in ortho2d mode
-	 */
-	glColor3f(0.0, 0.0, 0.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(0, 1, 0, 1);
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glLineWidth(2);
-
-	int num_segments = 1000;
-	float center = 0.5f;
-	float scaleLarge = 1.5f / 50;
-	float scaleOrig = 1.0f / 50;
-
-	if(largeReticle && zoom == 0) {
-		glBegin(GL_LINES);
-		glVertex2f(0.46, 0.5);
-		glVertex2f(0.48, 0.5);
-		glVertex2f(0.52, 0.5);
-		glVertex2f(0.54, 0.5);
-		glVertex2f(0.5, 0.46);
-		glVertex2f(0.5, 0.48);
-		glVertex2f(0.5, 0.52);
-		glVertex2f(0.5, 0.54);
-		glEnd();
-
-		glBegin(GL_POINTS);
-	 	for(int i = 0; i < num_segments; ++i)
-		{
-	 		glVertex2f(center + scaleLarge * cos(2.0f*M_PI*i / num_segments),
-	 			center + scaleLarge * sin(2.0f*M_PI*i / num_segments));
->>>>>>> 4e06f0742d273958f73f205a68ec6ca9782f4461
 		}
 
 		/*

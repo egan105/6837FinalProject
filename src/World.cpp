@@ -5,6 +5,7 @@ using namespace std;
 
 #include <GLUT/glut.h>
 
+#include "Generator.h"
 #include "World.h"
 #include "Stand.h"
 
@@ -83,24 +84,33 @@ void World::step(int time) {
 	for(int i = 0; i < bullets.size(); i++) {
 		Bullet * b = bullets[i];
 
-		// Remove balls that hit the walls
-		if(!inWorld(b)) {
+		// // Remove balls that hit the walls
+		// if(!inWorld(b)) {
+		// 	indices.push_back(i);
+		// 	if(camera->follow && b->follow) {
+		// 		camera->reset();
+		// 	}
+		// }
+
+		if(b->loc[1] <= generate_y(b->loc[0], b->loc[2]) + 1.0f) {
 			indices.push_back(i);
+			if(camera->follow && b->follow) {
+				camera->reset();
+			}
 		}
 
 		b->step(time, gscale, wscale);
 		for(int j = 0; j < NUM_TARGETS;j ++) {
 			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.75f;
+			bool yLoc = fabs(b->loc[1] - stand->targets[j].location[1]) < 0.75f;
 			bool leftRange = b->loc[0] <= stand->targets[j].location[0] + stand->targets[j].radius;
 			bool rightRange = b->loc[0] >= stand->targets[j].location[0] - stand->targets[j].radius;
-			if(i == 0) {
-				if(camera->follow && b->follow) {
-					camera->location[0] = b->loc[0] - 0.2f;
-					camera->location[1] = b->loc[1] - 0.2f;
-					camera->location[2] = b->loc[2] - 0.2f;
-					camera->lookAt[0] += 1.0f;
-					camera->lookAt[2] += 1.0f;
-				}
+			if(camera->follow && b->follow) {
+				camera->location[0] = b->loc[0] - 0.2f;
+				camera->location[1] = b->loc[1] - 0.2f;
+				camera->location[2] = b->loc[2] - 0.2f;
+				camera->lookAt[0] += 1.0f;
+				camera->lookAt[2] += 1.0f;
 			}
 
 			if (zLoc && leftRange && rightRange && !stand->targets[j].isDown) {
@@ -112,9 +122,17 @@ void World::step(int time) {
 					indices.push_back(i);
 					if(camera->follow) {
 						camera->follow = false;
-						camera->reset();
+						camera->hit = true;
 					}
 				}
+			} else if(yLoc) {
+				ParticleSystem *ps = new ParticleSystem();
+				ps->newExplosion(b->loc);
+				ps->label = true;
+				ps->loc[0] = b->loc[0];
+				ps->loc[1] = b->loc[1];
+				ps->loc[2] = b->loc[2];
+				particleSystems.push_back(ps);
 			}
 		}
 	}
