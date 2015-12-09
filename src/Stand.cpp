@@ -48,12 +48,11 @@ Stand::Stand() {
 	targets[0].location[0] = 77.7f;
 	targets[0].location[1] = 177.7f;
 	targets[0].location[2] = 77.7f;
-	targets[0].color.r = 0.6f;
-	targets[0].color.g = 0.3f;
+	targets[0].color.r = 1.0f;
+	targets[0].color.g = 0.0f;
 	targets[0].color.b = 0.0f;
 	targets[0].rotation = 0;
-
-	targets[1].goingRight = true;
+	
 	targets[1].location[0] = 1.5f;
 	targets[1].location[1] = 1.75f;
 	targets[1].location[2] =  0.7f;
@@ -61,8 +60,7 @@ Stand::Stand() {
 	targets[1].color.g = 0.6f;
 	targets[1].color.b = 1.0f;
 	targets[1].rotation = 0;
-
-	targets[2].goingRight = true;
+	
 	targets[2].location[0] = 4.0f;
 	targets[2].location[1] = 1.75f;
 	targets[2].location[2] =  0.7f;
@@ -70,8 +68,7 @@ Stand::Stand() {
 	targets[2].color.g = 0.5f;
 	targets[2].color.b = 1.0f;
 	targets[2].rotation = 0;
-
-	targets[3].goingRight = false;
+	
 	targets[3].location[0] = -4.0f;
 	targets[3].location[1] = 1.75f;
 	targets[3].location[2] =  0.7f;
@@ -89,20 +86,18 @@ void Stand::draw() {
 	 * go through each target, attach a name to it and 
 	 * if it is down, flip it down, otherwise draw it standing up.
 	 */
-	for(short i = 0; i < NUM_TARGETS; i++) {
+	for(int i = 0; i < NUM_TARGETS; i++) {
 		glLoadName(i);
 		glPushMatrix();
 			target_t *t = &targets[i];
-			glColor3f(t->color.r, t->color.g, t->color.b);
-			if(t->isDown) {
-				glRotatef(-90, 1, 0, 0); /* TODO This is bad */
-				glTranslatef(t->location[0], t->location[1], t->location[2]);
-			} else {
+			if(!t->isDown) {
 				t->rotation = (t->rotation + 5) % 360;
 				glTranslatef(t->location[0], t->location[1], t->location[2]);
 				glRotatef(t->rotation, 0, 1, 0);
+				glColor3f(t->color.r, t->color.g, t->color.b);
+				t->target.draw();
 			}
-			t->target.draw();
+			
 		glPopMatrix();
 		glPopName();
 	}
@@ -123,9 +118,3 @@ void Stand::step(int time) {
 	// }
 }
 
-void Stand::shoot(int targetId) {
-	/* if we hit something in the range, knock it down */
-	if(targetId >= 0 && targetId <= 3) {
-		targets[targetId].isDown = true;
-	}
-}

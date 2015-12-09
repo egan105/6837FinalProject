@@ -44,7 +44,7 @@ vector<vector<unsigned> > vecf;
 
 bool clicked;
 bool largeReticle;
-bool zoom = false;
+int zoom = 0;
 int curX, curY;
 long lastTime;
 int countVar = 0;
@@ -92,9 +92,10 @@ void display(void) {
 
 	world->draw();
 
-	if(!zoom) {
-		glTranslatef(-camera->location[0], camera->location[1], camera->location[2]);
-		glRotatef(90,0, 1, 0);
+	if(zoom == 0) {
+		glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
+		glRotatef(-45, 0, 1, 0);
+		glScalef(0.01f,0.01f,0.01f);
 		// glRotatef(-camera->lookAt[0], 0, 1, 0);
 		// glRotatef(camera->lookAt[1], 0, 0, 1);
 		for(unsigned int j=0; j < vecf.size(); j++) {
@@ -135,7 +136,7 @@ void display(void) {
 	float scaleLarge = 1.5f / 50;
 	float scaleOrig = 1.0f / 50;
 
-	if(largeReticle && !zoom) {
+	if(largeReticle && zoom == 0) {
 		glBegin(GL_LINES);
 		glVertex2f(0.46, 0.5);
 		glVertex2f(0.48, 0.5);
@@ -155,7 +156,7 @@ void display(void) {
 		}
 		glEnd();
 		largeReticle = false;
-	} else if(!largeReticle && !zoom) {
+	} else if(!largeReticle && zoom == 0) {
 		glBegin(GL_LINES);
 		glVertex2f(0.475, 0.5);
 		glVertex2f(0.49, 0.5);
@@ -175,7 +176,7 @@ void display(void) {
 		glEnd();
 	}
 
-	if(zoom){
+	if(zoom != 0){
 		glLineWidth(0.25f);
 		glBegin(GL_LINES);
 		glVertex2f(0.5, 1.0);
@@ -215,8 +216,11 @@ void display(void) {
 	 */
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	float scale = zoom ? 0.5f : 1.0f;
+	float scale = zoom != 0 ? 0.5 / zoom : 1.0;
 	camera->applyProjection(scale);
+	// camera->location[0] = 77.0f;
+	// camera->location[1] = 177.7f;
+	// camera->location[2] = 77.0f;
 
 	glutSwapBuffers();
 }
@@ -239,9 +243,9 @@ void key_down(unsigned char key, int x, int y) {
 		case 'D':
 		case 'd': camera->strafe(MOVE_SPEED); break;
 		case 'R':
-		case 'r': delete world; world = new World(); break;
+		case 'r': world->reset(); break;
 		case 'Z':
-		case 'z': zoom = !zoom; break;
+		case 'z': zoom = (zoom + 1) % 3; break;
 		case 'G':
 		case 'g': world->adjustGravity(1);break;
 		case 'F':

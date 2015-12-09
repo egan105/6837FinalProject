@@ -98,7 +98,6 @@ void World::step(int time) {
 					ps->newExplosion(stand->targets[j].location);
 					particleSystems.push_back(ps);
 					stand->targets[j].isDown = true;
-					stand->targets[j].location[1] = 1.20f;
 					indices.push_back(i);
 				}
 			}
@@ -129,6 +128,13 @@ bool World::inWorld(Bullet *b) {
 	}
 
 	return false;
+}
+
+void World::reset(){
+	for(int i = 0; i < NUM_TARGETS; i++) {
+		stand->targets[i].isDown = false;
+		
+	}
 }
 
 void World::adjustWind(float t, bool zero){

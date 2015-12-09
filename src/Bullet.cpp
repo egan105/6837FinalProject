@@ -38,8 +38,5 @@ void Bullet::step(int time, float gscale, float wscale) {
 	loc[1] -= gscale * 0.001f * pow(clock / 30, 2);
 	loc[0] += wscale * 0.001f * pow(clock / 30, 2);
 	clock += dt;
-
-
-
 }
 
