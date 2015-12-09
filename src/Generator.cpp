@@ -76,5 +76,5 @@ float brownian(float x, float y, int octaves, float frequency) {
 }
 
 float generate_y(float x, float z) {
-    return ((brownian(x, z, 5, 1.0f/3.0f) * 100) - 200);
+    return ((brownian(x, z, 5, 1.0f/300.0f) * 100) - 200);
 }
