@@ -22,11 +22,11 @@ Bullet::Bullet(Camera *camera) {
 
 void Bullet::draw() {
 	glPushMatrix();
-	glColor3f(0.5, 0.5, 0.5);
+	glColor3f(1.0, 0.0, 0.0);
 	glTranslatef(loc[0] + 1.0f * dir[0], loc[1] + 1.0f * dir[1], loc[2] + 1.0f * dir[2]);
 	glutSolidSphere(0.05f, 7.0f, 7.0f);
 	glPopMatrix();
-	
+
 }
 
 void Bullet::step(int time, float gscale, float wscale) {
@@ -41,4 +41,3 @@ void Bullet::step(int time, float gscale, float wscale) {
 	loc[0] += wscale * 0.001f * pow(clock / 30, 2);
 	clock += dt;
 }
-

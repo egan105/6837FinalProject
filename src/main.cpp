@@ -36,6 +36,7 @@ ProceduralWorld* terrain;
 
 Object *ak47;
 
+float WATER_LEVEL = 5.0f;
 int RAND_SEED = rand() % 8898783 + 1;
 bool clicked;
 bool largeReticle;
@@ -65,6 +66,7 @@ void display(void) {
 	camera->apply();
 
 	terrain->initialize_new_blocks();
+	terrain->delete_distant_blocks();
 	terrain->draw();
 
 
@@ -74,7 +76,6 @@ void display(void) {
 
 	world->draw();
 
-<<<<<<< HEAD
 	if(!camera-follow && follow) follow = false;
 	if(!follow) {
 		if(zoom == 0) {
@@ -102,72 +103,6 @@ void display(void) {
 			    glEnd();
 		    }
 		    glPopMatrix();
-=======
-	if(zoom == 0) {
-		glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
-		glRotatef(-45, 0, 1, 0);
-		glScalef(0.001f,0.001f,0.001f);
-		// glRotatef(-camera->lookAt[0], 0, 1, 0);
-		// glRotatef(camera->lookAt[1], 0, 0, 1);
-		for(unsigned int j=0; j < ak47->vecf.size(); j++) {
-		    vector<unsigned> indices = ak47->vecf[j];
-		    int a = indices[0];
-		    int b = indices[1];
-		    int c = indices[2];
-		    int d = indices[3];
-		    int e = indices[4];
-		    int f = indices[5];
-		    int g = indices[6];
-		    int h = indices[7];
-		    int i = indices[8];
-
-	      glBegin(GL_TRIANGLES);
-		    glNormal3d(ak47->vecn[c-1][0], ak47->vecn[c-1][1], ak47->vecn[c-1][2]);
-		    glVertex3d(ak47->vecv[a-1][0], ak47->vecv[a-1][1], ak47->vecv[a-1][2]);
-		    glNormal3d(ak47->vecn[f-1][0], ak47->vecn[f-1][1], ak47->vecn[f-1][2]);
-		    glVertex3d(ak47->vecv[d-1][0], ak47->vecv[d-1][1], ak47->vecv[d-1][2]);
-		    glNormal3d(ak47->vecn[i-1][0], ak47->vecn[i-1][1], ak47->vecn[i-1][2]);
-		    glVertex3d(ak47->vecv[g-1][0], ak47->vecv[g-1][1], ak47->vecv[g-1][2]);
-		    glEnd();
-	    }
-	    glPopMatrix();
-	}
-
-	/*
-	 * Draw the crosshair in ortho2d mode
-	 */
-	glColor3f(0.0, 0.0, 0.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(0, 1, 0, 1);
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glLineWidth(2);
-
-	int num_segments = 1000;
-	float center = 0.5f;
-	float scaleLarge = 1.5f / 50;
-	float scaleOrig = 1.0f / 50;
-
-	if(largeReticle && zoom == 0) {
-		glBegin(GL_LINES);
-		glVertex2f(0.46, 0.5);
-		glVertex2f(0.48, 0.5);
-		glVertex2f(0.52, 0.5);
-		glVertex2f(0.54, 0.5);
-		glVertex2f(0.5, 0.46);
-		glVertex2f(0.5, 0.48);
-		glVertex2f(0.5, 0.52);
-		glVertex2f(0.5, 0.54);
-		glEnd();
-
-		glBegin(GL_POINTS);
-	 	for(int i = 0; i < num_segments; ++i)
-		{
-	 		glVertex2f(center + scaleLarge * cos(2.0f*M_PI*i / num_segments),
-	 			center + scaleLarge * sin(2.0f*M_PI*i / num_segments));
->>>>>>> 4e06f0742d273958f73f205a68ec6ca9782f4461
 		}
 
 		/*
@@ -317,7 +252,7 @@ void rebuild_terrain() {
 	camera->lookAt[0] = 10.0f;	// x
 	camera->lookAt[1] = 200.0f;	// y
 	camera->lookAt[2] = 10.0f;	// z
-	ProceduralWorld* newTerrain = new ProceduralWorld(10);
+	ProceduralWorld* newTerrain = new ProceduralWorld(256, camera);
 	terrain = newTerrain;
 }
 
@@ -346,6 +281,8 @@ void key_down(unsigned char key, int x, int y) {
 		case '-': world->adjustWind(-1,false);break;
 		case '=': world->adjustWind(1,false);break;
 		case '0': world->adjustWind(0,true);break;
+		case '5': WATER_LEVEL -= 1.0f; break;
+		case '6': WATER_LEVEL += 1.0f; break;
 		case 27: safeExit(); break;
 		default:
 			cout << "[main] Unknown keypress [" << key << "]\n";
@@ -488,7 +425,7 @@ int main(int argc, char **argv) {
 
 	camera = new Camera();
 	world = new World(camera);
-	terrain = new ProceduralWorld(10);
+	terrain = new ProceduralWorld(256, camera);
 
   glutMainLoop();
   return 0;

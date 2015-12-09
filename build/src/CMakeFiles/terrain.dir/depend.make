@@ -63,6 +63,7 @@ src/CMakeFiles/terrain.dir/Target.cpp.o: ../src/Target.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Bullet.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Camera.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/ParticleSystem.h
+src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Seed.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Stand.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Target.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/World.cpp
@@ -81,10 +82,7 @@ src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Camera.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Controls.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Generator.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ObjectLoader.h
-<<<<<<< HEAD
-=======
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/Overlay.h
->>>>>>> 4e06f0742d273958f73f205a68ec6ca9782f4461
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ParticleSystem.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ProceduralBlock.h
 src/CMakeFiles/terrain.dir/main.cpp.o: ../src/ProceduralWorld.h
