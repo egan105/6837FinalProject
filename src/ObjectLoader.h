@@ -4,12 +4,14 @@
 struct Object {
   vector<vector<float>> vecv;
   vector<vector<float>> vecn;
+  vector<vector<float>> vect;
   vector<vector<unsigned>> vecf;
 };
 
 Object* loadInput(char * filename){
   vector<vector<float>> vecv;
   vector<vector<float>> vecn;
+  vector<vector<float>> vect;
   vector<vector<unsigned>> vecf;
   string line;
   ifstream myfile(filename);
@@ -35,6 +37,11 @@ Object* loadInput(char * filename){
 	      vec.push_back(v[1]);
 	      vec.push_back(v[2]);
 	      vecn.push_back(vec);
+	    } else if (s == "vt") {
+	      ss >> v[0] >> v[1];
+	      vec.push_back(v[0]);
+	      vec.push_back(-1 * v[1]);
+	      vect.push_back(vec);
 	    } else if (s == "f") {
 	      vector<unsigned> faces;
 
@@ -60,6 +67,7 @@ Object* loadInput(char * filename){
   Object* obj = new Object();
   obj->vecv = vecv;
   obj->vecn = vecn;
+  obj->vect = vect;
   obj->vecf = vecf;
   return obj;
 }

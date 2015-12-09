@@ -79,7 +79,7 @@ void color(float height) {
     glColor3f(0.35f, 0.65f, 0.4f);
   }
   else {
-    glColor3f(0.0f, 1.0f, 0.0f);
+    glColor3f(0.5f, 1.0f, 0.0f);
   }
 }
 

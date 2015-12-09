@@ -4,7 +4,6 @@ set(CPP_FILES
     main.cpp
     Bullet.cpp
     Camera.cpp
-    FirstPersonCamera.cpp
     Generator.cpp
     ParticleSystem.cpp
     ProceduralBlock.cpp
@@ -12,13 +11,15 @@ set(CPP_FILES
     Stand.cpp
     Target.cpp
     World.cpp
+    Texture.cpp
+    Image.cpp
     )
 
 set(CPP_HEADERS
     Bullet.h
     Camera.h
-    FirstPersonCamera.h
     Generator.h
+    ObjectLoader.h
     ParticleSystem.h
     ProceduralBlock.h
     ProceduralWorld.h
@@ -26,6 +27,8 @@ set(CPP_HEADERS
     Target.h
     TextureLoader.h
     World.h
+    Texture.h
+    Image.h
     )
 
 set(LIBS_USED

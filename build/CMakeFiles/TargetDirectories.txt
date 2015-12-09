@@ -1,2 +1,2 @@
-/Users/ericgan/Documents/6837FinalProject/build/src/CMakeFiles/terrain.dir
-/Users/ericgan/Documents/6837FinalProject/build/vecmath/CMakeFiles/vecmath.dir
+/Users/tcheyne/6.837/test/build/src/CMakeFiles/terrain.dir
+/Users/tcheyne/6.837/test/build/vecmath/CMakeFiles/vecmath.dir

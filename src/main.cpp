@@ -7,6 +7,8 @@ using namespace std;
 
 #include <GLUT/glut.h>
 
+#include "Overlay.h"
+#include "Seed.h"
 #include "TextureLoader.h"
 #include "Controls.h"
 #include "Camera.h"
@@ -22,7 +24,7 @@ using namespace std;
 #define MOUSE_SCALE 50
 
 // movement unit (strafe, walk)
-#define MOVE_SPEED 3.0f
+#define MOVE_SPEED 6.0f
 
 const int MAX_BUFFER_SIZE = 0x10000;
 
@@ -32,9 +34,14 @@ Camera *camera;
 World *world;
 ProceduralWorld* terrain;
 
-
 Object *ak47;
 
+<<<<<<< HEAD
+int RAND_SEED = rand() % 8898783 + 1;
+=======
+Texture tex;
+
+>>>>>>> 31c3f9d491207b6b2da6e74cd7e28824d3d1de26
 bool clicked;
 bool largeReticle;
 int zoom = 0;
@@ -72,6 +79,7 @@ void display(void) {
 
 	world->draw();
 
+<<<<<<< HEAD
 	if(!camera-follow && follow) follow = false;
 	if(!follow) {
 		if(zoom == 0) {
@@ -99,6 +107,79 @@ void display(void) {
 			    glEnd();
 		    }
 		    glPopMatrix();
+=======
+	if(zoom == 0) {
+		glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
+		glRotatef(-45, 0, 1, 0);
+		glScalef(0.001f,0.001f,0.001f);
+		// glRotatef(-camera->lookAt[0], 0, 1, 0);
+		// glRotatef(camera->lookAt[1], 0, 0, 1);
+		for(unsigned int j=0; j < ak47->vecf.size(); j++) {
+		    vector<unsigned> indices = ak47->vecf[j];
+		    int a = indices[0];
+		    int b = indices[1];
+		    int c = indices[2];
+		    int d = indices[3];
+		    int e = indices[4];
+		    int f = indices[5];
+		    int g = indices[6];
+		    int h = indices[7];
+		    int i = indices[8];
+
+		    Vector3f c1 = tex.getTexel(vect[b-1][0],vect[b-1][1]);
+		    Vector3f c2 = tex.getTexel(vect[e-1][0],vect[e-1][1]);
+		    Vector3f c3 = tex.getTexel(vect[h-1][0],vect[h-1][1]);
+
+	      glBegin(GL_TRIANGLES);
+		    glNormal3d(ak47->vecn[c-1][0], ak47->vecn[c-1][1], ak47->vecn[c-1][2]);
+		    glColor3f(c1[0],c1[1],c1[2]);
+		    glVertex3d(ak47->vecv[a-1][0], ak47->vecv[a-1][1], ak47->vecv[a-1][2]);
+		    glNormal3d(ak47->vecn[f-1][0], ak47->vecn[f-1][1], ak47->vecn[f-1][2]);
+		    glColor3f(c2[0],c2[1],c2[2]);
+		    glVertex3d(ak47->vecv[d-1][0], ak47->vecv[d-1][1], ak47->vecv[d-1][2]);
+		    glNormal3d(ak47->vecn[i-1][0], ak47->vecn[i-1][1], ak47->vecn[i-1][2]);
+		    glColor3f(c3[0],c3[1],c3[2]);
+		    glVertex3d(ak47->vecv[g-1][0], ak47->vecv[g-1][1], ak47->vecv[g-1][2]);
+		    glEnd();
+	    }
+	    glPopMatrix();
+	}
+
+	/*
+	 * Draw the crosshair in ortho2d mode
+	 */
+	glColor3f(0.0, 0.0, 0.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0, 1, 0, 1);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glLineWidth(2);
+
+	int num_segments = 1000;
+	float center = 0.5f;
+	float scaleLarge = 1.5f / 50;
+	float scaleOrig = 1.0f / 50;
+
+	if(largeReticle && zoom == 0) {
+		glBegin(GL_LINES);
+		glVertex2f(0.46, 0.5);
+		glVertex2f(0.48, 0.5);
+		glVertex2f(0.52, 0.5);
+		glVertex2f(0.54, 0.5);
+		glVertex2f(0.5, 0.46);
+		glVertex2f(0.5, 0.48);
+		glVertex2f(0.5, 0.52);
+		glVertex2f(0.5, 0.54);
+		glEnd();
+
+		glBegin(GL_POINTS);
+	 	for(int i = 0; i < num_segments; ++i)
+		{
+	 		glVertex2f(center + scaleLarge * cos(2.0f*M_PI*i / num_segments),
+	 			center + scaleLarge * sin(2.0f*M_PI*i / num_segments));
+>>>>>>> 4e06f0742d273958f73f205a68ec6ca9782f4461
 		}
 
 		/*
@@ -203,6 +284,8 @@ void display(void) {
 
 	camera->applyProjection(scale);
 
+	drawOverlay();
+
 	glutSwapBuffers();
 }
 
@@ -238,6 +321,18 @@ void special_key(int key, int x, int y) {
 	glutPostRedisplay();
 }
 
+void rebuild_terrain() {
+	RAND_SEED = rand() % 8898783 + 1;
+	camera->location[0] = 0.0f;		// x
+	camera->location[1] = 200.0f;		// y
+	camera->location[2] = 0.0f;	// z
+	camera->lookAt[0] = 10.0f;	// x
+	camera->lookAt[1] = 200.0f;	// y
+	camera->lookAt[2] = 10.0f;	// z
+	ProceduralWorld* newTerrain = new ProceduralWorld(10);
+	terrain = newTerrain;
+}
+
 void key_down(unsigned char key, int x, int y) {
 	switch(key) {
 		case 'o': cout << camera->x() << " " << camera->y() << " " << camera->z() << endl; break;
@@ -258,6 +353,7 @@ void key_down(unsigned char key, int x, int y) {
 		case 'G':
 		case 'g': world->adjustGravity(1);break;
 		case 'F':
+		case 'M': rebuild_terrain(); break;
 		case 'f': world->adjustGravity(-1);break;
 		case '-': world->adjustWind(-1,false);break;
 		case '=': world->adjustWind(1,false);break;
@@ -332,7 +428,13 @@ void idle() {
 }
 
 int main(int argc, char **argv) {
-	ak47 = loadInput("AK.obj");
+<<<<<<< HEAD
+	ak47 = loadInput("tree_oak.obj");
+=======
+	ak47 = loadInput("AWPv2.obj");
+	tex = new Texture();
+    tex.load("awp_khaki_texture.jpg");
+>>>>>>> 31c3f9d491207b6b2da6e74cd7e28824d3d1de26
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
@@ -365,7 +467,7 @@ int main(int argc, char **argv) {
 	glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
 
 	// Enable culling of rear faces
-	//glEnable(GL_CULL_FACE);
+	// glEnable(GL_CULL_FACE);
 	// Enable Textures
 	GLuint texture;
 	texture = LoadTexture( "terrain.bmp" );

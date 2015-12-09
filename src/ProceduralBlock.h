@@ -16,7 +16,7 @@ private:
     Vector3f** normals;
 
     int num_points;
-    
+
     bool initialized;
 
 public:

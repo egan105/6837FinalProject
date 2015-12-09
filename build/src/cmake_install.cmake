@@ -1,8 +1,8 @@
-# Install script for directory: /Users/ericgan/Documents/6837FinalProject/src
+# Install script for directory: /Users/tcheyne/6.837/test/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/Users/ericgan/Documents/6837FinalProject/inst")
+  set(CMAKE_INSTALL_PREFIX "/Users/tcheyne/6.837/test/inst")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -29,21 +29,21 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/Users/ericgan/Documents/6837FinalProject/inst/terrain")
+   "/Users/tcheyne/6.837/test/inst/terrain")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/Users/ericgan/Documents/6837FinalProject/inst" TYPE EXECUTABLE FILES "/Users/ericgan/Documents/6837FinalProject/build/src/terrain")
-  if(EXISTS "$ENV{DESTDIR}/Users/ericgan/Documents/6837FinalProject/inst/terrain" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/ericgan/Documents/6837FinalProject/inst/terrain")
+file(INSTALL DESTINATION "/Users/tcheyne/6.837/test/inst" TYPE EXECUTABLE FILES "/Users/tcheyne/6.837/test/build/src/terrain")
+  if(EXISTS "$ENV{DESTDIR}/Users/tcheyne/6.837/test/inst/terrain" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/tcheyne/6.837/test/inst/terrain")
     execute_process(COMMAND /usr/bin/install_name_tool
-      -delete_rpath "/Users/ericgan/Documents/6837FinalProject/lib"
-      "$ENV{DESTDIR}/Users/ericgan/Documents/6837FinalProject/inst/terrain")
+      -delete_rpath "/Users/tcheyne/6.837/test/lib"
+      "$ENV{DESTDIR}/Users/tcheyne/6.837/test/inst/terrain")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" "$ENV{DESTDIR}/Users/ericgan/Documents/6837FinalProject/inst/terrain")
+      execute_process(COMMAND "/Library/Developer/CommandLineTools/usr/bin/strip" "$ENV{DESTDIR}/Users/tcheyne/6.837/test/inst/terrain")
     endif()
   endif()
 endif()

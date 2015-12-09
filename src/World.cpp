@@ -22,8 +22,8 @@ World::~World() {
 }
 
 void World::draw() {
-	int x_max = WORLD_MAX - camera->location[0];
-	int z_max = WORLD_MAX + camera->location[2];
+	int x_max = WORLD_MAX;
+	int z_max = WORLD_MAX;
 	glBegin(GL_QUADS);
 		glColor3f(0.4f,0.7f,1.0f);		// front
 		glNormal3f(0.0f, 0.0f, 1.0f);
@@ -60,8 +60,8 @@ void World::draw() {
 		glVertex3f( x_max, WORLD_MAX, -z_max);
 		glVertex3f(-x_max, WORLD_MAX, -z_max);
 
-		glColor3f(0.4f, 0.7f, 1.0f);		// bottom
-		glNormal3f(0.0f, -1.0f, 0.0f);
+		glColor3f(0.0f, 0.0f, 1.0f);		// bottom
+		glNormal3f(0.0f, 1.0f, 0.0f);
 		glVertex3f(-x_max, 5.0f, z_max);
 		glVertex3f( x_max, 5.0f, z_max);
 		glVertex3f( x_max, 5.0f, -z_max);
@@ -149,7 +149,7 @@ bool World::inWorld(Bullet *b) {
 void World::reset(){
 	for(int i = 0; i < NUM_TARGETS; i++) {
 		stand->targets[i].isDown = false;
-		
+
 	}
 }
 
