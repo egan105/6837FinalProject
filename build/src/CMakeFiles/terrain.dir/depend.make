@@ -62,6 +62,7 @@ src/CMakeFiles/terrain.dir/Target.cpp.o: ../src/Target.h
 
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Bullet.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Camera.h
+src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Generator.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/ParticleSystem.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Seed.h
 src/CMakeFiles/terrain.dir/World.cpp.o: ../src/Stand.h

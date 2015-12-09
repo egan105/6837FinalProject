@@ -47,6 +47,7 @@ int countVar = 0;
 int rate = 10;
 bool firing = false;
 bool follow = false;
+int counter = 250;
 
 void safeExit() {
 	delete camera;
@@ -75,8 +76,15 @@ void display(void) {
 	glPushName(-1);
 
 	world->draw();
-
-	if(!camera-follow && follow) follow = false;
+	if(!camera->follow && follow && camera->hit && counter == 0) {
+		follow = false;
+		camera->reset();
+		counter = 250;
+	} else if (camera->hit && follow && counter > 0) {
+		counter -= 1;
+	} else if (!camera->follow && follow && !camera->hit) {
+		follow = false;
+	}
 	if(!follow) {
 		if(zoom == 0) {
 			glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
@@ -277,6 +285,8 @@ void key_down(unsigned char key, int x, int y) {
 		case 'd': camera->strafe(MOVE_SPEED); break;
 		case 'R':
 		case 'r': world->reset(); break;
+		case 'T':
+		case 't': world->trace = !world->trace; break;
 		case 'Z':
 		case 'z': zoom = (zoom + 1) % 3; break;
 		case 'G':

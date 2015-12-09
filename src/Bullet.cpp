@@ -18,12 +18,26 @@ Bullet::Bullet(Camera *camera) {
 	clock = 0;
 
 	follow = false;
+	rotation = 0;
+	wscale = 0.0f;
 }
 
 void Bullet::draw() {
+	rotation = (rotation + 5) % 360;
+	int direction;
+	if(wscale >= 0) {
+		direction = 1;
+	} else {
+		direction = -1;
+	}
+
 	glPushMatrix();
 	glColor3f(1.0, 0.0, 0.0);
 	glTranslatef(loc[0] + 1.0f * dir[0], loc[1] + 1.0f * dir[1], loc[2] + 1.0f * dir[2]);
+	glRotatef(rotation, 0, 1, 0); 
+	if((int)wscale != 0) {
+		glRotatef(direction * rotation, 1, 0, 0); 
+	}
 	glutSolidSphere(0.05f, 7.0f, 7.0f);
 	glPopMatrix();
 
@@ -38,6 +52,7 @@ void Bullet::step(int time, float gscale, float wscale) {
 
 	// Gravity and Wind
 	loc[1] -= gscale * 0.001f * pow(clock / 30, 2);
-	loc[0] += wscale * 0.001f * pow(clock / 30, 2);
+	loc[0] -= wscale * 0.001f * pow(clock / 30, 2);
+	wscale = wscale;
 	clock += dt;
 }

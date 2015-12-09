@@ -22,6 +22,7 @@ Camera::Camera(void) {
 	lookAt[2] = 10.0f;	// z
 
 	follow = false;
+	hit = false;
 }
 
 float Camera::x() {
@@ -110,4 +111,6 @@ void Camera::reset() {
 	lookAt[0] = lookCache[0];
 	lookAt[1] = lookCache[1];
 	lookAt[2] = lookCache[2];
+	hit = false;
+	follow = false;
 }

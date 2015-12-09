@@ -9,6 +9,7 @@ using namespace std;
 ParticleSystem::ParticleSystem() {
 	fuel = 0;
 	angle = 0.0;
+	label = false;
 }
 
 void ParticleSystem::newSpeed(float destination[3]) {
@@ -71,7 +72,7 @@ void ParticleSystem::newExplosion(float pos[3]) {
 }
 
 void ParticleSystem::draw() {
-	if(fuel > 0) {
+	if(fuel > 0 && !label) {
 		// glPushMatrix();
 
 		// glDisable(GL_LIGHTING);
@@ -115,6 +116,12 @@ void ParticleSystem::draw() {
 
 			glPopMatrix();
 		}
+	} else if(fuel > 0 && label) {
+		glPushMatrix();
+		glColor3f(1.0, 0.0, 0.0);
+		glTranslatef(loc[0], loc[1], loc[2]);
+		glutSolidSphere(0.25f, 7.0f, 7.0f);
+		glPopMatrix();
 	}
 }
 
