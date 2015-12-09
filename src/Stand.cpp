@@ -45,22 +45,22 @@ Stand::Stand() {
 	targets[3].radius = 1.0f;
 
 	targets[0].goingRight = false;
-	targets[0].location[0] = 77.7f;
-	targets[0].location[1] = 177.7f;
-	targets[0].location[2] = 77.7f;
+	targets[0].location[0] = 202.2f;
+	targets[0].location[1] = 148.6f;
+	targets[0].location[2] = 202.2f;
 	targets[0].color.r = 1.0f;
 	targets[0].color.g = 0.0f;
 	targets[0].color.b = 0.0f;
 	targets[0].rotation = 0;
-	
-	targets[1].location[0] = 1.5f;
-	targets[1].location[1] = 1.75f;
-	targets[1].location[2] =  0.7f;
+
+	targets[1].location[0] = 202.2f;
+	targets[1].location[1] = 152.6f;
+	targets[1].location[2] = 202.2f;
 	targets[1].color.r = 0.2f;
 	targets[1].color.g = 0.6f;
 	targets[1].color.b = 1.0f;
 	targets[1].rotation = 0;
-	
+
 	targets[2].location[0] = 4.0f;
 	targets[2].location[1] = 1.75f;
 	targets[2].location[2] =  0.7f;
@@ -68,7 +68,7 @@ Stand::Stand() {
 	targets[2].color.g = 0.5f;
 	targets[2].color.b = 1.0f;
 	targets[2].rotation = 0;
-	
+
 	targets[3].location[0] = -4.0f;
 	targets[3].location[1] = 1.75f;
 	targets[3].location[2] =  0.7f;
@@ -82,8 +82,8 @@ void Stand::draw() {
 	/* draw stand itself */
 	glCallList(listid);
 
-	/* 
-	 * go through each target, attach a name to it and 
+	/*
+	 * go through each target, attach a name to it and
 	 * if it is down, flip it down, otherwise draw it standing up.
 	 */
 	for(int i = 0; i < NUM_TARGETS; i++) {
@@ -97,7 +97,7 @@ void Stand::draw() {
 				glColor3f(t->color.r, t->color.g, t->color.b);
 				t->target.draw();
 			}
-			
+
 		glPopMatrix();
 		glPopName();
 	}
@@ -117,4 +117,3 @@ void Stand::step(int time) {
 	// 	t->location[0] += ((float) t->goingRight ? time : -time) / SLIDE_SCALE;
 	// }
 }
-

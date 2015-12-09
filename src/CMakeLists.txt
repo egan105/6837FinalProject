@@ -4,7 +4,6 @@ set(CPP_FILES
     main.cpp
     Bullet.cpp
     Camera.cpp
-    FirstPersonCamera.cpp
     Generator.cpp
     ParticleSystem.cpp
     ProceduralBlock.cpp
@@ -17,8 +16,8 @@ set(CPP_FILES
 set(CPP_HEADERS
     Bullet.h
     Camera.h
-    FirstPersonCamera.h
     Generator.h
+    ObjectLoader.h
     ParticleSystem.h
     ProceduralBlock.h
     ProceduralWorld.h

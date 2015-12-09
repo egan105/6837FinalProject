@@ -7,6 +7,8 @@ using namespace std;
 
 #include <GLUT/glut.h>
 
+#include "Overlay.h"
+#include "Seed.h"
 #include "TextureLoader.h"
 #include "Controls.h"
 #include "Camera.h"
@@ -22,7 +24,7 @@ using namespace std;
 #define MOUSE_SCALE 50
 
 // movement unit (strafe, walk)
-#define MOVE_SPEED 3.0f
+#define MOVE_SPEED 6.0f
 
 const int MAX_BUFFER_SIZE = 0x10000;
 
@@ -35,6 +37,7 @@ ProceduralWorld* terrain;
 
 Object *ak47;
 
+int RAND_SEED = rand() % 8898783 + 1;
 bool clicked;
 bool largeReticle;
 int zoom = 0;
@@ -74,7 +77,7 @@ void display(void) {
 	if(zoom == 0) {
 		glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
 		glRotatef(-45, 0, 1, 0);
-		glScalef(0.01f,0.01f,0.01f);
+		glScalef(0.001f,0.001f,0.001f);
 		// glRotatef(-camera->lookAt[0], 0, 1, 0);
 		// glRotatef(camera->lookAt[1], 0, 0, 1);
 		for(unsigned int j=0; j < ak47->vecf.size(); j++) {
@@ -201,6 +204,8 @@ void display(void) {
 	// camera->location[1] = 177.7f;
 	// camera->location[2] = 77.0f;
 
+	drawOverlay();
+
 	glutSwapBuffers();
 }
 
@@ -225,6 +230,18 @@ void special_key(int key, int x, int y) {
 	glutPostRedisplay();
 }
 
+void rebuild_terrain() {
+	RAND_SEED = rand() % 8898783 + 1;
+	camera->location[0] = 0.0f;		// x
+	camera->location[1] = 200.0f;		// y
+	camera->location[2] = 0.0f;	// z
+	camera->lookAt[0] = 10.0f;	// x
+	camera->lookAt[1] = 200.0f;	// y
+	camera->lookAt[2] = 10.0f;	// z
+	ProceduralWorld* newTerrain = new ProceduralWorld(10);
+	terrain = newTerrain;
+}
+
 void key_down(unsigned char key, int x, int y) {
 	switch(key) {
 		case 'o': cout << camera->x() << " " << camera->y() << " " << camera->z() << endl; break;
@@ -243,6 +260,7 @@ void key_down(unsigned char key, int x, int y) {
 		case 'G':
 		case 'g': world->adjustGravity(1);break;
 		case 'F':
+		case 'M': rebuild_terrain(); break;
 		case 'f': world->adjustGravity(-1);break;
 		case '-': world->adjustWind(-1,false);break;
 		case '=': world->adjustWind(1,false);break;
@@ -317,7 +335,7 @@ void idle() {
 }
 
 int main(int argc, char **argv) {
-	ak47 = loadInput("AK.obj");
+	ak47 = loadInput("tree_oak.obj");
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
@@ -350,7 +368,7 @@ int main(int argc, char **argv) {
 	glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
 
 	// Enable culling of rear faces
-	//glEnable(GL_CULL_FACE);
+	// glEnable(GL_CULL_FACE);
 	// Enable Textures
 	GLuint texture;
 	texture = LoadTexture( "terrain.bmp" );
