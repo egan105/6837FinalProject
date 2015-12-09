@@ -238,6 +238,12 @@ void special_key(int key, int x, int y) {
 		case GLUT_KEY_DOWN:
 			camera->fly(-MOVE_SPEED);
 			break;
+		case GLUT_KEY_LEFT:
+			camera->spin(MOVE_SPEED);
+			break;
+		case GLUT_KEY_RIGHT:
+			camera->spin(-MOVE_SPEED);
+			break;
 		default:
 			break;
 	}
@@ -292,7 +298,7 @@ void key_down(unsigned char key, int x, int y) {
 
 void motion(int x, int y) {
 	if(clicked) {
-		float dX = (float) (curX - x) / MOUSE_SCALE;
+		float dX = (float) (curX- x) / MOUSE_SCALE;
 		float dY = (float) (curY - y) / MOUSE_SCALE;
 		camera->yaw(dX);
 		camera->pitch(dY);
@@ -300,7 +306,7 @@ void motion(int x, int y) {
 		curY = y;
 	}
 
-    glutPostRedisplay();
+  glutPostRedisplay();
 }
 
 void mouse(int button, int state, int x, int y) {

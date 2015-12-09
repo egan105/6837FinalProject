@@ -85,6 +85,16 @@ void Camera::walk(float amount) {
 	lookAt[2] += direction.z() * amount;
 }
 
+float radians(const float degrees) {
+    return degrees * M_PI / 180.0f;
+}
+
+void Camera::spin(float amount) {
+	Vector3f direction = Vector3f(lookAt[0] - location[0], 0, lookAt[2] - location[2]);
+	direction = (Matrix4f::rotateY(radians(amount)) * Vector4f(direction, 1)).xyz();
+	lookAt[0] = location[0] + direction.x();
+	lookAt[2] = location[2] + direction.z();
+}
 void Camera::yaw(float amount) {
 	lookAt[0] += amount;
 }

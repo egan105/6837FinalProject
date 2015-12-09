@@ -33,6 +33,8 @@ public:
 
     void fly(float amount);
 
+    void spin(float amount);
+
 	/* turn along the X axis by the given amount */
     void yaw(float amount);
 
