@@ -1,8 +1,8 @@
-# Install script for directory: /Users/tcheyne/6.837/test/vecmath
+# Install script for directory: /Users/ericgan/Documents/6837FinalProject/vecmath
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/Users/tcheyne/6.837/test/inst")
+  set(CMAKE_INSTALL_PREFIX "/Users/ericgan/Documents/6837FinalProject/inst")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
