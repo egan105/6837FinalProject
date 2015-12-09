@@ -67,8 +67,6 @@ assert.h
 -
 stdio.h
 -
-iostream
--
 GLUT/glut.h
 -
 Camera.h
