@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/terrain.dir/main.cpp.o"
   "CMakeFiles/terrain.dir/Bullet.cpp.o"
   "CMakeFiles/terrain.dir/Camera.cpp.o"
-  "CMakeFiles/terrain.dir/FirstPersonCamera.cpp.o"
   "CMakeFiles/terrain.dir/Generator.cpp.o"
   "CMakeFiles/terrain.dir/ParticleSystem.cpp.o"
   "CMakeFiles/terrain.dir/ProceduralBlock.cpp.o"
