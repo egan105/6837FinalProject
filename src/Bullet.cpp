@@ -25,9 +25,9 @@ Bullet::Bullet(Camera *camera) {
 void Bullet::draw() {
 	rotation = (rotation + 5) % 360;
 	int direction;
-	if(wscale >= 0) {
+	if((int)wscale > 0) {
 		direction = 1;
-	} else {
+	} else if((int)wscale < 0){
 		direction = -1;
 	}
 

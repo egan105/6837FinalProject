@@ -115,8 +115,9 @@ void World::step(int time) {
 
 		b->step(time, gscale, wscale);
 		for(int j = 0; j < NUM_TARGETS;j ++) {
-			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.75f;
-			bool yLoc = fabs(b->loc[1] - stand->targets[j].location[1]) < 0.75f;
+			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 1.75f;
+			bool yLoc = fabs(b->loc[1] - stand->targets[j].location[1]) < 1.75f;
+			bool xLoc = fabs(b->loc[0] - stand->targets[j].location[0]) < 1.75f;
 			bool leftRange = b->loc[0] <= stand->targets[j].location[0] + stand->targets[j].radius;
 			bool rightRange = b->loc[0] >= stand->targets[j].location[0] - stand->targets[j].radius;
 			if(camera->follow && b->follow) {
@@ -127,8 +128,8 @@ void World::step(int time) {
 				camera->lookAt[2] += 1.0f;
 			}
 
-			if (zLoc && leftRange && rightRange && !stand->targets[j].isDown) {
-				if (pow(stand->targets[j].location[0] - b->loc[0],2) + pow(stand->targets[j].location[1] - b->loc[1],2) < pow(stand->targets[j].radius,2)){
+			if (xLoc && !stand->targets[j].isDown) {
+				if (pow(stand->targets[j].location[2] - b->loc[2],2) + pow(stand->targets[j].location[1] - b->loc[1],2) < pow(stand->targets[j].radius,2)){
 					ParticleSystem *ps = new ParticleSystem();
 					ps->newExplosion(stand->targets[j].location);
 					particleSystems.push_back(ps);
