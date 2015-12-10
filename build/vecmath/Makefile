@@ -39,38 +39,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.3.2/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/3.3.1/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.3.2/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/3.3.1/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/ericgan/Documents/6837FinalProject
+CMAKE_SOURCE_DIR = /Users/tcheyne/6.837/test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/ericgan/Documents/6837FinalProject/build
+CMAKE_BINARY_DIR = /Users/tcheyne/6.837/test/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/Cellar/cmake/3.3.2/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/Cellar/cmake/3.3.2/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/3.3.1/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -81,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/Cellar/cmake/3.3.2/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -89,17 +78,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.3.2/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/local/Cellar/cmake/3.3.2/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target install/local
+install/local/fast: install/local
+
+.PHONY : install/local/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -111,27 +99,39 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/Cellar/cmake/3.3.2/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target install/local
-install/local/fast: install/local
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
-.PHONY : install/local/fast
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.3.1/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/ericgan/Documents/6837FinalProject/build/CMakeFiles /Users/ericgan/Documents/6837FinalProject/build/vecmath/CMakeFiles/progress.marks
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ericgan/Documents/6837FinalProject/build/CMakeFiles 0
+	cd /Users/tcheyne/6.837/test/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/tcheyne/6.837/test/build/CMakeFiles /Users/tcheyne/6.837/test/build/vecmath/CMakeFiles/progress.marks
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/tcheyne/6.837/test/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/clean
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/clean
 .PHONY : clean
 
 # The main clean target
@@ -141,22 +141,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/preinstall
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/preinstall
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/tcheyne/6.837/test/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 vecmath/CMakeFiles/vecmath.dir/rule:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/CMakeFiles/vecmath.dir/rule
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f CMakeFiles/Makefile2 vecmath/CMakeFiles/vecmath.dir/rule
 .PHONY : vecmath/CMakeFiles/vecmath.dir/rule
 
 # Convenience name for target.
@@ -166,7 +166,7 @@ vecmath: vecmath/CMakeFiles/vecmath.dir/rule
 
 # fast build rule for target.
 vecmath/fast:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/build
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/build
 .PHONY : vecmath/fast
 
 src/Matrix2f.o: src/Matrix2f.cpp.o
@@ -175,7 +175,7 @@ src/Matrix2f.o: src/Matrix2f.cpp.o
 
 # target to build an object file
 src/Matrix2f.cpp.o:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix2f.cpp.o
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix2f.cpp.o
 .PHONY : src/Matrix2f.cpp.o
 
 src/Matrix2f.i: src/Matrix2f.cpp.i
@@ -184,7 +184,7 @@ src/Matrix2f.i: src/Matrix2f.cpp.i
 
 # target to preprocess a source file
 src/Matrix2f.cpp.i:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix2f.cpp.i
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix2f.cpp.i
 .PHONY : src/Matrix2f.cpp.i
 
 src/Matrix2f.s: src/Matrix2f.cpp.s
@@ -193,7 +193,7 @@ src/Matrix2f.s: src/Matrix2f.cpp.s
 
 # target to generate assembly for a file
 src/Matrix2f.cpp.s:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix2f.cpp.s
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix2f.cpp.s
 .PHONY : src/Matrix2f.cpp.s
 
 src/Matrix3f.o: src/Matrix3f.cpp.o
@@ -202,7 +202,7 @@ src/Matrix3f.o: src/Matrix3f.cpp.o
 
 # target to build an object file
 src/Matrix3f.cpp.o:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix3f.cpp.o
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix3f.cpp.o
 .PHONY : src/Matrix3f.cpp.o
 
 src/Matrix3f.i: src/Matrix3f.cpp.i
@@ -211,7 +211,7 @@ src/Matrix3f.i: src/Matrix3f.cpp.i
 
 # target to preprocess a source file
 src/Matrix3f.cpp.i:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix3f.cpp.i
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix3f.cpp.i
 .PHONY : src/Matrix3f.cpp.i
 
 src/Matrix3f.s: src/Matrix3f.cpp.s
@@ -220,7 +220,7 @@ src/Matrix3f.s: src/Matrix3f.cpp.s
 
 # target to generate assembly for a file
 src/Matrix3f.cpp.s:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix3f.cpp.s
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix3f.cpp.s
 .PHONY : src/Matrix3f.cpp.s
 
 src/Matrix4f.o: src/Matrix4f.cpp.o
@@ -229,7 +229,7 @@ src/Matrix4f.o: src/Matrix4f.cpp.o
 
 # target to build an object file
 src/Matrix4f.cpp.o:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix4f.cpp.o
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix4f.cpp.o
 .PHONY : src/Matrix4f.cpp.o
 
 src/Matrix4f.i: src/Matrix4f.cpp.i
@@ -238,7 +238,7 @@ src/Matrix4f.i: src/Matrix4f.cpp.i
 
 # target to preprocess a source file
 src/Matrix4f.cpp.i:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix4f.cpp.i
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix4f.cpp.i
 .PHONY : src/Matrix4f.cpp.i
 
 src/Matrix4f.s: src/Matrix4f.cpp.s
@@ -247,7 +247,7 @@ src/Matrix4f.s: src/Matrix4f.cpp.s
 
 # target to generate assembly for a file
 src/Matrix4f.cpp.s:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix4f.cpp.s
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Matrix4f.cpp.s
 .PHONY : src/Matrix4f.cpp.s
 
 src/Quat4f.o: src/Quat4f.cpp.o
@@ -256,7 +256,7 @@ src/Quat4f.o: src/Quat4f.cpp.o
 
 # target to build an object file
 src/Quat4f.cpp.o:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Quat4f.cpp.o
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Quat4f.cpp.o
 .PHONY : src/Quat4f.cpp.o
 
 src/Quat4f.i: src/Quat4f.cpp.i
@@ -265,7 +265,7 @@ src/Quat4f.i: src/Quat4f.cpp.i
 
 # target to preprocess a source file
 src/Quat4f.cpp.i:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Quat4f.cpp.i
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Quat4f.cpp.i
 .PHONY : src/Quat4f.cpp.i
 
 src/Quat4f.s: src/Quat4f.cpp.s
@@ -274,7 +274,7 @@ src/Quat4f.s: src/Quat4f.cpp.s
 
 # target to generate assembly for a file
 src/Quat4f.cpp.s:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Quat4f.cpp.s
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Quat4f.cpp.s
 .PHONY : src/Quat4f.cpp.s
 
 src/Vector2f.o: src/Vector2f.cpp.o
@@ -283,7 +283,7 @@ src/Vector2f.o: src/Vector2f.cpp.o
 
 # target to build an object file
 src/Vector2f.cpp.o:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector2f.cpp.o
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector2f.cpp.o
 .PHONY : src/Vector2f.cpp.o
 
 src/Vector2f.i: src/Vector2f.cpp.i
@@ -292,7 +292,7 @@ src/Vector2f.i: src/Vector2f.cpp.i
 
 # target to preprocess a source file
 src/Vector2f.cpp.i:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector2f.cpp.i
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector2f.cpp.i
 .PHONY : src/Vector2f.cpp.i
 
 src/Vector2f.s: src/Vector2f.cpp.s
@@ -301,7 +301,7 @@ src/Vector2f.s: src/Vector2f.cpp.s
 
 # target to generate assembly for a file
 src/Vector2f.cpp.s:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector2f.cpp.s
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector2f.cpp.s
 .PHONY : src/Vector2f.cpp.s
 
 src/Vector3f.o: src/Vector3f.cpp.o
@@ -310,7 +310,7 @@ src/Vector3f.o: src/Vector3f.cpp.o
 
 # target to build an object file
 src/Vector3f.cpp.o:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector3f.cpp.o
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector3f.cpp.o
 .PHONY : src/Vector3f.cpp.o
 
 src/Vector3f.i: src/Vector3f.cpp.i
@@ -319,7 +319,7 @@ src/Vector3f.i: src/Vector3f.cpp.i
 
 # target to preprocess a source file
 src/Vector3f.cpp.i:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector3f.cpp.i
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector3f.cpp.i
 .PHONY : src/Vector3f.cpp.i
 
 src/Vector3f.s: src/Vector3f.cpp.s
@@ -328,7 +328,7 @@ src/Vector3f.s: src/Vector3f.cpp.s
 
 # target to generate assembly for a file
 src/Vector3f.cpp.s:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector3f.cpp.s
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector3f.cpp.s
 .PHONY : src/Vector3f.cpp.s
 
 src/Vector4f.o: src/Vector4f.cpp.o
@@ -337,7 +337,7 @@ src/Vector4f.o: src/Vector4f.cpp.o
 
 # target to build an object file
 src/Vector4f.cpp.o:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector4f.cpp.o
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector4f.cpp.o
 .PHONY : src/Vector4f.cpp.o
 
 src/Vector4f.i: src/Vector4f.cpp.i
@@ -346,7 +346,7 @@ src/Vector4f.i: src/Vector4f.cpp.i
 
 # target to preprocess a source file
 src/Vector4f.cpp.i:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector4f.cpp.i
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector4f.cpp.i
 .PHONY : src/Vector4f.cpp.i
 
 src/Vector4f.s: src/Vector4f.cpp.s
@@ -355,7 +355,7 @@ src/Vector4f.s: src/Vector4f.cpp.s
 
 # target to generate assembly for a file
 src/Vector4f.cpp.s:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector4f.cpp.s
+	cd /Users/tcheyne/6.837/test/build && $(MAKE) -f vecmath/CMakeFiles/vecmath.dir/build.make vecmath/CMakeFiles/vecmath.dir/src/Vector4f.cpp.s
 .PHONY : src/Vector4f.cpp.s
 
 # Help Target
@@ -364,13 +364,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... vecmath"
 	@echo "... install/local"
+	@echo "... list_install_components"
+	@echo "... install"
+	@echo "... install/strip"
+	@echo "... vecmath"
 	@echo "... src/Matrix2f.o"
 	@echo "... src/Matrix2f.i"
 	@echo "... src/Matrix2f.s"
@@ -403,6 +403,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/ericgan/Documents/6837FinalProject/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/tcheyne/6.837/test/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
