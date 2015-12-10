@@ -58,7 +58,6 @@ void safeExit() {
 void display(void) {
 	glutReshapeWindow(750,750);
 
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -423,11 +422,11 @@ int main(int argc, char **argv) {
 	glEnable(GL_DEPTH_TEST);
 
 	// Fog settings
-	GLfloat fogColor[4]= {0.4f,0.7f,1.0f, 1.0f};      // Fog / Sky Color
+	GLfloat fogColor[4]= {0.0f,0.55f,.55f, 1.0f};      // Fog / Sky Color
 
 	// Set class fog variables
-	float fog_distance_start = 200.0f;
-	float fog_distance_end = 600.0f;
+	float fog_distance_start = 400.0f;
+	float fog_distance_end = 900.0f;
 
 	glClearColor(fogColor[0],fogColor[1],fogColor[2],fogColor[3]);
 	glFogi(GL_FOG_MODE, GL_LINEAR);
