@@ -86,32 +86,35 @@ void display(void) {
 		follow = false;
 	}
 	if(!follow) {
-		if(zoom == 0) {
-			glTranslatef(camera->location[0], camera->location[1] - 0.1f, camera->location[2]);
-			glRotatef(-45, 0, 1, 0);
-			glScalef(0.01f,0.01f,0.01f);
-			// glRotatef(-camera->lookAt[0], 0, 1, 0);
-			// glRotatef(camera->lookAt[1], 0, 0, 1);
-			for(unsigned int j=0; j < ak47->vecf.size(); j++) {
-			    vector<unsigned> indices = ak47->vecf[j];
-			    int a = indices[0];
-			    int c = indices[2];
-			    int d = indices[3];
-			    int f = indices[5];
-			    int g = indices[6];
-			    int i = indices[8];
+		// if(zoom == 0) {
+		// 	glTranslatef(camera->location[0] + 4.0, camera->location[1] - 3.0, camera->location[2] + 7.5);
+		// 	glRotatef(-90, 1, 0, 0);
+		// 	glRotatef(180, 0, 1, 0);
+		// 	glRotatef(-135, 0, 0, 1);
+		// 	glColor3f(255.0/255, 215.0/255, 0.0/255);
+		// 	//glScalef(0.01f,0.01f,0.01f);
+		// 	// glRotatef(-camera->lookAt[0], 0, 1, 0);
+		// 	//glRotatef(7*(camera->lookAt[1] - 200.0), 0, 1, 0);
+		// 	for(unsigned int j=0; j < ak47->vecf.size(); j++) {
+		// 	    vector<unsigned> indices = ak47->vecf[j];
+		// 	    int a = indices[0];
+		// 	    int c = indices[2];
+		// 	    int d = indices[3];
+		// 	    int f = indices[5];
+		// 	    int g = indices[6];
+		// 	    int i = indices[8];
 
-		      glBegin(GL_TRIANGLES);
-			    glNormal3d(ak47->vecn[c-1][0], ak47->vecn[c-1][1], ak47->vecn[c-1][2]);
-			    glVertex3d(ak47->vecv[a-1][0], ak47->vecv[a-1][1], ak47->vecv[a-1][2]);
-			    glNormal3d(ak47->vecn[f-1][0], ak47->vecn[f-1][1], ak47->vecn[f-1][2]);
-			    glVertex3d(ak47->vecv[d-1][0], ak47->vecv[d-1][1], ak47->vecv[d-1][2]);
-			    glNormal3d(ak47->vecn[i-1][0], ak47->vecn[i-1][1], ak47->vecn[i-1][2]);
-			    glVertex3d(ak47->vecv[g-1][0], ak47->vecv[g-1][1], ak47->vecv[g-1][2]);
-			    glEnd();
-		    }
-		    glPopMatrix();
-		}
+		//       glBegin(GL_TRIANGLES);
+		// 	    glNormal3d(ak47->vecn[c-1][0], ak47->vecn[c-1][1], ak47->vecn[c-1][2]);
+		// 	    glVertex3d(ak47->vecv[a-1][0], ak47->vecv[a-1][1], ak47->vecv[a-1][2]);
+		// 	    glNormal3d(ak47->vecn[f-1][0], ak47->vecn[f-1][1], ak47->vecn[f-1][2]);
+		// 	    glVertex3d(ak47->vecv[d-1][0], ak47->vecv[d-1][1], ak47->vecv[d-1][2]);
+		// 	    glNormal3d(ak47->vecn[i-1][0], ak47->vecn[i-1][1], ak47->vecn[i-1][2]);
+		// 	    glVertex3d(ak47->vecv[g-1][0], ak47->vecv[g-1][1], ak47->vecv[g-1][2]);
+		// 	    glEnd();
+		//     }
+		//     glPopMatrix();
+		// }
 
 		/*
 		 * Draw the crosshair in ortho2d mode
@@ -369,7 +372,7 @@ void idle() {
 }
 
 int main(int argc, char **argv) {
-	ak47 = loadInput("AK.obj");
+	ak47 = loadInput("AWPv2.obj");
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE);
