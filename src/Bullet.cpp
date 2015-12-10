@@ -25,14 +25,14 @@ Bullet::Bullet(Camera *camera) {
 void Bullet::draw() {
 	rotation = (rotation + 5) % 360;
 	int direction;
-	if(wscale >= 0) {
+	if((int)wscale > 0) {
 		direction = 1;
-	} else {
+	} else if((int)wscale < 0){
 		direction = -1;
 	}
 
 	glPushMatrix();
-	glColor3f(1.0, 0.0, 0.0);
+	glColor3f(0.5, 0.5, 0.5);
 	glTranslatef(loc[0] + 1.0f * dir[0], loc[1] + 1.0f * dir[1], loc[2] + 1.0f * dir[2]);
 	glRotatef(rotation, 0, 1, 0); 
 	if((int)wscale != 0) {

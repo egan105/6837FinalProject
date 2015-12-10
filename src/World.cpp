@@ -58,15 +58,15 @@ void World::step(int time) {
 	for(int i = 0; i < bullets.size(); i++) {
 		Bullet * b = bullets[i];
 
-		// // Remove balls that hit the walls
-		// if(!inWorld(b)) {
-		// 	indices.push_back(i);
-		// 	if(camera->follow && b->follow) {
-		// 		camera->reset();
-		// 	}
-		// }
+		// Remove balls that hit the walls
+		if(!inWorld(b)) {
+			indices.push_back(i);
+			if(camera->follow && b->follow) {
+				camera->reset();
+			}
+		}
 
-		if(b->loc[1] <= generate_y(b->loc[0], b->loc[2]) + 1.0f) {
+		if(b->loc[1] <= generate_y(b->loc[0], b->loc[2]) + 2.0f) {
 			indices.push_back(i);
 			if(camera->follow && b->follow) {
 				camera->reset();
@@ -75,8 +75,9 @@ void World::step(int time) {
 
 		b->step(time, gscale, wscale);
 		for(int j = 0; j < NUM_TARGETS;j ++) {
-			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 0.75f;
-			bool yLoc = fabs(b->loc[1] - stand->targets[j].location[1]) < 0.75f;
+			bool zLoc = fabs(b->loc[2] - stand->targets[j].location[2]) < 1.75f;
+			bool yLoc = fabs(b->loc[1] - stand->targets[j].location[1]) < 0.5f;
+			bool xLoc = fabs(b->loc[0] - stand->targets[j].location[0]) < 1.75f;
 			bool leftRange = b->loc[0] <= stand->targets[j].location[0] + stand->targets[j].radius;
 			bool rightRange = b->loc[0] >= stand->targets[j].location[0] - stand->targets[j].radius;
 			if(camera->follow && b->follow) {
@@ -87,8 +88,8 @@ void World::step(int time) {
 				camera->lookAt[2] += 1.0f;
 			}
 
-			if (zLoc && leftRange && rightRange && !stand->targets[j].isDown) {
-				if (pow(stand->targets[j].location[0] - b->loc[0],2) + pow(stand->targets[j].location[1] - b->loc[1],2) < pow(stand->targets[j].radius,2)){
+			if (xLoc && !stand->targets[j].isDown) {
+				if (pow(stand->targets[j].location[2] - b->loc[2],2) + pow(stand->targets[j].location[1] - b->loc[1],2) < pow(stand->targets[j].radius,2) + 2.0f){
 					ParticleSystem *ps = new ParticleSystem();
 					ps->newExplosion(stand->targets[j].location);
 					particleSystems.push_back(ps);
@@ -127,12 +128,8 @@ void World::shoot(Camera *camera) {
 }
 
 bool World::inWorld(Bullet *b) {
-	if(b->loc[0] > -WORLD_MAX && b->loc[0] < WORLD_MAX) {
-		if(b->loc[1] > -WORLD_MAX && b->loc[1] < WORLD_MAX) {
-			if(b->loc[2] > -WORLD_MAX && b->loc[2] < WORLD_MAX) {
-				return true;
-			}
-		}
+	if(b->loc[1] > -WORLD_MAX && b->loc[1] < WORLD_MAX) {
+		return true;
 	}
 
 	return false;

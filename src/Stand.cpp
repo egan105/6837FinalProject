@@ -21,21 +21,21 @@ Stand::Stand() {
 	targets[2].radius = 1.0f;
 	targets[3].radius = 1.0f;
 
-	targets[0].goingRight = false;
-	targets[0].location[0] = 202.2f;
-	targets[0].location[1] = 148.6f;
-	targets[0].location[2] = 202.2f;
-	targets[0].color.r = 1.0f;
-	targets[0].color.g = 0.0f;
-	targets[0].color.b = 0.0f;
-	targets[0].rotation = 0;
+	// targets[0].goingRight = false;
+	// targets[0].location[0] = 202.2f;
+	// targets[0].location[1] = 148.6f;
+	// targets[0].location[2] = 202.2f;
+	// targets[0].color.r = 1.0f;
+	// targets[0].color.g = 0.0f;
+	// targets[0].color.b = 0.0f;
+	// targets[0].rotation = 0;
 
 	targets[1].location[0] = 202.2f;
 	targets[1].location[1] = 152.6f;
 	targets[1].location[2] = 202.2f;
-	targets[1].color.r = 0.2f;
-	targets[1].color.g = 0.6f;
-	targets[1].color.b = 1.0f;
+	targets[1].color.r = 1.0f;
+	targets[1].color.g = 0.0f;
+	targets[1].color.b = 0.0f;
 	targets[1].rotation = 0;
 
 	// targets[2].location[0] = 4.0f;
@@ -68,10 +68,11 @@ void Stand::draw() {
 		glPushMatrix();
 			target_t *t = &targets[i];
 			if(!t->isDown) {
-				t->rotation = (t->rotation + 5) % 360;
+				// t->rotation = (t->rotation + 5) % 360;
 				glTranslatef(t->location[0], t->location[1], t->location[2]);
-				glRotatef(t->rotation, 0, 1, 0);
+				//glRotatef(t->rotation, 0, 1, 0);
 				glColor3f(t->color.r, t->color.g, t->color.b);
+				glRotatef(45, 0, 1, 0);
 				t->target.draw();
 			}
 

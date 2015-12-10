@@ -100,13 +100,23 @@ stdlib.h
 Seed.h
 /Users/tcheyne/6.837/test/src/Seed.h
 
+<<<<<<< HEAD
 /Users/tcheyne/6.837/test/src/ObjectLoader.h
 
 /Users/tcheyne/6.837/test/src/Overlay.h
+=======
+/Users/ericgan/Documents/6837FinalProject/src/ObjectLoader.h
+
+/Users/ericgan/Documents/6837FinalProject/src/Overlay.h
+>>>>>>> 0467eda0975b1570fd1ee00ac4a609ef4169d2c6
 TextureLoader.h
 /Users/tcheyne/6.837/test/src/TextureLoader.h
 
+<<<<<<< HEAD
 /Users/tcheyne/6.837/test/src/ParticleSystem.cpp
+=======
+/Users/ericgan/Documents/6837FinalProject/src/ParticleSystem.cpp
+>>>>>>> 0467eda0975b1570fd1ee00ac4a609ef4169d2c6
 math.h
 -
 iostream
@@ -178,7 +188,13 @@ Target.h
 
 /Users/tcheyne/6.837/test/src/Target.cpp
 Target.h
+<<<<<<< HEAD
 /Users/tcheyne/6.837/test/src/Target.h
+=======
+/Users/ericgan/Documents/6837FinalProject/src/Target.h
+math.h
+/Users/ericgan/Documents/6837FinalProject/src/math.h
+>>>>>>> 0467eda0975b1570fd1ee00ac4a609ef4169d2c6
 
 /Users/tcheyne/6.837/test/src/Target.h
 GLUT/glut.h
@@ -198,13 +214,23 @@ GLUT/glut.h
 GL/glut.h
 -
 Generator.h
+<<<<<<< HEAD
 /Users/tcheyne/6.837/test/src/Generator.h
+=======
+/Users/ericgan/Documents/6837FinalProject/src/Generator.h
+>>>>>>> 0467eda0975b1570fd1ee00ac4a609ef4169d2c6
 World.h
 /Users/tcheyne/6.837/test/src/World.h
 Stand.h
+<<<<<<< HEAD
 /Users/tcheyne/6.837/test/src/Stand.h
 Seed.h
 /Users/tcheyne/6.837/test/src/Seed.h
+=======
+/Users/ericgan/Documents/6837FinalProject/src/Stand.h
+Seed.h
+/Users/ericgan/Documents/6837FinalProject/src/Seed.h
+>>>>>>> 0467eda0975b1570fd1ee00ac4a609ef4169d2c6
 
 /Users/tcheyne/6.837/test/src/World.h
 GLUT/glut.h
@@ -212,7 +238,7 @@ GLUT/glut.h
 vector
 -
 Camera.h
-/Users/tcheyne/6.837/test/src/Camera.h
+/Users/ericgan/Documents/6837FinalProject/src/Camera.h
 Bullet.h
 /Users/tcheyne/6.837/test/src/Bullet.h
 Camera.h
@@ -242,7 +268,11 @@ Seed.h
 TextureLoader.h
 /Users/tcheyne/6.837/test/src/TextureLoader.h
 Controls.h
+<<<<<<< HEAD
 /Users/tcheyne/6.837/test/src/Controls.h
+=======
+/Users/ericgan/Documents/6837FinalProject/src/Controls.h
+>>>>>>> 0467eda0975b1570fd1ee00ac4a609ef4169d2c6
 Camera.h
 /Users/tcheyne/6.837/test/src/Camera.h
 World.h
@@ -250,7 +280,13 @@ World.h
 Target.h
 /Users/tcheyne/6.837/test/src/Target.h
 ProceduralWorld.h
+<<<<<<< HEAD
 /Users/tcheyne/6.837/test/src/ProceduralWorld.h
 ObjectLoader.h
 /Users/tcheyne/6.837/test/src/ObjectLoader.h
+=======
+/Users/ericgan/Documents/6837FinalProject/src/ProceduralWorld.h
+ObjectLoader.h
+/Users/ericgan/Documents/6837FinalProject/src/ObjectLoader.h
+>>>>>>> 0467eda0975b1570fd1ee00ac4a609ef4169d2c6
 
